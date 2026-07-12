@@ -30,7 +30,10 @@ reálné krajině kolem hradu Trosky).
    jinak uživatel v telefonu uvidí starou verzi.
 2. Zachovej strukturu: záložky **Pátek / Sobota / Neděle / Místa** (Místa = katalog
    lokací ze hry i reality s fotkami a odkazy). Sobota má jen jednu variantu (akce).
-   Navigace je spodní lišta (bottom tab bar).
+   Navigace je spodní lišta (bottom tab bar). Na Místech má každé místo štítek
+   „✓ V plánu: <den>" / „Do plánu:" + pilulky Pá/So/Ne (plná = v plánu → klik skočí
+   na den; „+" = přidá místo jako aktivitu do dne). Vazba přes `place` ids na
+   položkách a `PLACES` / `PLACE_TAGS` v JS.
 3. Zachovej: češtinu, tmavý+světlý režim (prefers-color-scheme), safe-area insets,
    systémové fonty (kulaté — ui-rounded / SF Pro Rounded), vše offline-schopné
    (žádné externí requesty; hero obrázek `img/hero.jpg` je lokální). Barevnost =

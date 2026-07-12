@@ -117,6 +117,12 @@
   .btn:active{transform:translateY(2px)}
   .btn.primary{color:#23301c; font-weight:800; background:linear-gradient(180deg,var(--goldbr),var(--gold)); box-shadow:0 3px 0 var(--golddk)}
   .btn.primary:active{transform:translateY(3px); box-shadow:0 0 0 var(--golddk)}
+  /* ---------- MÍSTA plán ---------- */
+  .planrow{display:flex; align-items:center; gap:7px; flex-wrap:wrap; margin-top:13px; padding-top:13px; border-top:1px solid var(--line)}
+  .planlbl{font-size:12.5px; font-weight:800; color:var(--ink2); margin-right:1px}
+  .daypill{font:inherit; font-size:12.5px; font-weight:800; border-radius:999px; padding:7px 13px; cursor:pointer; border:1.5px solid var(--line2); background:transparent; color:var(--ink2); transition:transform .07s}
+  .daypill:active{transform:translateY(1px)}
+  .daypill.in{background:linear-gradient(180deg,var(--goldbr),var(--gold)); color:#23301c; border-color:transparent}
   /* ---------- INFO ---------- */
   .isec{margin:20px 0}
   .isec h2{font-size:20px; margin:0 2px 12px; font-weight:800; letter-spacing:-.015em}
@@ -212,56 +218,7 @@
     <div class="dayhead"><h2>Místa ze hry i reality</h2></div>
     <p class="daysub">Lokace z mapy „Trosecko“ a jejich reálné protějšky — projděte si je kdykoliv.</p>
 
-    <div class="stops">
-      <article class="card"><img class="cardimg" loading="lazy" src="img/trosky.jpg" alt="Hrad Trosky"><div class="body">
-        <h3><span class="em">🏰</span>Trosky</h3>
-        <p>Sídlo <b>Oty z Bergova</b> a dominanta celé mapy — věže <b>Panna &amp; Baba</b>. Okruh „Celým hradem“ (160/130 Kč, denně 9–17:30); v sobotu ale běžný okruh kvůli akci nejede. Na hradě 5 QR panelů hra vs. realita.</p>
-        <div class="btns"><a class="btn" href="https://www.hrad-trosky.cz/cs">🌐 Web hradu</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Hrad%20Trosky">🗺️ Mapa</a></div>
-      </div></article>
-
-      <article class="card"><img class="cardimg" loading="lazy" src="img/troskovice.jpg" alt="Trosky od Troskovic"><div class="body">
-        <h3><span class="em">🏘️</span>Troskovice</h3>
-        <p>Ve hře <b>Troskowitz</b> s krčmou. Na vyhlídce 6. QR panel — pohled na Trosky přesně jako ze hry.</p>
-        <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Troskovice">🗺️ Mapa</a></div>
-      </div></article>
-
-      <article class="card"><img class="cardimg" loading="lazy" src="img/vezak.jpg" alt="Věžický rybník"><div class="body">
-        <h3><span class="em">🌊</span>Vidlák &amp; Věžický rybník</h3>
-        <p>Rybníky sevřené pískovcem — ve hře <b>setkání šlechticů a přepadení</b>. Skály nad hladinou Věžáku, start nedělní procházky.</p>
-        <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=V%C4%9B%C5%BEick%C3%BD%20rybn%C3%ADk">🗺️ Mapa</a></div>
-      </div></article>
-
-      <article class="card"><img class="cardimg" loading="lazy" src="img/podseminsky.jpg" alt="Podsemínský mlýn"><div class="body">
-        <h3><span class="em">⚙️</span>Podsemínský mlýn</h3>
-        <p>Mlýn <b>mlynáře Krejzla</b> — místo, kde se Jindra učí plížení (stealth tutoriál).</p>
-        <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Podsem%C3%ADnsk%C3%BD%20ml%C3%BDn">🗺️ Mapa</a></div>
-      </div></article>
-
-      <article class="card"><img class="cardimg" loading="lazy" src="img/nebakov.jpg" alt="Nebákov"><div class="body">
-        <h3><span class="em">🌾</span>Mlýn Nebákov</h3>
-        <p>Ve hře <b>úkryt pašeráků</b>, dnes hospoda u rybníka mezi pískovcovými skalami — ideální na oběd u trasy.</p>
-        <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Neb%C3%A1kov">🗺️ Mapa</a></div>
-      </div></article>
-
-      <article class="card"><img class="cardimg" loading="lazy" src="img/hrubaskala.jpg" alt="Hruboskalsko"><div class="body">
-        <h3><span class="em">🌄</span>Hruboskalsko <span style="font-size:12px;font-weight:700;color:var(--gold)">· tip navíc</span></h3>
-        <p>Skalní město a zámek na pískovcových věžích, Mariánská vyhlídka s Troskami v pozadí. Okruh ~3–4 km — pokud zbude čas a síla.</p>
-        <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Mari%C3%A1nsk%C3%A1%20vyhl%C3%ADdka%20Hrub%C3%A1%20Sk%C3%A1la">🗺️ Mapa</a></div>
-      </div></article>
-
-      <article class="card"><img class="cardimg" loading="lazy" src="img/valdstejn.jpg" alt="Hrad Valdštejn"><div class="body">
-        <h3><span class="em">🏯</span>Hrad Valdštejn <span style="font-size:12px;font-weight:700;color:var(--gold)">· tip navíc</span></h3>
-        <p>Nejstarší hrad Českého ráje, založený Markvartici — barokní most se sochami. Od parkoviště jen ~600 m, otevřeno 9–18.</p>
-        <div class="btns"><a class="btn" href="https://www.hrad-valdstejn.cz">🌐 Web</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Hrad%20Vald%C5%A1tejn">🗺️ Mapa</a></div>
-      </div></article>
-    </div>
-
-    <div class="isec"><h2>🗺️ Další místa ze hry</h2>
-      <div class="ilist">
-        <a class="irow" href="https://www.google.com/maps/search/?api=1&query=Hradi%C5%A1t%C4%9B%20Sem%C3%ADn"><div class="ic">💍</div><div class="tx"><b>Hradiště Semín</b><span>svatba s dramatickým zvratem</span></div><span class="arr">›</span></a>
-        <a class="irow" href="https://www.google.com/maps/search/?api=1&query=Apolena%20sk%C3%A1ly%20Trosky"><div class="ic">🪨</div><div class="tx"><b>Skály Apolena</b><span>lom a skalní scenérie pod hradem</span></div><span class="arr">›</span></a>
-      </div>
-    </div>
+    <div class="stops" id="places"></div>
 
     <div class="isec"><h2>📞 Kontakty</h2>
       <div class="ilist">
@@ -329,13 +286,13 @@
     ],
     sat:[
       {id:'s1',t:'9:00',dur:60,emoji:'🚗',title:'Odjezd na Trosky',desc:'~30 min z Turnova, parkoviště pod hradem (<b>Bistro pod Troskami</b> u parkoviště). Brány areálu <b>od 9:00</b>, klidně dorazte na oběd — s razítkem se dá odejít a vrátit.',btns:[{t:'🧭 Navigovat',href:'https://www.google.com/maps/dir/?api=1&origin=Turnov&destination=Hrad%20Trosky&travelmode=driving',p:true},{t:'🅿️ Parkoviště',href:'https://www.google.com/maps/search/?api=1&query=Parkovi%C5%A1t%C4%9B%20Trosky'}]},
-      {id:'s2',t:'10:00',tlabel:'celý den',dur:570,hl:true,img:'trosky.jpg',emoji:'⚔️',title:'Pod praporem Bergowa · Trosky',desc:'Sídlo <b>Oty z Bergova</b> ze hry ožívá: dobová kuchyně, divadlo <i>„Kterak Jindra k Ptáčkovi přišel“</i>, hudba, řemesla, šerm. <b>Ukázky střelby 12:00 · 15:00 · 18:00.</b> Zůstaňte, jak dlouho vás to bude bavit.',btns:[{t:'🎟️ Moje vstupenka',href:'#',gt:true,p:true},{t:'🌐 Program',href:'https://www.hrad-trosky.cz/cs/leto-na-troskach-2026'},{t:'🗺️ Mapa',href:'https://www.google.com/maps/search/?api=1&query=Hrad%20Trosky'}]},
+      {id:'s2',place:['trosky'],t:'10:00',tlabel:'celý den',dur:570,hl:true,img:'trosky.jpg',emoji:'⚔️',title:'Pod praporem Bergowa · Trosky',desc:'Sídlo <b>Oty z Bergova</b> ze hry ožívá: dobová kuchyně, divadlo <i>„Kterak Jindra k Ptáčkovi přišel“</i>, hudba, řemesla, šerm. <b>Ukázky střelby 12:00 · 15:00 · 18:00.</b> Zůstaňte, jak dlouho vás to bude bavit.',btns:[{t:'🎟️ Moje vstupenka',href:'#',gt:true,p:true},{t:'🌐 Program',href:'https://www.hrad-trosky.cz/cs/leto-na-troskach-2026'},{t:'🗺️ Mapa',href:'https://www.google.com/maps/search/?api=1&query=Hrad%20Trosky'}]},
       {id:'s3',t:'19:30',dur:120,emoji:'🍺',title:'Večer: Rohozecká restaurace',desc:'Pivovar <b>Malý Rohozec</b> (Skalák) kousek od Turnova. Alternativa: U Prince v centru, nebo dobové jídlo rovnou na akci.',btns:[{t:'🌐 Web',href:'https://www.rohozeckarestaurace.cz'},{t:'🗺️ Mapa',href:'https://www.google.com/maps/search/?api=1&query=Rohozeck%C3%A1%20restaurace%20Mal%C3%BD%20Rohozec'}]}
     ],
     sun:[
       {id:'u1',t:'8:00',dur:90,emoji:'🧳',title:'Snídaně &amp; check-out',desc:'Check-out do <b>11:00</b>. Sbalit a vyrazit na trasu.',btns:[]},
-      {id:'u2',t:'9:30',dur:180,hl:true,img:'podseminsky.jpg',emoji:'🥾',title:'Podtroseckými údolími',desc:'<b>Vidlák → Věžák → Podsemínský mlýn a zpět, ~5 km po rovině.</b> Jádro trasy „Po stopách KCD II“: rybníky sevřené pískovcem, mlýn <b>mlynáře Krejzla</b> (stealth tutoriál!) a výhledy na Trosky z herních úhlů.',btns:[{t:'🗺️ Trasa (Mapy.cz)',href:'https://mapy.cz/s/nazevocoho',p:true},{t:'🅿️ Vidlák',href:'https://www.google.com/maps/search/?api=1&query=Parkovi%C5%A1t%C4%9B%20Vidl%C3%A1k'}]},
-      {id:'u3',t:'12:30',dur:90,emoji:'🍽️',title:'Oběd',desc:'U trasy <b>Restaurace Nebákov</b> (u mlýna pašeráků, možnost koupání), nebo zpět v Turnově.',btns:[{t:'🗺️ Nebákov',href:'https://www.google.com/maps/search/?api=1&query=Restaurace%20Neb%C3%A1kov'}]},
+      {id:'u2',place:['vezak','podseminsky'],t:'9:30',dur:180,hl:true,img:'podseminsky.jpg',emoji:'🥾',title:'Podtroseckými údolími',desc:'<b>Vidlák → Věžák → Podsemínský mlýn a zpět, ~5 km po rovině.</b> Jádro trasy „Po stopách KCD II“: rybníky sevřené pískovcem, mlýn <b>mlynáře Krejzla</b> (stealth tutoriál!) a výhledy na Trosky z herních úhlů.',btns:[{t:'🗺️ Trasa (Mapy.cz)',href:'https://mapy.cz/s/nazevocoho',p:true},{t:'🅿️ Vidlák',href:'https://www.google.com/maps/search/?api=1&query=Parkovi%C5%A1t%C4%9B%20Vidl%C3%A1k'}]},
+      {id:'u3',place:['nebakov'],t:'12:30',dur:90,emoji:'🍽️',title:'Oběd',desc:'U trasy <b>Restaurace Nebákov</b> (u mlýna pašeráků, možnost koupání), nebo zpět v Turnově.',btns:[{t:'🗺️ Nebákov',href:'https://www.google.com/maps/search/?api=1&query=Restaurace%20Neb%C3%A1kov'}]},
       {id:'u4',t:'14:00',dur:90,emoji:'🏠',title:'Odjezd domů',desc:'Příjezd do Blovic <b>~16:45</b>. Sbohem, Trosecko!',btns:[{t:'🧭 Navigovat',href:'https://www.google.com/maps/dir/?api=1&origin=Turnov&destination=Blovice&travelmode=driving',p:true}]}
     ]
   }};}
@@ -343,6 +300,51 @@
   var KEY='kcd2:itinerar:v1';
   var DAY_KEYS=['fri','sat','sun'], DAY_NAMES={fri:'Pá',sat:'So',sun:'Ne'};
   var state, editMode=false, currentTab='fri';
+
+  // ---------- MÍSTA (katalog + propojení s plánem) ----------
+  var PLACES=[
+    {id:'trosky',emoji:'🏰',title:'Trosky',img:'trosky.jpg',desc:'Sídlo <b>Oty z Bergova</b> a dominanta mapy — věže Panna &amp; Baba. Okruh „Celým hradem“ (v sobotu kvůli akci nejede).',btns:[{t:'🌐 Web hradu',href:'https://www.hrad-trosky.cz/cs'},{t:'🗺️ Mapa',href:'https://www.google.com/maps/search/?api=1&query=Hrad%20Trosky'}]},
+    {id:'troskovice',emoji:'🏘️',title:'Troskovice',img:'troskovice.jpg',desc:'Ve hře <b>Troskowitz</b> s krčmou. Vyhlídka s 6. QR panelem — Trosky jako ze hry.',btns:[{t:'🗺️ Mapa',href:'https://www.google.com/maps/search/?api=1&query=Troskovice'}]},
+    {id:'vezak',emoji:'🌊',title:'Vidlák &amp; Věžický rybník',img:'vezak.jpg',desc:'Rybníky sevřené pískovcem — ve hře <b>setkání šlechticů a přepadení</b>. Start nedělní procházky.',btns:[{t:'🗺️ Mapa',href:'https://www.google.com/maps/search/?api=1&query=V%C4%9B%C5%BEick%C3%BD%20rybn%C3%ADk'}]},
+    {id:'podseminsky',emoji:'⚙️',title:'Podsemínský mlýn',img:'podseminsky.jpg',desc:'Mlýn <b>mlynáře Krejzla</b> — místo, kde se Jindra učí plížení (stealth tutoriál).',btns:[{t:'🗺️ Mapa',href:'https://www.google.com/maps/search/?api=1&query=Podsem%C3%ADnsk%C3%BD%20ml%C3%BDn'}]},
+    {id:'nebakov',emoji:'🌾',title:'Mlýn Nebákov',img:'nebakov.jpg',desc:'Ve hře <b>úkryt pašeráků</b>, dnes hospoda u rybníka mezi pískovcovými skalami.',btns:[{t:'🗺️ Mapa',href:'https://www.google.com/maps/search/?api=1&query=Neb%C3%A1kov'}]},
+    {id:'hrubaskala',emoji:'🌄',title:'Hruboskalsko',img:'hrubaskala.jpg',desc:'Skalní město a zámek na pískovcových věžích, Mariánská vyhlídka s Troskami. Okruh ~3–4 km.',btns:[{t:'🗺️ Mapa',href:'https://www.google.com/maps/search/?api=1&query=Mari%C3%A1nsk%C3%A1%20vyhl%C3%ADdka%20Hrub%C3%A1%20Sk%C3%A1la'}]},
+    {id:'valdstejn',emoji:'🏯',title:'Hrad Valdštejn',img:'valdstejn.jpg',desc:'Nejstarší hrad Českého ráje — barokní most se sochami. Od parkoviště jen ~600 m.',btns:[{t:'🌐 Web',href:'https://www.hrad-valdstejn.cz'},{t:'🗺️ Mapa',href:'https://www.google.com/maps/search/?api=1&query=Hrad%20Vald%C5%A1tejn'}]},
+    {id:'semin',emoji:'💍',title:'Hradiště Semín',desc:'Ve hře <b>svatba</b> s dramatickým zvratem.',btns:[{t:'🗺️ Mapa',href:'https://www.google.com/maps/search/?api=1&query=Hradi%C5%A1t%C4%9B%20Sem%C3%ADn'}]},
+    {id:'apolena',emoji:'🪨',title:'Skály Apolena',desc:'Lom a skalní scenérie pod hradem.',btns:[{t:'🗺️ Mapa',href:'https://www.google.com/maps/search/?api=1&query=Apolena%20sk%C3%A1ly%20Trosky'}]}
+  ];
+  var PLACE_TAGS={s2:['trosky'],u2:['vezak','podseminsky'],u3:['nebakov']};
+  function ensurePlaceTags(){ DAY_KEYS.forEach(function(d){ (state.days[d]||[]).forEach(function(it){ if(PLACE_TAGS[it.id] && !it.place) it.place=PLACE_TAGS[it.id].slice(); }); }); }
+  function placeArr(it){ return !it.place?[]:(typeof it.place==='string'?[it.place]:it.place); }
+  function daysWithPlace(pid){ return DAY_KEYS.filter(function(d){ return (state.days[d]||[]).some(function(it){ return placeArr(it).indexOf(pid)>=0; }); }); }
+  function addPlaceToDay(pid,day){
+    var pl=PLACES.filter(function(p){return p.id===pid;})[0]; if(!pl) return;
+    state.seq=(state.seq||0)+1;
+    state.days[day].push({id:'x'+state.seq, place:[pid], emoji:pl.emoji, title:pl.title, desc:pl.desc, dur:90, btns:(pl.btns||[]).slice()});
+    recompute(day); save(); render();
+  }
+  function renderPlaces(){
+    var host=document.getElementById('places'); if(!host) return;
+    host.innerHTML='';
+    PLACES.forEach(function(pl){
+      var inDays=daysWithPlace(pl.id);
+      var art=document.createElement('article'); art.className='card';
+      var s='';
+      if(pl.img) s+='<img class="cardimg" loading="lazy" src="img/'+pl.img+'" alt="">';
+      s+='<div class="body">';
+      s+='<h3><span class="em">'+pl.emoji+'</span>'+pl.title+'</h3>';
+      if(pl.desc) s+='<p>'+pl.desc+'</p>';
+      if(pl.btns&&pl.btns.length) s+='<div class="btns">'+pl.btns.map(function(b){return '<a class="btn" href="'+b.href+'">'+b.t+'</a>';}).join('')+'</div>';
+      s+='<div class="planrow"><span class="planlbl">'+(inDays.length?'✓ V plánu:':'Do plánu:')+'</span>';
+      DAY_KEYS.forEach(function(d){ var isin=inDays.indexOf(d)>=0;
+        s+='<button class="daypill '+(isin?'in':'out')+'" data-day="'+d+'">'+(isin?'✓ ':'+ ')+DAY_NAMES[d]+'</button>'; });
+      s+='</div></div>';
+      art.innerHTML=s;
+      art.querySelectorAll('.daypill').forEach(function(btn){ var d=btn.getAttribute('data-day'), isin=btn.classList.contains('in');
+        btn.onclick=function(){ if(isin) showDay(d); else addPlaceToDay(pl.id,d); }; });
+      host.appendChild(art);
+    });
+  }
 
   // ---------- perzistence (localStorage) ----------
   function clone(o){ return JSON.parse(JSON.stringify(o)); }
@@ -445,6 +447,7 @@
   }
   function render(){
     DAY_KEYS.forEach(renderDay);
+    renderPlaces();
     // toolbar
     var tb=document.getElementById('toolbar');
     var editable=(currentTab!=='info');
@@ -478,6 +481,8 @@
 
   // ---------- init ----------
   state=load();
+  if(typeof state.seq!=='number') state.seq=0;
+  ensurePlaceTags();
   render();
 
   // odpočet + auto-výběr dne
