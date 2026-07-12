@@ -512,7 +512,14 @@
 </script>
 <script>
 if ('serviceWorker' in navigator) {
-  addEventListener('load', function(){ navigator.serviceWorker.register('./sw.js'); });
+  addEventListener('load', function(){
+    navigator.serviceWorker.register('./sw.js').then(function(reg){ if(reg) reg.update(); });
+  });
+  var hadController = !!navigator.serviceWorker.controller, refreshing = false;
+  navigator.serviceWorker.addEventListener('controllerchange', function(){
+    if (!hadController || refreshing) return;   // první instalace nereloaduje, jen nová verze
+    refreshing = true; location.reload();
+  });
 }
 </script>
 </body>

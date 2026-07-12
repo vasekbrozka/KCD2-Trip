@@ -1,4 +1,4 @@
-const C = 'kcd2-v23';
+const C = 'kcd2-v24';
 const ASSETS = ['./', './index.html', './manifest.json', './icon-180.png', './icon-512.png',
   './img/hero.jpg', './img/trosky.jpg', './img/troskovice.jpg', './img/vezak.jpg', './img/podseminsky.jpg',
   './img/nebakov.jpg', './img/hrubaskala.jpg', './img/valdstejn.jpg'];
@@ -12,6 +12,18 @@ self.addEventListener('activate', e => {
 });
 self.addEventListener('fetch', e => {
   if (e.request.method !== 'GET' || !e.request.url.startsWith(self.location.origin)) return;
+  // HTML / navigace = network-first: online vždy nejnovější appka, offline fallback z cache
+  if (e.request.mode === 'navigate') {
+    e.respondWith(
+      fetch(e.request).then(res => {
+        const clone = res.clone();
+        caches.open(C).then(c => c.put(e.request, clone));
+        return res;
+      }).catch(() => caches.match(e.request).then(r => r || caches.match('./index.html')))
+    );
+    return;
+  }
+  // ostatní (obrázky, ikony) = cache-first, verzované názvem cache
   e.respondWith(
     caches.match(e.request).then(r => r || fetch(e.request).then(res => {
       const clone = res.clone();
