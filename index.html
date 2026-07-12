@@ -81,6 +81,9 @@
   .toolbar .tool.ghost{background:transparent; color:var(--ink2); border:1.5px solid var(--line2)}
   .toolbar .prog{margin-left:auto; font-size:12.5px; font-weight:800; color:var(--ink2)}
   .toolbar .prog b{color:var(--gold)}
+  .planseg{display:inline-flex; background:var(--chipbg); border-radius:999px; padding:3px; gap:2px}
+  .planseg button{font:inherit; font-size:12.5px; font-weight:800; border:0; background:transparent; color:var(--ink2); padding:7px 14px; border-radius:999px; cursor:pointer; transition:background .16s,color .16s}
+  .planseg button.on{background:var(--card); color:var(--ink); box-shadow:0 1px 3px rgba(0,0,0,.14)}
   /* ---------- CARDS ---------- */
   .stops{display:flex; flex-direction:column; gap:14px}
   .card{background:var(--card); border-radius:20px; box-shadow:var(--shadow); overflow:hidden; position:relative; transition:opacity .2s}
@@ -110,7 +113,8 @@
   .ebtn{font:inherit; font-size:15px; font-weight:800; color:var(--chipink); background:var(--chipbg); border:0; border-radius:10px; min-width:38px; height:36px; padding:0 9px; cursor:pointer}
   .ebtn:disabled{opacity:.3}
   .ebtn.move{font-size:12.5px}
-  .etime{font:inherit; font-size:14px; font-weight:800; color:var(--gold); background:color-mix(in srgb,var(--gold) 15%,var(--card)); border:1.5px solid color-mix(in srgb,var(--gold) 45%,var(--line)); border-radius:10px; padding:5px 9px; height:36px}
+  .ebtn.del{color:var(--red); background:color-mix(in srgb,var(--red) 13%,var(--card))}
+  .empty{margin:2px 2px 4px; padding:16px; border:1.5px dashed var(--line2); border-radius:14px; color:var(--ink2); font-size:13.5px; font-weight:600; line-height:1.5; text-align:center}
   .movebtns{display:flex; gap:5px; margin-left:auto}
   /* ---------- BUTTONS ---------- */
   .btns{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
@@ -120,8 +124,8 @@
   .btn.primary:active{transform:translateY(3px); box-shadow:0 0 0 var(--golddk)}
   .fact{display:flex; gap:8px; align-items:flex-start; margin-top:12px; padding:10px 12px; border-radius:12px; background:color-mix(in srgb,var(--gold) 10%,var(--card2)); font-size:12.5px; line-height:1.45; color:var(--ink2); font-weight:600}
   .fact .fi{flex:none; font-size:14px; line-height:1.3}
-  .prog{list-style:none; margin:12px 0 2px; padding:0; display:flex; flex-direction:column; gap:8px}
-  .prog li{font-size:14px; font-weight:600; color:var(--ink); line-height:1.35; padding-left:2px}
+  .plist{list-style:none; margin:12px 0 2px; padding:0; display:flex; flex-direction:column; gap:8px}
+  .plist li{font-size:14px; font-weight:600; color:var(--ink); line-height:1.35; padding-left:2px}
   /* ---------- MÍSTA plán ---------- */
   .planrow{display:flex; align-items:center; gap:7px; flex-wrap:wrap; margin-top:13px; padding-top:13px; border-top:1px solid var(--line)}
   .planlbl{font-size:12.5px; font-weight:800; color:var(--ink2); margin-right:1px}
@@ -185,8 +189,12 @@
 <main class="page">
 
   <div class="toolbar" id="toolbar">
-    <button class="tool" id="editToggle">✏️ Upravit den</button>
-    <button class="tool ghost" id="resetBtn" hidden>↺ Původní plán</button>
+    <div class="planseg" id="planseg">
+      <button data-plan="rec">Doporučený</button>
+      <button data-plan="mine">Můj plán</button>
+    </div>
+    <button class="tool" id="editToggle">✏️ Upravit</button>
+    <button class="tool ghost" id="resetBtn">↺ Reset</button>
     <span class="prog" id="prog"></span>
   </div>
 
@@ -246,7 +254,7 @@
 <script>
 (function(){
   // ---------- výchozí plán (zdroj pravdy) ----------
-  var PLAN_VERSION = 2;
+  var PLAN_VERSION = 3;
   function DEFAULT(){ return { pv:PLAN_VERSION, days:{
     fri:[
       {id:'f1',fact:'Tip: natankuj ještě doma nebo v Plzeňském kraji — kolem Prahy a na D10 bývá benzín dražší.',t:'12:00',dur:180,emoji:'🚗',title:'Odjezd z Blovic',desc:'D5 → Praha → D10, <b>~190 km, ~2,5 h</b>. Lehký oběd cestou.',btns:[{t:'🧭 Navigovat',href:'https://www.google.com/maps/dir/?api=1&origin=Blovice&destination=Bohemia%20Inn%20Hotel%2C%205.%20kv%C4%9Btna%2063%2C%20Turnov&travelmode=driving',p:true}]},
@@ -267,9 +275,10 @@
     ]
   }};}
 
-  var KEY='kcd2:itinerar:v1';
+  var KEY='kcd2:plan:v1';
   var DAY_KEYS=['fri','sat','sun'], DAY_NAMES={fri:'Pá',sat:'So',sun:'Ne'};
-  var state, editMode=false, currentTab='fri';
+  var DAY_START={fri:'12:00',sat:'9:00',sun:'8:00'};   // začátek dne pro dopočet časů v Mém plánu
+  var state, editMode=false, currentTab='fri';         // state = {pv, active:'rec'|'mine', doneRec:{}, mine:{seq,days}}
 
   // ---------- MÍSTA (katalog + propojení s plánem) ----------
   var PLACES=[
@@ -284,15 +293,42 @@
     {id:'apolena',fact:'Pískovcové skály a starý lom kousek pod Troskami — tiché místo mimo hlavní trasy.',emoji:'🪨',title:'Skály Apolena',desc:'Lom a skalní scenérie pod hradem.',btns:[{t:'🗺️ Mapa',href:'https://www.google.com/maps/search/?api=1&query=Apolena%20sk%C3%A1ly%20Trosky'}]}
   ];
   var TICKET_HTML='<div class="strip"></div><div class="tkhead"><span class="lbl">e-vstupenka</span><span class="org">Národní památkový ústav<br>Tisk Colosseum</span></div><h3>XIII. Pod praporem Bergowa</h3><div class="when">Trosky · sobota 18. 7. 2026 · 9:00 · jazyk CZ</div><div class="qrbox"><svg class="qr" viewBox="0 0 29 29" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="QR kód vstupenky 10031225632"><rect width="29" height="29" fill="#fff"/><path d="M4 4h7v1h-7zM18 4h7v1h-7zM4 5h1v1h-1zM10 5h1v1h-1zM12 5h3v1h-3zM18 5h1v1h-1zM24 5h1v1h-1zM4 6h1v1h-1zM6 6h3v1h-3zM10 6h1v1h-1zM13 6h1v1h-1zM15 6h1v1h-1zM18 6h1v1h-1zM20 6h3v1h-3zM24 6h1v1h-1zM4 7h1v1h-1zM6 7h3v1h-3zM10 7h1v1h-1zM12 7h1v1h-1zM14 7h2v1h-2zM18 7h1v1h-1zM20 7h3v1h-3zM24 7h1v1h-1zM4 8h1v1h-1zM6 8h3v1h-3zM10 8h1v1h-1zM12 8h4v1h-4zM18 8h1v1h-1zM20 8h3v1h-3zM24 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM13 9h1v1h-1zM16 9h1v1h-1zM18 9h1v1h-1zM24 9h1v1h-1zM4 10h7v1h-7zM12 10h1v1h-1zM14 10h1v1h-1zM16 10h1v1h-1zM18 10h7v1h-7zM12 11h1v1h-1zM5 12h1v1h-1zM7 12h4v1h-4zM12 12h1v1h-1zM15 12h4v1h-4zM20 12h2v1h-2zM23 12h1v1h-1zM4 13h1v1h-1zM6 13h1v1h-1zM8 13h1v1h-1zM12 13h2v1h-2zM15 13h2v1h-2zM18 13h1v1h-1zM20 13h1v1h-1zM23 13h2v1h-2zM5 14h1v1h-1zM9 14h3v1h-3zM14 14h1v1h-1zM17 14h2v1h-2zM20 14h1v1h-1zM22 14h2v1h-2zM4 15h3v1h-3zM8 15h1v1h-1zM11 15h4v1h-4zM24 15h1v1h-1zM4 16h1v1h-1zM6 16h1v1h-1zM8 16h3v1h-3zM13 16h2v1h-2zM16 16h1v1h-1zM18 16h1v1h-1zM22 16h3v1h-3zM12 17h1v1h-1zM16 17h1v1h-1zM21 17h1v1h-1zM4 18h7v1h-7zM15 18h1v1h-1zM17 18h5v1h-5zM23 18h1v1h-1zM4 19h1v1h-1zM10 19h1v1h-1zM12 19h2v1h-2zM16 19h2v1h-2zM20 19h1v1h-1zM23 19h1v1h-1zM4 20h1v1h-1zM6 20h3v1h-3zM10 20h1v1h-1zM12 20h5v1h-5zM18 20h2v1h-2zM21 20h2v1h-2zM24 20h1v1h-1zM4 21h1v1h-1zM6 21h3v1h-3zM10 21h1v1h-1zM12 21h2v1h-2zM15 21h2v1h-2zM20 21h1v1h-1zM4 22h1v1h-1zM6 22h3v1h-3zM10 22h1v1h-1zM13 22h2v1h-2zM18 22h2v1h-2zM23 22h2v1h-2zM4 23h1v1h-1zM10 23h1v1h-1zM12 23h2v1h-2zM17 23h2v1h-2zM21 23h2v1h-2zM24 23h1v1h-1zM4 24h7v1h-7zM13 24h3v1h-3zM19 24h1v1h-1zM22 24h2v1h-2z" fill="#000"/></svg></div><div class="code">10031225632<small>kód vstupenky · nepřehýbat</small></div><div class="meta"><span>Základní · 2 osoby</span><span>680 Kč</span></div><div class="gate">Stačí ukázat u brány<span>razítko umožní opakovaný vstup · zákaz psů a zbraní/replik</span></div>';
-  var PLACE_TAGS={s2:['trosky'],u2:['vezak','podseminsky'],u3:['nebakov']};
-  function ensurePlaceTags(){ var DEF={}, dd=DEFAULT().days; DAY_KEYS.forEach(function(k){ dd[k].forEach(function(x){ DEF[x.id]=x; }); }); DAY_KEYS.forEach(function(d){ (state.days[d]||[]).forEach(function(it){ if(DEF[it.id]){ ['emoji','title','desc','fact','program','btns','hl','img','tlabel','place','ticket','dur'].forEach(function(k){ if(k in DEF[it.id]) it[k]=JSON.parse(JSON.stringify(DEF[it.id][k])); }); } }); }); }
-  function placeArr(it){ return !it.place?[]:(typeof it.place==='string'?[it.place]:it.place); }
-  function daysWithPlace(pid){ return DAY_KEYS.filter(function(d){ return (state.days[d]||[]).some(function(it){ return placeArr(it).indexOf(pid)>=0; }); }); }
-  function addPlaceToDay(pid,day){
-    var pl=PLACES.filter(function(p){return p.id===pid;})[0]; if(!pl) return;
-    state.seq=(state.seq||0)+1;
-    state.days[day].push({id:'x'+state.seq, place:[pid], emoji:pl.emoji, title:pl.title, desc:pl.desc, dur:90, btns:(pl.btns||[]).slice()});
-    recompute(day); save(); render();
+  // ---------- katalog obsahu + struktura doporučeného plánu ----------
+  var PLACE_BY_ID={}; PLACES.forEach(function(p){ PLACE_BY_ID[p.id]=p; });
+  var CAT={}, REC_IDS={};
+  (function(){ var dd=DEFAULT().days; DAY_KEYS.forEach(function(d){ REC_IDS[d]=dd[d].map(function(it){ CAT[it.id]=it; return it.id; }); }); })();
+  function DEF_DAY(d){ return DEFAULT().days[d]; }        // čerstvá kopie doporučeného dne (drží časy + tlabel)
+
+  // převod položky Mého plánu na obsah: buď doporučená položka (dle id), nebo přidané místo (dle pid)
+  function resolve(e){
+    if(e.pid){ var p=PLACE_BY_ID[e.pid]; if(!p) return null;
+      return {emoji:p.emoji,title:p.title,desc:p.desc,fact:p.fact,img:p.img,btns:p.btns,place:[e.pid],dur:90}; }
+    return CAT[e.id]||null;
+  }
+  function contentPlaces(c){ return c&&c.place?(typeof c.place==='string'?[c.place]:c.place):[]; }
+
+  // ---------- Můj plán (editovatelná struktura: pole položek {id|pid, done} po dnech) ----------
+  function freshMine(){ var m={seq:0,days:{}}; DAY_KEYS.forEach(function(d){ m.days[d]=REC_IDS[d].map(function(id){ return {id:id}; }); }); return m; }
+
+  // vrátí normalizovaný seznam pro daný den aktivního plánu: [{c:obsah, done, time, ref|entry}]
+  function itemsFor(day){
+    var out=[];
+    if(state.active==='rec'){
+      DEF_DAY(day).forEach(function(it){ out.push({c:it, done:!!state.doneRec[it.id], time:(it.tlabel||fmt(toMin(it.t))), ref:it.id}); });
+    } else {
+      var run=toMin(DAY_START[day]);
+      (state.mine.days[day]||[]).forEach(function(e){ var c=resolve(e); if(!c) return;
+        out.push({c:c, done:!!e.done, time:(c.tlabel||fmt(run)), entry:e}); run+=(c.dur||60); });
+    }
+    return out;
+  }
+
+  // ---------- Místa ↔ Můj plán ----------
+  function daysWithPlace(pid){ return DAY_KEYS.filter(function(d){ return (state.mine.days[d]||[]).some(function(e){ return contentPlaces(resolve(e)).indexOf(pid)>=0; }); }); }
+  function addPlaceToMine(pid,day){ var p=PLACE_BY_ID[pid]; if(!p) return;
+    state.mine.seq=(state.mine.seq||0)+1;
+    state.mine.days[day].push({id:'x'+state.mine.seq, pid:pid});
+    setActive('mine'); save(); showDay(day);
   }
   function renderPlaces(){
     var host=document.getElementById('places'); if(!host) return;
@@ -307,114 +343,108 @@
       if(pl.desc) s+='<p>'+pl.desc+'</p>';
       if(pl.fact) s+='<div class="fact"><span class="fi">💡</span><span>'+pl.fact+'</span></div>';
       if(pl.btns&&pl.btns.length) s+='<div class="btns">'+pl.btns.map(function(b){return '<a class="btn" href="'+b.href+'">'+b.t+'</a>';}).join('')+'</div>';
-      s+='<div class="planrow"><span class="planlbl">'+(inDays.length?'✓ V plánu:':'Do plánu:')+'</span>';
+      s+='<div class="planrow"><span class="planlbl">'+(inDays.length?'✓ V mém plánu:':'Do mého plánu:')+'</span>';
       DAY_KEYS.forEach(function(d){ var isin=inDays.indexOf(d)>=0;
         s+='<button class="daypill '+(isin?'in':'out')+'" data-day="'+d+'">'+(isin?'✓ ':'+ ')+DAY_NAMES[d]+'</button>'; });
       s+='</div></div>';
       art.innerHTML=s;
       art.querySelectorAll('.daypill').forEach(function(btn){ var d=btn.getAttribute('data-day'), isin=btn.classList.contains('in');
-        btn.onclick=function(){ if(isin) showDay(d); else addPlaceToDay(pl.id,d); }; });
+        btn.onclick=function(){ if(isin){ setActive('mine'); showDay(d); } else addPlaceToMine(pl.id,d); }; });
       host.appendChild(art);
     });
   }
 
   // ---------- perzistence (localStorage) ----------
-  function clone(o){ return JSON.parse(JSON.stringify(o)); }
+  function fresh(){ return {pv:PLAN_VERSION, active:'rec', doneRec:{}, mine:freshMine()}; }
   function load(){
     try{
       var raw=localStorage.getItem(KEY);
-      if(raw){ var s=JSON.parse(raw); if(s && s.pv===PLAN_VERSION && s.days) return s; }
+      if(raw){ var s=JSON.parse(raw);
+        if(s && s.pv===PLAN_VERSION && s.mine && s.mine.days){
+          if(s.active!=='rec' && s.active!=='mine') s.active='rec';
+          if(!s.doneRec) s.doneRec={};
+          if(typeof s.mine.seq!=='number') s.mine.seq=0;
+          DAY_KEYS.forEach(function(d){ if(!Array.isArray(s.mine.days[d])) s.mine.days[d]=[]; });
+          return s;
+        }
+      }
     }catch(e){}
-    return DEFAULT();
+    return fresh();
   }
   function save(){ try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){} }
 
-  // ---------- čas ----------
+  // ---------- čas (dopočet z délek pro Můj plán) ----------
   function toMin(t){ var p=String(t).split(':'); return (+p[0])*60+(+p[1]); }
   function pad(n){ return (n<10?'0':'')+n; }
   function fmt(m){ m=((m%1440)+1440)%1440; return Math.floor(m/60)+':'+pad(m%60); }         // 9:00
-  function fmtIn(m){ m=((m%1440)+1440)%1440; return pad(Math.floor(m/60))+':'+pad(m%60); }   // 09:00
-  function nowMin(){ var d=new Date(); return d.getHours()*60+d.getMinutes(); }
 
   // ---------- operace ----------
-  function recompute(day){ var a=state.days[day]; for(var i=1;i<a.length;i++){ a[i].t=fmt(toMin(a[i-1].t)+a[i-1].dur); a[i].tlabel=null; } }
-  function shiftFrom(day,i,delta){ var a=state.days[day]; for(var j=i;j<a.length;j++){ a[j].t=fmt(toMin(a[j].t)+delta); a[j].tlabel=null; } }
-  function setStart(day,i,newMin){ shiftFrom(day,i,newMin-toMin(state.days[day][i].t)); }
-
-  function firstUndone(day){ var a=state.days[day]; for(var i=0;i<a.length;i++){ if(!a[i].done) return i; } return -1; }
-
-  function toggleDone(day,i){
-    var a=state.days[day]; var wasCurrent=(firstUndone(day)===i);
-    a[i].done=!a[i].done;
-    if(a[i].done && wasCurrent && i+1<a.length && !a[i+1].done){ setStart(day,i+1,nowMin()); } // další začne teď
+  function setActive(p){ state.active=p; if(p!=='mine') editMode=false; }
+  function toggleDone(o){
+    if(state.active==='rec'){ state.doneRec[o.ref]=!state.doneRec[o.ref]; }
+    else if(o.entry){ o.entry.done=!o.entry.done; }
     save(); render();
   }
-  function reorder(day,i,dir){
-    var a=state.days[day], j=i+dir; if(j<0||j>=a.length) return;
-    var start=toMin(a[0].t);
-    var tmp=a[i]; a[i]=a[j]; a[j]=tmp;
-    a[0].t=fmt(start); a[0].tlabel=null; recompute(day); save(); render();
-  }
-  function moveToDay(from,i,to){
-    var fromStart=toMin(state.days[from][0].t);
-    var it=state.days[from].splice(i,1)[0]; it.tlabel=null;
-    if(state.days[from].length){ state.days[from][0].t=fmt(fromStart); state.days[from][0].tlabel=null; recompute(from); }
-    state.days[to].push(it); recompute(to); save(); render();
-  }
-  function editStart(day,i,val){ if(!/^\d{1,2}:\d{2}$/.test(val)) return; setStart(day,i,toMin(val)); save(); render(); }
-  function resetPlan(){ if(!confirm('Obnovit původní plán? Přijdeš o svoje úpravy a odškrtnutí.')) return; state=DEFAULT(); save(); render(); }
+  function reorderMine(day,e,dir){ var a=state.mine.days[day], i=a.indexOf(e), j=i+dir; if(i<0||j<0||j>=a.length) return;
+    var t=a[i]; a[i]=a[j]; a[j]=t; save(); render(); }
+  function removeMine(day,e){ var a=state.mine.days[day], i=a.indexOf(e); if(i>=0) a.splice(i,1); save(); render(); }
+  function moveMine(from,e,to){ var a=state.mine.days[from], i=a.indexOf(e); if(i<0) return; a.splice(i,1); state.mine.days[to].push(e); save(); render(); }
+  function resetMine(){ if(!confirm('Obnovit Můj plán podle doporučeného? Přijdeš o svoje úpravy a odškrtnutí v Mém plánu.')) return; state.mine=freshMine(); save(); render(); }
 
   // ---------- render ----------
-  function esc(s){ return String(s); }
   function moveButtons(day){
     return DAY_KEYS.filter(function(k){return k!==day;}).map(function(k){
       return '<button class="ebtn move" data-move="'+k+'">→ '+DAY_NAMES[k]+'</button>';
     }).join('');
   }
+  function firstUndoneIdx(list){ for(var i=0;i<list.length;i++){ if(!list[i].done) return i; } return -1; }
   function renderDay(day){
     var host=document.getElementById('stops-'+day); if(!host) return;
-    var a=state.days[day]; var fu=firstUndone(day);
+    var list=itemsFor(day); var canEdit=(state.active==='mine' && editMode);
+    var fu=canEdit?-1:firstUndoneIdx(list);
     host.innerHTML='';
-    a.forEach(function(it,i){
+    if(canEdit && !list.length){ host.innerHTML='<p class="empty">Den je prázdný. Přidej místo na záložce <b>Místa</b>, nebo sem přesuň položku z jiného dne.</p>'; return; }
+    list.forEach(function(o,i){
+      var it=o.c;
       var art=document.createElement('article');
-      art.className='card'+(it.hl?' hl':'')+(it.done?' done':'')+((!editMode&&i===fu)?' current':'');
+      art.className='card'+(it.hl?' hl':'')+(o.done?' done':'')+((i===fu)?' current':'');
       var h='';
-      if(it.img && !editMode) h+='<img class="cardimg" loading="lazy" src="img/'+it.img+'" alt="">';
+      if(it.img && !canEdit) h+='<img class="cardimg" loading="lazy" src="img/'+it.img+'" alt="">';
       h+='<div class="body">';
-      if(editMode){
+      if(canEdit){
         h+='<div class="editbar">'
           +'<button class="ebtn" data-op="up" '+(i===0?'disabled':'')+'>↑</button>'
-          +'<button class="ebtn" data-op="down" '+(i===a.length-1?'disabled':'')+'>↓</button>'
-          +'<input class="etime" type="time" value="'+fmtIn(toMin(it.t))+'">'
-          +'<span class="movebtns">'+moveButtons(day)+'</span>'
+          +'<button class="ebtn" data-op="down" '+(i===list.length-1?'disabled':'')+'>↓</button>'
+          +'<span class="movebtns">'+moveButtons(day)+'<button class="ebtn del" data-op="del" aria-label="odebrat z plánu">✕</button></span>'
           +'</div>';
       } else {
         h+='<div class="itemtop">'
-          +'<button class="check" aria-label="označit splněno">'+(it.done?'✓':'')+'</button>'
-          +'<span class="time">'+(it.tlabel||fmt(toMin(it.t)))+'</span>'
+          +'<button class="check" aria-label="označit splněno">'+(o.done?'✓':'')+'</button>'
+          +'<span class="time">'+o.time+'</span>'
           +(i===fu?'<span class="nowtag">na řadě</span>':'')
           +'</div>';
       }
       h+='<h3><span class="em">'+it.emoji+'</span>'+it.title+'</h3>';
       if(it.desc) h+='<p>'+it.desc+'</p>';
-      if(it.program && it.program.length) h+='<ul class="prog">'+it.program.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';
-      if(!editMode && it.fact) h+='<div class="fact"><span class="fi">💡</span><span>'+it.fact+'</span></div>';
-      if(!editMode && it.btns && it.btns.length){
+      if(it.program && it.program.length) h+='<ul class="plist">'+it.program.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';
+      if(!canEdit && it.fact) h+='<div class="fact"><span class="fi">💡</span><span>'+it.fact+'</span></div>';
+      if(!canEdit && it.btns && it.btns.length){
         h+='<div class="btns">'+it.btns.map(function(b){
           return '<a class="btn'+(b.p?' primary':'')+'"'+(b.gt?' data-goticket':'')+' href="'+b.href+'">'+b.t+'</a>';
         }).join('')+'</div>';
       }
-      if(!editMode && it.ticket) h+='<div class="ticket" id="ticket">'+TICKET_HTML+'</div>';
+      if(!canEdit && it.ticket) h+='<div class="ticket" id="ticket">'+TICKET_HTML+'</div>';
       h+='</div>';
       art.innerHTML=h;
 
-      if(editMode){
-        art.querySelector('[data-op="up"]').onclick=function(){ reorder(day,i,-1); };
-        art.querySelector('[data-op="down"]').onclick=function(){ reorder(day,i,1); };
-        art.querySelector('.etime').onchange=function(e){ editStart(day,i,e.target.value); };
-        art.querySelectorAll('[data-move]').forEach(function(btn){ btn.onclick=function(){ moveToDay(day,i,btn.getAttribute('data-move')); }; });
+      if(canEdit){
+        var e=o.entry;
+        art.querySelector('[data-op="up"]').onclick=function(){ reorderMine(day,e,-1); };
+        art.querySelector('[data-op="down"]').onclick=function(){ reorderMine(day,e,1); };
+        art.querySelector('[data-op="del"]').onclick=function(){ removeMine(day,e); };
+        art.querySelectorAll('[data-move]').forEach(function(btn){ btn.onclick=function(){ moveMine(day,e,btn.getAttribute('data-move')); }; });
       } else {
-        var chk=art.querySelector('.check'); if(chk) chk.onclick=function(){ toggleDone(day,i); };
+        var chk=art.querySelector('.check'); if(chk) chk.onclick=function(){ toggleDone(o); };
         art.querySelectorAll('[data-goticket]').forEach(function(x){ x.onclick=gotoTicket; });
       }
       host.appendChild(art);
@@ -423,17 +453,19 @@
   function render(){
     DAY_KEYS.forEach(renderDay);
     renderPlaces();
-    // toolbar
-    var tb=document.getElementById('toolbar');
-    var editable=(currentTab!=='info');
-    tb.style.display=editable?'flex':'none';
-    document.getElementById('editToggle').classList.toggle('on',editMode);
-    document.getElementById('editToggle').textContent=editMode?'✓ Hotovo':'✏️ Upravit den';
-    document.getElementById('resetBtn').style.display=editMode?'inline-flex':'none';
+    var onDay=(currentTab!=='info');
+    document.getElementById('toolbar').style.display=onDay?'flex':'none';
+    document.querySelectorAll('#planseg button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-plan')===state.active); });
+    var mineActive=(state.active==='mine');
+    var et=document.getElementById('editToggle');
+    et.style.display=(onDay&&mineActive)?'inline-flex':'none';
+    et.classList.toggle('on',editMode);
+    et.textContent=editMode?'✓ Hotovo':'✏️ Upravit';
+    document.getElementById('resetBtn').style.display=(onDay&&mineActive&&editMode)?'inline-flex':'none';
     var prog=document.getElementById('prog');
-    if(editable && !editMode){
-      var a=state.days[currentTab]||[]; var done=a.filter(function(x){return x.done;}).length;
-      prog.innerHTML=a.length?('<b>'+done+'</b>/'+a.length+' splněno'):'';
+    if(onDay && !(mineActive&&editMode)){
+      var list=itemsFor(currentTab); var done=list.filter(function(x){return x.done;}).length;
+      prog.innerHTML=list.length?('<b>'+done+'</b>/'+list.length+' splněno'):'';
     } else prog.textContent='';
   }
 
@@ -451,13 +483,12 @@
   }
   tabs.forEach(function(b){ b.addEventListener('click', function(){ showDay(b.dataset.day); }); });
 
+  document.querySelectorAll('#planseg button').forEach(function(b){ b.onclick=function(){ setActive(b.getAttribute('data-plan')); save(); render(); }; });
   document.getElementById('editToggle').onclick=function(){ editMode=!editMode; render(); };
-  document.getElementById('resetBtn').onclick=resetPlan;
+  document.getElementById('resetBtn').onclick=resetMine;
 
   // ---------- init ----------
   state=load();
-  if(typeof state.seq!=='number') state.seq=0;
-  ensurePlaceTags();
   render();
 
   // odpočet + auto-výběr dne

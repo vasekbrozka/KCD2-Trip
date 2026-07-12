@@ -31,9 +31,10 @@ reálné krajině kolem hradu Trosky).
 2. Zachovej strukturu: záložky **Pátek / Sobota / Neděle / Místa** (Místa = katalog
    lokací ze hry i reality s fotkami a odkazy). Sobota má jen jednu variantu (akce).
    Navigace je spodní lišta (bottom tab bar). Na Místech má každé místo štítek
-   „✓ V plánu: <den>" / „Do plánu:" + pilulky Pá/So/Ne (plná = v plánu → klik skočí
-   na den; „+" = přidá místo jako aktivitu do dne). Vazba přes `place` ids na
-   položkách a `PLACES` / `PLACE_TAGS` v JS.
+   „✓ V mém plánu: <den>" / „Do mého plánu:" + pilulky Pá/So/Ne (plná = v Mém plánu →
+   klik přepne na Můj plán a skočí na den; „+" = přidá místo jako aktivitu do Mého
+   plánu daného dne). Místa vždy pracují s **Mým plánem** (Doporučený je read-only).
+   Vazba přes `place` ids na položkách a `PLACES` / `resolve()` v JS.
 3. Zachovej: češtinu, tmavý+světlý režim (prefers-color-scheme), safe-area insets,
    font **Inter** (vložený napevno jako base64 woff2 v CSS — offline), vše offline-schopné
    (žádné externí requesty; hero obrázek `img/hero.jpg` je lokální). Barevnost =
@@ -41,13 +42,20 @@ reálné krajině kolem hradu Trosky).
    V CSS proměnných: `--gold*` = šalvěj (primární akcent), `--red*` = terakota
    (alert / „na řadě"). UI je moderní (Instagram/Duolingo styl) — hlavička s malbou,
    karty s fotkou nahoře, časové „pilulky", stlačitelná tlačítka.
-4. Itinerář (pořadí položek, časy, odškrtnutí „splněno") se UKLÁDÁ do localStorage
-   (klíč `kcd2:itinerar:v1`, `PLAN_VERSION`), aby úpravy „za cesty" přežily zavření
-   appky. Data-driven render z `DEFAULT()` v `index.html`. Tlačítko „Obnovit původní
-   plán" resetuje. Bumpnutím `PLAN_VERSION` se uložený stav zahodí (po změně výchozího
-   plánu; aktuálně = 2). Každá položka i místo má pole `fact` (💡 zajímavost/tip).
-   Dny nemají podnadpisy ani odznak vzdálenosti (odebráno). Jinak nic dalšího do
-   storage neukládat bez vyžádání.
+4. **Model dvou plánů** (přepínač v toolbaru): **Doporučený** = read-only, vždy
+   z kódu (`DEFAULT()`, drží ruční realistické časy + `tlabel`); **Můj plán** =
+   jedna editovatelná kopie. Editace jen v Mém plánu (přes „✏️ Upravit"): přeřadit
+   (↑↓), odebrat (✕), přesunout mezi dny (→ den), přidat místo z Míst. **Bez editace
+   časů** — časy v Mém plánu se dopočítají z délek (`dur`) od `DAY_START` dne
+   (fri 12:00 / sat 9:00 / sun 8:00). Odškrtávání „splněno" funguje v obou plánech
+   (per-plán), **bez** posunu časů. Ukládá se jen STRUKTURA do localStorage
+   (klíč `kcd2:plan:v1`): `{pv, active, doneRec:{}, mine:{seq,days}}`; položka Mého
+   plánu = `{id}` (doporučená, obsah z `CAT` dle id) nebo `{id,pid}` (přidané místo,
+   obsah z `PLACES`). Obsah se tedy bere z katalogu → úpravy textů se propíšou samy
+   (žádná migrace). „↺ Reset" obnoví Můj plán dle Doporučeného. Bumpnutím
+   `PLAN_VERSION` se uložený stav zahodí (aktuálně = 3). Každá položka i místo má
+   pole `fact` (💡). Dny nemají podnadpisy ani odznak vzdálenosti. Jinak nic dalšího
+   do storage neukládat bez vyžádání.
 5. Auto-výběr aktuálního dne funguje jen 17.–19. 7. 2026; po výletě zobrazí
    hlavička „Krásné vzpomínky".
 6. Commit messages česky, stručné. Po každé úpravě commit + push do `main`
