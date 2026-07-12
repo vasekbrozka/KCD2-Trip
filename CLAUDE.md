@@ -29,7 +29,8 @@ reálné krajině kolem hradu Trosky).
 1. **Po každé změně obsahu zvyš verzi cache v `sw.js`** (`kcd2-v1` → `kcd2-v2` → …),
    jinak uživatel v telefonu uvidí starou verzi.
 2. Zachovej strukturu: záložky **Pátek / Sobota / Neděle / Místa** (Místa = katalog
-   lokací ze hry i reality s fotkami a odkazy). Sobota má jen jednu variantu (akce).
+   ~20 kurátorovaných míst: nejdřív **KCD2 lokace** (priorita), pak tipy z Českého
+   ráje; ke každému 💡 fakt, praktický tip a odkazy). Sobota má jen jednu variantu (akce).
    Navigace je spodní lišta (bottom tab bar). Na Místech má každé místo štítek
    „✓ V mém plánu: <den>" / „Do mého plánu:" + pilulky Pá/So/Ne (plná = v Mém plánu →
    klik přepne na Můj plán a skočí na den; „+" = přidá místo jako aktivitu do Mého
@@ -91,6 +92,9 @@ reálné krajině kolem hradu Trosky).
   Rohozecká restaurace (pivovar Malý Rohozec), Restaurace Nebákov, Bistro pod Troskami.
 
 ## Zásobník nápadů (zatím nerealizováno)
+- **Fotky k regionálním tipům v Místech**: KCD2 lokace mají fotky (img/*.jpg cachované
+  SW), nových ~11 regionálních tipů zatím jen text. Případně doplnit CC fotky + do
+  `sw.js` ASSETS (offline).
 - **Sdílení stavu itineráře mezi 2 telefony** (online sync): JSONBlob NEMÁ CORS →
   z prohlížeče nefunguje. Zvolit funkční backend (kvdb.io ověřit CORS / Firebase)
   a napojit jako remote adapter nad localStorage. Uživatel chce sdílené, offline nemusí.
