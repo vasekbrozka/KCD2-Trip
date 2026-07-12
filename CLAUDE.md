@@ -35,7 +35,7 @@ reálné krajině kolem hradu Trosky).
    na den; „+" = přidá místo jako aktivitu do dne). Vazba přes `place` ids na
    položkách a `PLACES` / `PLACE_TAGS` v JS.
 3. Zachovej: češtinu, tmavý+světlý režim (prefers-color-scheme), safe-area insets,
-   systémové fonty (kulaté — ui-rounded / SF Pro Rounded), vše offline-schopné
+   font **Inter** (vložený napevno jako base64 woff2 v CSS — offline), vše offline-schopné
    (žádné externí requesty; hero obrázek `img/hero.jpg` je lokální). Barevnost =
    pastelová paleta z malby Trosek v hlavičce: šalvějová zeleň + terakota + krém/slate.
    V CSS proměnných: `--gold*` = šalvěj (primární akcent), `--red*` = terakota
@@ -45,7 +45,9 @@ reálné krajině kolem hradu Trosky).
    (klíč `kcd2:itinerar:v1`, `PLAN_VERSION`), aby úpravy „za cesty" přežily zavření
    appky. Data-driven render z `DEFAULT()` v `index.html`. Tlačítko „Obnovit původní
    plán" resetuje. Bumpnutím `PLAN_VERSION` se uložený stav zahodí (po změně výchozího
-   plánu). Jinak nic dalšího do storage neukládat bez vyžádání.
+   plánu; aktuálně = 2). Každá položka i místo má pole `fact` (💡 zajímavost/tip).
+   Dny nemají podnadpisy ani odznak vzdálenosti (odebráno). Jinak nic dalšího do
+   storage neukládat bez vyžádání.
 5. Auto-výběr aktuálního dne funguje jen 17.–19. 7. 2026; po výletě zobrazí
    hlavička „Krásné vzpomínky".
 6. Commit messages česky, stručné. Po každé úpravě commit + push do `main`
