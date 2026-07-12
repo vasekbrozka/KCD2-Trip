@@ -120,6 +120,8 @@
   .btn.primary:active{transform:translateY(3px); box-shadow:0 0 0 var(--golddk)}
   .fact{display:flex; gap:8px; align-items:flex-start; margin-top:12px; padding:10px 12px; border-radius:12px; background:color-mix(in srgb,var(--gold) 10%,var(--card2)); font-size:12.5px; line-height:1.45; color:var(--ink2); font-weight:600}
   .fact .fi{flex:none; font-size:14px; line-height:1.3}
+  .prog{list-style:none; margin:12px 0 2px; padding:0; display:flex; flex-direction:column; gap:8px}
+  .prog li{font-size:14px; font-weight:600; color:var(--ink); line-height:1.35; padding-left:2px}
   /* ---------- MÍSTA plán ---------- */
   .planrow{display:flex; align-items:center; gap:7px; flex-wrap:wrap; margin-top:13px; padding-top:13px; border-top:1px solid var(--line)}
   .planlbl{font-size:12.5px; font-weight:800; color:var(--ink2); margin-right:1px}
@@ -224,7 +226,7 @@
 
 <nav class="tabbar" id="dayTabs">
   <button data-day="fri" class="on">
-    <svg viewBox="0 0 24 24"><path d="M3 13h18l-1.7-4.4A2 2 0 0 0 17.4 7H6.6a2 2 0 0 0-1.9 1.6L3 13v4h18v-4"/><circle cx="7.5" cy="17" r="1.5"/><circle cx="16.5" cy="17" r="1.5"/></svg>
+    <svg viewBox="0 0 24 24"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
     <span class="lb">Pátek</span>
   </button>
   <button data-day="sat">
@@ -254,7 +256,7 @@
     ],
     sat:[
       {id:'s1',fact:'Výstup od parkoviště k bráně je ~15 min do kopce — jediné pořádné stoupání celého víkendu.',t:'9:00',dur:60,emoji:'🚗',title:'Odjezd na Trosky',desc:'~30 min z Turnova, parkoviště pod hradem (<b>Bistro pod Troskami</b> u parkoviště). Brány areálu <b>od 9:00</b>, klidně dorazte na oběd — s razítkem se dá odejít a vrátit.',btns:[{t:'🧭 Navigovat',href:'https://www.google.com/maps/dir/?api=1&origin=Turnov&destination=Hrad%20Trosky&travelmode=driving',p:true},{t:'🗺️ Mapa',href:'https://www.google.com/maps/search/?api=1&query=Parkovi%C5%A1t%C4%9B%20Trosky'},{t:'🌐 Web',href:'https://www.bistropodtroskami.cz'}]},
-      {id:'s2',ticket:true,fact:'Trosky kolem roku 1400 skutečně patřily rodu z Bergova — hra staví Otu z Bergova na jeho reálné sídlo. Věže Panna (vyšší, štíhlá) a Baba (nižší, širší) stojí na čedičových sopečných skalách.',place:['trosky'],t:'10:00',tlabel:'celý den',dur:570,hl:true,img:'trosky.jpg',emoji:'⚔️',title:'Pod praporem Bergowa · Trosky',desc:'Sídlo <b>Oty z Bergova</b> ze hry ožívá: dobová kuchyně, divadlo <i>„Kterak Jindra k Ptáčkovi přišel“</i>, hudba, řemesla, šerm. <b>Ukázky střelby 12:00 · 15:00 · 18:00.</b> Zůstaňte, jak dlouho vás to bude bavit.',btns:[{t:'🌐 Program',href:'https://www.hrad-trosky.cz/cs/leto-na-troskach-2026'},{t:'🗺️ Mapa',href:'https://www.google.com/maps/search/?api=1&query=Hrad%20Trosky'}]},
+      {id:'s2',ticket:true,fact:'Trosky kolem roku 1400 skutečně patřily rodu z Bergova — hra staví Otu z Bergova na jeho reálné sídlo. Věže Panna (vyšší, štíhlá) a Baba (nižší, širší) stojí na čedičových sopečných skalách.',place:['trosky'],t:'10:00',tlabel:'celý den',dur:570,hl:true,img:'trosky.jpg',emoji:'⚔️',title:'Pod praporem Bergowa · Trosky',desc:'Sídlo <b>Oty z Bergova</b> ze hry ožívá — setkání fanoušků KCD2 s dobovým programem. Brány od 9:00.',program:['⚔️ Dobové ležení družiny Oty z Bergova','🗡️ Ukázky šermu a boje','🎶 Dobová hudba a řemesla','🍲 Dobová kuchyně','🎮 Setkání fanoušků KCD2'],btns:[{t:'🗺️ Mapa',href:'https://www.google.com/maps/search/?api=1&query=Hrad%20Trosky'}]},
       {id:'s3',fact:'Pivovar Malý Rohozec (značka Skalák) vaří u Turnova už od poloviny 19. století.',t:'19:30',dur:120,emoji:'🍺',title:'Večer: Rohozecká restaurace',desc:'Pivovar <b>Malý Rohozec</b> (Skalák) kousek od Turnova. Alternativa: U Prince v centru, nebo dobové jídlo rovnou na akci.',btns:[{t:'🌐 Web',href:'https://www.rohozeckarestaurace.cz'},{t:'🗺️ Mapa',href:'https://www.google.com/maps/search/?api=1&query=Rohozeck%C3%A1%20restaurace%20Mal%C3%BD%20Rohozec'}]}
     ],
     sun:[
@@ -283,7 +285,7 @@
   ];
   var TICKET_HTML='<div class="strip"></div><div class="tkhead"><span class="lbl">e-vstupenka</span><span class="org">Národní památkový ústav<br>Tisk Colosseum</span></div><h3>XIII. Pod praporem Bergowa</h3><div class="when">Trosky · sobota 18. 7. 2026 · 9:00 · jazyk CZ</div><div class="qrbox"><svg class="qr" viewBox="0 0 29 29" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="QR kód vstupenky 10031225632"><rect width="29" height="29" fill="#fff"/><path d="M4 4h7v1h-7zM18 4h7v1h-7zM4 5h1v1h-1zM10 5h1v1h-1zM12 5h3v1h-3zM18 5h1v1h-1zM24 5h1v1h-1zM4 6h1v1h-1zM6 6h3v1h-3zM10 6h1v1h-1zM13 6h1v1h-1zM15 6h1v1h-1zM18 6h1v1h-1zM20 6h3v1h-3zM24 6h1v1h-1zM4 7h1v1h-1zM6 7h3v1h-3zM10 7h1v1h-1zM12 7h1v1h-1zM14 7h2v1h-2zM18 7h1v1h-1zM20 7h3v1h-3zM24 7h1v1h-1zM4 8h1v1h-1zM6 8h3v1h-3zM10 8h1v1h-1zM12 8h4v1h-4zM18 8h1v1h-1zM20 8h3v1h-3zM24 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM13 9h1v1h-1zM16 9h1v1h-1zM18 9h1v1h-1zM24 9h1v1h-1zM4 10h7v1h-7zM12 10h1v1h-1zM14 10h1v1h-1zM16 10h1v1h-1zM18 10h7v1h-7zM12 11h1v1h-1zM5 12h1v1h-1zM7 12h4v1h-4zM12 12h1v1h-1zM15 12h4v1h-4zM20 12h2v1h-2zM23 12h1v1h-1zM4 13h1v1h-1zM6 13h1v1h-1zM8 13h1v1h-1zM12 13h2v1h-2zM15 13h2v1h-2zM18 13h1v1h-1zM20 13h1v1h-1zM23 13h2v1h-2zM5 14h1v1h-1zM9 14h3v1h-3zM14 14h1v1h-1zM17 14h2v1h-2zM20 14h1v1h-1zM22 14h2v1h-2zM4 15h3v1h-3zM8 15h1v1h-1zM11 15h4v1h-4zM24 15h1v1h-1zM4 16h1v1h-1zM6 16h1v1h-1zM8 16h3v1h-3zM13 16h2v1h-2zM16 16h1v1h-1zM18 16h1v1h-1zM22 16h3v1h-3zM12 17h1v1h-1zM16 17h1v1h-1zM21 17h1v1h-1zM4 18h7v1h-7zM15 18h1v1h-1zM17 18h5v1h-5zM23 18h1v1h-1zM4 19h1v1h-1zM10 19h1v1h-1zM12 19h2v1h-2zM16 19h2v1h-2zM20 19h1v1h-1zM23 19h1v1h-1zM4 20h1v1h-1zM6 20h3v1h-3zM10 20h1v1h-1zM12 20h5v1h-5zM18 20h2v1h-2zM21 20h2v1h-2zM24 20h1v1h-1zM4 21h1v1h-1zM6 21h3v1h-3zM10 21h1v1h-1zM12 21h2v1h-2zM15 21h2v1h-2zM20 21h1v1h-1zM4 22h1v1h-1zM6 22h3v1h-3zM10 22h1v1h-1zM13 22h2v1h-2zM18 22h2v1h-2zM23 22h2v1h-2zM4 23h1v1h-1zM10 23h1v1h-1zM12 23h2v1h-2zM17 23h2v1h-2zM21 23h2v1h-2zM24 23h1v1h-1zM4 24h7v1h-7zM13 24h3v1h-3zM19 24h1v1h-1zM22 24h2v1h-2z" fill="#000"/></svg></div><div class="code">10031225632<small>kód vstupenky · nepřehýbat</small></div><div class="meta"><span>Základní · 2 osoby</span><span>680 Kč</span></div><div class="gate">Stačí ukázat u brány<span>razítko umožní opakovaný vstup · zákaz psů a zbraní/replik</span></div>';
   var PLACE_TAGS={s2:['trosky'],u2:['vezak','podseminsky'],u3:['nebakov']};
-  function ensurePlaceTags(){ var DEF={}, dd=DEFAULT().days; DAY_KEYS.forEach(function(k){ dd[k].forEach(function(x){ DEF[x.id]=x; }); }); DAY_KEYS.forEach(function(d){ (state.days[d]||[]).forEach(function(it){ if(PLACE_TAGS[it.id] && !it.place) it.place=PLACE_TAGS[it.id].slice(); if(it.id==='s2') it.ticket=true; if(DEF[it.id] && DEF[it.id].btns) it.btns=JSON.parse(JSON.stringify(DEF[it.id].btns)); }); }); }
+  function ensurePlaceTags(){ var DEF={}, dd=DEFAULT().days; DAY_KEYS.forEach(function(k){ dd[k].forEach(function(x){ DEF[x.id]=x; }); }); DAY_KEYS.forEach(function(d){ (state.days[d]||[]).forEach(function(it){ if(DEF[it.id]){ ['emoji','title','desc','fact','program','btns','hl','img','tlabel','place','ticket','dur'].forEach(function(k){ if(k in DEF[it.id]) it[k]=JSON.parse(JSON.stringify(DEF[it.id][k])); }); } }); }); }
   function placeArr(it){ return !it.place?[]:(typeof it.place==='string'?[it.place]:it.place); }
   function daysWithPlace(pid){ return DAY_KEYS.filter(function(d){ return (state.days[d]||[]).some(function(it){ return placeArr(it).indexOf(pid)>=0; }); }); }
   function addPlaceToDay(pid,day){
@@ -395,6 +397,7 @@
       }
       h+='<h3><span class="em">'+it.emoji+'</span>'+it.title+'</h3>';
       if(it.desc) h+='<p>'+it.desc+'</p>';
+      if(it.program && it.program.length) h+='<ul class="prog">'+it.program.map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';
       if(!editMode && it.fact) h+='<div class="fact"><span class="fi">💡</span><span>'+it.fact+'</span></div>';
       if(!editMode && it.btns && it.btns.length){
         h+='<div class="btns">'+it.btns.map(function(b){
