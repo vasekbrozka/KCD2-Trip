@@ -28,11 +28,14 @@ reálné krajině kolem hradu Trosky).
 ## Pravidla úprav (důležité!)
 1. **Po každé změně obsahu zvyš verzi cache v `sw.js`** (`kcd2-v1` → `kcd2-v2` → …),
    jinak uživatel v telefonu uvidí starou verzi.
-2. Zachovej strukturu: záložky **Pátek / Sobota / Neděle / Info**, u soboty přepínač
-   variant **A** (s akcí) / **B** (bez akce).
+2. Zachovej strukturu: záložky **Pátek / Sobota / Neděle / Místa** (Místa = katalog
+   lokací ze hry i reality s fotkami a odkazy). Sobota má jen jednu variantu (akce).
+   Navigace je spodní lišta (bottom tab bar).
 3. Zachovej: češtinu, tmavý+světlý režim (prefers-color-scheme), safe-area insets,
-   barevnost (tmavě zelená + zlatá, „středověký" nádech), systémové fonty,
-   vše offline-schopné (žádné externí requesty).
+   systémové fonty (kulaté — ui-rounded / SF Pro Rounded), vše offline-schopné
+   (žádné externí requesty). Barevnost = KCD paleta (pergamen + zlato + rubriková
+   červeň, „středověký" nádech). UI je moderní (Instagram/Duolingo styl) — karty
+   s fotkou nahoře, časové „pilulky", stlačitelná tlačítka.
 4. Žádné localStorage/sessionStorage — stav jen v paměti.
 5. Auto-výběr aktuálního dne funguje jen 17.–19. 7. 2026; po výletě zobrazí
    hlavička „Krásné vzpomínky".
@@ -40,6 +43,16 @@ reálné krajině kolem hradu Trosky).
    a napsat uživateli shrnutí změn.
 
 ## Klíčová fakta o výletu (ověřeno 12. 7. 2026)
+- **Ubytování: Bohemia Inn Hotel ★★★★**, 5. května 63, Turnov 511 01,
+  tel. +420 770 600 795 (check-in 15–19, check-out 7–11; pá 17. – ne 19. 7.).
+- **Vstupenky na akci KOUPENÉ** (12. 7. 2026): 2 os. základní, 680 Kč,
+  kód 10031225632 (QR kóduje 813631911290). QR je přímo v appce na záložce Sobota.
+- **Plán dnů (aktualizováno uživatelem):** pátek = příjezd + hotel (na Trosky se
+  NEJDE), sobota = celý den akce Pod praporem Bergowa na Troskách, neděle =
+  procházka Podtroseckými údolími (~5 km) + odjezd. Hruboskalsko a Valdštejn jsou
+  jen „tipy navíc" v Místech.
+- Odkaz na nedělní trasu = Mapy.cz (na iPhonu se otevře v aplikaci Mapy);
+  ostatní mapové odkazy = Google Maps. **TODO: doplnit přesnou URL trasy z Mapy.cz.**
 - **Sobota 18. 7. 2026 = celodenní KCD2 akce „Pod praporem Bergowa" na Troskách**
   (dobové ležení družiny Oty z Bergova; loni 9–21 h, 300/240 Kč, razítko pro
   opakovaný vstup, zákaz psů a zbraní/replik). Vstupenky:
@@ -59,7 +72,6 @@ reálné krajině kolem hradu Trosky).
   Rohozecká restaurace (pivovar Malý Rohozec), Restaurace Nebákov, Bistro pod Troskami.
 
 ## Zásobník nápadů (zatím nerealizováno)
-- Doplnit konkrétní hotel v Turnově, až ho uživatel upřesní (adresa, mapa, telefon)
 - Odškrtávací checklist „co s sebou" (stav jen v paměti, ne localStorage)
 - Srovnávací fotky hra vs. realita u jednotlivých míst
 - Případné počasí / poznámky na míru po rozhodnutí varianty A vs. B

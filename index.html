@@ -119,20 +119,6 @@
     box-shadow:0 3px 0 var(--golddk);
   }
   .btn.primary:active{transform:translateY(3px); box-shadow:0 0 0 var(--golddk)}
-  /* ---------- VARIANT TOGGLE ---------- */
-  .variant{display:flex; gap:9px; margin:14px 0 16px}
-  .variant button{
-    flex:1; border:0; background:var(--card); color:var(--ink2); font:inherit; cursor:pointer;
-    font-size:13px; font-weight:800; padding:13px 8px; border-radius:15px; box-shadow:var(--shadow);
-    transition:transform .07s; letter-spacing:-.01em;
-  }
-  .variant button:active{transform:translateY(2px)}
-  .variant button.on{
-    color:#2a1e0d; background:linear-gradient(180deg,var(--goldbr),var(--gold));
-    box-shadow:0 3px 0 var(--golddk);
-  }
-  .vpane{display:none}
-  .vpane.on{display:block; animation:fade .26s ease}
   /* ---------- INFO ---------- */
   .isec{margin:20px 0}
   .isec h2{font-size:20px; margin:0 2px 12px; font-weight:800; letter-spacing:-.015em}
@@ -145,7 +131,7 @@
   .irow .arr{color:var(--gold); font-size:22px; opacity:.55; font-weight:700}
   .price{font-size:13.5px; font-weight:800; color:var(--red); flex-shrink:0}
   /* ---------- TICKET ---------- */
-  .ticket{background:var(--card); border-radius:22px; padding:8px 18px 20px; box-shadow:var(--shadow); position:relative; overflow:hidden}
+  .ticket{background:var(--card); border-radius:22px; padding:8px 18px 20px; box-shadow:var(--shadow); position:relative; overflow:hidden; margin-bottom:16px}
   .ticket .strip{height:6px; margin:0 -18px 14px; background:linear-gradient(90deg,var(--red),var(--goldbr),var(--red))}
   .ticket .tkhead{display:flex; align-items:center; justify-content:space-between; gap:10px}
   .ticket .tkhead .lbl{font-size:11px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--red)}
@@ -205,47 +191,29 @@
 
   <!-- ================= PÁTEK ================= -->
   <section class="day on" id="day-fri">
-    <div class="dayhead"><h2>Cesta &amp; hrad Trosky</h2><span class="km">🥾 ~2–3 km</span></div>
-    <p class="daysub">Přejezd z Blovic, výstup na dominantu celé hry a první turnovské pivo na uvítanou.</p>
-    <div class="note">⚠️ Prohlídku Trosek stihněte <b>dnes</b> — v sobotu kvůli akci běžný okruh „Celým hradem“ nejede. Otevřeno do 17:30.</div>
+    <div class="dayhead"><h2>Příjezd do Turnova</h2><span class="km">🚗 přejezd</span></div>
+    <p class="daysub">Přejezd z Blovic, ubytování a první turnovské pivo na uvítanou. Trosky si necháme na sobotu.</p>
 
     <div class="stops">
       <article class="card"><div class="body">
         <span class="time">12:00</span>
         <h3><span class="em">🚗</span>Odjezd z Blovic</h3>
-        <p>D5 → Praha → D10, <b>~190 km, ~2,5 h</b>. Lehký oběd cestou, nebo vydržet na bistro pod hradem.</p>
-        <div class="btns"><a class="btn primary" href="https://www.google.com/maps/dir/?api=1&origin=Blovice&destination=Hrad%20Trosky&travelmode=driving">🧭 Navigovat</a></div>
+        <p>D5 → Praha → D10, <b>~190 km, ~2,5 h</b>. Lehký oběd cestou.</p>
+        <div class="btns"><a class="btn primary" href="https://www.google.com/maps/dir/?api=1&origin=Blovice&destination=Bohemia%20Inn%20Hotel%2C%205.%20kv%C4%9Btna%2063%2C%20Turnov&travelmode=driving">🧭 Navigovat</a></div>
+      </div></article>
+
+      <article class="card hl"><div class="body">
+        <span class="time">od 15:00</span>
+        <h3><span class="em">🏨</span>Check-in: Bohemia Inn Hotel ★★★★</h3>
+        <p><b>5. května 63, Turnov.</b> Check-in 15:00–19:00, check-out 7:00–11:00. Ubytovat, osvěžit, hodit nohy nahoru.</p>
+        <div class="btns"><a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Bohemia%20Inn%20Hotel%2C%205.%20kv%C4%9Btna%2063%2C%20Turnov">🗺️ Mapa</a><a class="btn" href="tel:+420770600795">📞 Hotel</a></div>
       </div></article>
 
       <article class="card"><div class="body">
-        <span class="time">14:30</span>
-        <h3><span class="em">🅿️</span>Parkoviště pod Troskami</h3>
-        <p>Rychlé občerstvení v <b>Bistru pod Troskami</b> přímo u parkoviště, pak ~15–20 min do kopce k bráně.</p>
-        <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Parkovi%C5%A1t%C4%9B%20Trosky">🗺️ Mapa</a><a class="btn" href="https://bistropodtroskami.cz">🌐 Bistro</a></div>
-      </div></article>
-
-      <article class="card hl">
-        <img class="cardimg" loading="lazy" src="img/trosky.jpg" alt="Hrad Trosky">
-        <div class="body">
-        <span class="time">15:00</span>
-        <h3><span class="em">🏰</span>Hrad Trosky — Panna &amp; Baba</h3>
-        <p>Sídlo <b>Oty z Bergova</b> ze hry. Okruh „Celým hradem“ (<b>160/130 Kč</b>), vyhlídky z obou věží a <b>5 QR panelů</b> porovnávajících hru s realitou. Počítejte ~1,5 h.</p>
-        <div class="btns"><a class="btn primary" href="https://weblist-npu.colosseum.eu/NonTimedTours?mrsid=208">🎟️ Vstupenky</a><a class="btn" href="https://www.hrad-trosky.cz/cs">🌐 Web hradu</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Hrad%20Trosky">🗺️ Mapa</a><a class="btn" href="tel:+420602342627">📞 Hrad</a></div>
-      </div></article>
-
-      <article class="card">
-        <img class="cardimg" loading="lazy" src="img/troskovice.jpg" alt="Trosky od Troskovic">
-        <div class="body">
         <span class="time">17:00</span>
-        <h3><span class="em">📸</span>Troskovice — vyhlídka</h3>
-        <p>Ve hře <b>Troskowitz</b> s krčmou. Na vyhlídce je 6. QR panel — pohled na Trosky přesně jako ze hry.</p>
-        <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Troskovice">🗺️ Mapa</a></div>
-      </div></article>
-
-      <article class="card"><div class="body">
-        <span class="time">17:45</span>
-        <h3><span class="em">🛎️</span>Check-in v Turnově</h3>
-        <p>Ubytovat, osvěžit, hodit nohy nahoru.</p>
+        <h3><span class="em">🚶</span>Volno v Turnově</h3>
+        <p>Projít historické centrum, náměstí Českého ráje, most přes Jizeru. Nabrat klid před sobotní akcí.</p>
+        <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=n%C3%A1m%C4%9Bst%C3%AD%20%C4%8Cesk%C3%A9ho%20r%C3%A1je%20Turnov">🗺️ Centrum</a></div>
       </div></article>
 
       <article class="card"><div class="body">
@@ -259,143 +227,73 @@
 
   <!-- ================= SOBOTA ================= -->
   <section class="day" id="day-sat">
-    <div class="dayhead"><h2>Den v kulisách hry</h2><span class="km" id="satkm">🥾 ~4 km</span></div>
-    <p class="daysub">Rybníky a mlýny z mapy Trosecko — a večer pivo. Vyber si variantu dne:</p>
-    <div class="variant" id="satVariant">
-      <button data-v="a" class="on">⚔️ A · S akcí</button>
-      <button data-v="b">🌲 B · Klidná turistika</button>
+    <div class="dayhead"><h2>Pod praporem Bergowa</h2><span class="km">⚔️ akce</span></div>
+    <p class="daysub">Celodenní KCD2 akce na Troskách — dobové ležení družiny Oty z Bergova. Vstupenku máte, tak si to užijte.</p>
+    <div class="note ok">✅ <b>Vstupenku máš koupenou</b> — 2 osoby, základní, 680 Kč. QR ukážeš rovnou níže. Razítko u vstupu = můžeš odejít a vrátit se. Zákaz psů a zbraní/replik.</div>
+
+    <div class="ticket" id="ticket">
+      <div class="strip"></div>
+      <div class="tkhead"><span class="lbl">e-vstupenka</span><span class="org">Národní památkový ústav<br>Tisk Colosseum</span></div>
+      <h3>XIII. Pod praporem Bergowa</h3>
+      <div class="when">Trosky · sobota 18. 7. 2026 · 9:00 · jazyk CZ</div>
+      <div class="qrbox"><svg class="qr" viewBox="0 0 29 29" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="QR kód vstupenky 10031225632"><rect width="29" height="29" fill="#fff"/><path d="M4 4h7v1h-7zM18 4h7v1h-7zM4 5h1v1h-1zM10 5h1v1h-1zM12 5h3v1h-3zM18 5h1v1h-1zM24 5h1v1h-1zM4 6h1v1h-1zM6 6h3v1h-3zM10 6h1v1h-1zM13 6h1v1h-1zM15 6h1v1h-1zM18 6h1v1h-1zM20 6h3v1h-3zM24 6h1v1h-1zM4 7h1v1h-1zM6 7h3v1h-3zM10 7h1v1h-1zM12 7h1v1h-1zM14 7h2v1h-2zM18 7h1v1h-1zM20 7h3v1h-3zM24 7h1v1h-1zM4 8h1v1h-1zM6 8h3v1h-3zM10 8h1v1h-1zM12 8h4v1h-4zM18 8h1v1h-1zM20 8h3v1h-3zM24 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM13 9h1v1h-1zM16 9h1v1h-1zM18 9h1v1h-1zM24 9h1v1h-1zM4 10h7v1h-7zM12 10h1v1h-1zM14 10h1v1h-1zM16 10h1v1h-1zM18 10h7v1h-7zM12 11h1v1h-1zM5 12h1v1h-1zM7 12h4v1h-4zM12 12h1v1h-1zM15 12h4v1h-4zM20 12h2v1h-2zM23 12h1v1h-1zM4 13h1v1h-1zM6 13h1v1h-1zM8 13h1v1h-1zM12 13h2v1h-2zM15 13h2v1h-2zM18 13h1v1h-1zM20 13h1v1h-1zM23 13h2v1h-2zM5 14h1v1h-1zM9 14h3v1h-3zM14 14h1v1h-1zM17 14h2v1h-2zM20 14h1v1h-1zM22 14h2v1h-2zM4 15h3v1h-3zM8 15h1v1h-1zM11 15h4v1h-4zM24 15h1v1h-1zM4 16h1v1h-1zM6 16h1v1h-1zM8 16h3v1h-3zM13 16h2v1h-2zM16 16h1v1h-1zM18 16h1v1h-1zM22 16h3v1h-3zM12 17h1v1h-1zM16 17h1v1h-1zM21 17h1v1h-1zM4 18h7v1h-7zM15 18h1v1h-1zM17 18h5v1h-5zM23 18h1v1h-1zM4 19h1v1h-1zM10 19h1v1h-1zM12 19h2v1h-2zM16 19h2v1h-2zM20 19h1v1h-1zM23 19h1v1h-1zM4 20h1v1h-1zM6 20h3v1h-3zM10 20h1v1h-1zM12 20h5v1h-5zM18 20h2v1h-2zM21 20h2v1h-2zM24 20h1v1h-1zM4 21h1v1h-1zM6 21h3v1h-3zM10 21h1v1h-1zM12 21h2v1h-2zM15 21h2v1h-2zM20 21h1v1h-1zM4 22h1v1h-1zM6 22h3v1h-3zM10 22h1v1h-1zM13 22h2v1h-2zM18 22h2v1h-2zM23 22h2v1h-2zM4 23h1v1h-1zM10 23h1v1h-1zM12 23h2v1h-2zM17 23h2v1h-2zM21 23h2v1h-2zM24 23h1v1h-1zM4 24h7v1h-7zM13 24h3v1h-3zM19 24h1v1h-1zM22 24h2v1h-2z" fill="#000"/></svg></div>
+      <div class="code">10031225632<small>kód vstupenky · nepřehýbat</small></div>
+      <div class="meta"><span>Základní · 2 osoby</span><span>680 Kč</span></div>
+      <div class="gate">Stačí ukázat u brány<span>razítko umožní opakovaný vstup · zákaz psů a zbraní/replik</span></div>
     </div>
 
-    <!-- VARIANTA A -->
-    <div class="vpane on" id="sat-a">
-      <div class="note ok">✅ <b>Vstupenku máš koupenou</b> — 2 osoby, základní, 680 Kč. QR ukážeš přímo v appce (Info). Razítko u vstupu = můžeš odejít a vrátit se. Zákaz psů a zbraní/replik.</div>
-      <div class="stops">
-        <article class="card"><div class="body">
-          <span class="time">9:30</span>
-          <h3><span class="em">🚗</span>Na parkoviště Vidlák</h3>
-          <p>~15 min z Turnova, parkování zdarma. V sezónní sobotu radši dřív.</p>
-          <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Parkovi%C5%A1t%C4%9B%20Vidl%C3%A1k">🗺️ Mapa</a></div>
-        </div></article>
+    <div class="stops">
+      <article class="card"><div class="body">
+        <span class="time">9:00</span>
+        <h3><span class="em">🚗</span>Odjezd na Trosky</h3>
+        <p>~30 min z Turnova, parkoviště pod hradem (<b>Bistro pod Troskami</b> u parkoviště). Brány areálu <b>od 9:00</b>, klidně dorazte na oběd — s razítkem se dá odejít a vrátit.</p>
+        <div class="btns"><a class="btn primary" href="https://www.google.com/maps/dir/?api=1&origin=Turnov&destination=Hrad%20Trosky&travelmode=driving">🧭 Navigovat</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Parkovi%C5%A1t%C4%9B%20Trosky">🅿️ Parkoviště</a></div>
+      </div></article>
 
-        <article class="card">
-          <img class="cardimg" loading="lazy" src="img/vezak.jpg" alt="Věžický rybník">
-          <div class="body">
-          <span class="time">9:45</span>
-          <h3><span class="em">🥾</span>Vidlák → Věžický rybník a zpět</h3>
-          <p><b>~3 km po rovině.</b> Nejfotogeničtější kus oficiální trasy „Po stopách KCD II“ — skály nad hladinou Věžáku, místo herního přepadení.</p>
-          <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=V%C4%9B%C5%BEick%C3%BD%20rybn%C3%ADk">🗺️ Mapa</a><a class="btn" href="https://www.strednicechy.cz/vylet/herni-svet-oziva-v-srdci-ceskeho-raje/">🎮 O trase</a></div>
-        </div></article>
+      <article class="card hl">
+        <img class="cardimg" loading="lazy" src="img/trosky.jpg" alt="Hrad Trosky">
+        <div class="body">
+        <span class="time">celý den</span>
+        <h3><span class="em">⚔️</span>Pod praporem Bergowa · Trosky</h3>
+        <p>Sídlo <b>Oty z Bergova</b> ze hry ožívá: dobová kuchyně, divadlo <i>„Kterak Jindra k Ptáčkovi přišel“</i>, hudba, řemesla, šerm. <b>Ukázky střelby 12:00 · 15:00 · 18:00.</b> Zůstaňte, jak dlouho vás to bude bavit.</p>
+        <div class="btns"><a class="btn primary" href="#" data-goticket>🎟️ Moje vstupenka</a><a class="btn" href="https://www.hrad-trosky.cz/cs/leto-na-troskach-2026">🌐 Program</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Hrad%20Trosky">🗺️ Mapa</a></div>
+      </div></article>
 
-        <article class="card">
-          <img class="cardimg" loading="lazy" src="img/nebakov.jpg" alt="Nebákov">
-          <div class="body">
-          <span class="time">11:30</span>
-          <h3><span class="em">🍽️</span>Oběd: Restaurace Nebákov</h3>
-          <p>Hospoda u <b>mlýna pašeráků</b> ze hry, u rybníka (5 min autem). Kdo chce, smočí nohy.</p>
-          <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Neb%C3%A1kov">🗺️ Mapa</a></div>
-        </div></article>
-
-        <article class="card hl"><div class="body">
-          <span class="time">13:00</span>
-          <h3><span class="em">⚔️</span>Pod praporem Bergowa · Trosky</h3>
-          <p>Středověké ležení družiny Oty z Bergova: dobová kuchyně, divadlo <i>„Kterak Jindra k Ptáčkovi přišel“</i>, hudba, řemesla. <b>Ukázky střelby 12:00 · 15:00 · 18:00.</b> Zůstaňte, jak dlouho vás to bude bavit. Brány od 9:00.</p>
-          <div class="btns"><a class="btn primary" href="#" data-goticket>🎟️ Moje vstupenka</a><a class="btn" href="https://www.hrad-trosky.cz/cs/leto-na-troskach-2026">🌐 Program</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Hrad%20Trosky">🗺️ Mapa</a></div>
-        </div></article>
-
-        <article class="card"><div class="body">
-          <span class="time">19:30</span>
-          <h3><span class="em">🍺</span>Večer: Rohozecká restaurace</h3>
-          <p>Pivovar <b>Malý Rohozec</b> (Skalák) kousek od Turnova. Alternativa: U Prince v centru, nebo dobové jídlo rovnou na akci.</p>
-          <div class="btns"><a class="btn" href="https://www.rohozeckarestaurace.cz">🌐 Web</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Rohozeck%C3%A1%20restaurace%20Mal%C3%BD%20Rohozec">🗺️ Mapa</a></div>
-        </div></article>
-      </div>
-    </div>
-
-    <!-- VARIANTA B -->
-    <div class="vpane" id="sat-b">
-      <div class="note">ℹ️ Hrad jste prošli v pátek — dnes je běžný okruh stejně zavřený kvůli akci. Klidný den kolem rybníků + pivovar.</div>
-      <div class="stops">
-        <article class="card"><div class="body">
-          <span class="time">9:00</span>
-          <h3><span class="em">🚗</span>Na parkoviště Vidlák</h3>
-          <p>~15 min z Turnova, zdarma.</p>
-          <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Parkovi%C5%A1t%C4%9B%20Vidl%C3%A1k">🗺️ Mapa</a></div>
-        </div></article>
-
-        <article class="card hl">
-          <img class="cardimg" loading="lazy" src="img/podseminsky.jpg" alt="Podsemínský mlýn">
-          <div class="body">
-          <span class="time">9:15</span>
-          <h3><span class="em">🥾</span>Podtroseckými údolími</h3>
-          <p><b>Vidlák → Věžák → Podsemínský mlýn a zpět, ~5 km po rovině.</b> Jádro trasy „Po stopách KCD II“: rybníky sevřené pískovcem, mlýn mlynáře Krejzla (stealth tutoriál!) a výhledy na Trosky z herních úhlů.</p>
-          <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Podsem%C3%ADnsk%C3%BD%20ml%C3%BDn">🗺️ Mapa</a><a class="btn" href="https://www.strednicechy.cz/vylet/herni-svet-oziva-v-srdci-ceskeho-raje/">🎮 O trase</a></div>
-        </div></article>
-
-        <article class="card">
-          <img class="cardimg" loading="lazy" src="img/nebakov.jpg" alt="Nebákov">
-          <div class="body">
-          <span class="time">12:15</span>
-          <h3><span class="em">🍽️</span>Oběd: Restaurace Nebákov</h3>
-          <p>U <b>mlýna pašeráků</b> ze hry, možnost koupání v rybníku.</p>
-          <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Neb%C3%A1kov">🗺️ Mapa</a></div>
-        </div></article>
-
-        <article class="card hl"><div class="body">
-          <span class="time">15:00</span>
-          <h3><span class="em">🍻</span>Exkurze: Pivovar Rohozec</h3>
-          <p>Prohlídka s <b>degustací nefiltrovaného piva</b> (150 Kč, ~1,5 h). Sobotní časy 10:00 / 13:00 / 15:00 — <b>rezervace ~týden předem!</b></p>
-          <div class="btns"><a class="btn primary" href="mailto:exkurze@pivorohozec.cz">✉️ Rezervovat</a><a class="btn" href="tel:+420481321219">📞 Zavolat</a><a class="btn" href="https://www.pivorohozec.cz/exkurze/">🌐 Info</a></div>
-        </div></article>
-
-        <article class="card"><div class="body">
-          <span class="time">18:30</span>
-          <h3><span class="em">🍺</span>Večeře: Rohozecká restaurace</h3>
-          <p>Hned u pivovaru; pak případně dorazit do centra Turnova.</p>
-          <div class="btns"><a class="btn" href="https://www.rohozeckarestaurace.cz">🌐 Web</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Rohozeck%C3%A1%20restaurace%20Mal%C3%BD%20Rohozec">🗺️ Mapa</a></div>
-        </div></article>
-      </div>
+      <article class="card"><div class="body">
+        <span class="time">19:30</span>
+        <h3><span class="em">🍺</span>Večer: Rohozecká restaurace</h3>
+        <p>Pivovar <b>Malý Rohozec</b> (Skalák) kousek od Turnova. Alternativa: U Prince v centru, nebo dobové jídlo rovnou na akci.</p>
+        <div class="btns"><a class="btn" href="https://www.rohozeckarestaurace.cz">🌐 Web</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Rohozeck%C3%A1%20restaurace%20Mal%C3%BD%20Rohozec">🗺️ Mapa</a></div>
+      </div></article>
     </div>
   </section>
 
   <!-- ================= NEDĚLE ================= -->
   <section class="day" id="day-sun">
-    <div class="dayhead"><h2>Hruboskalsko &amp; domů</h2><span class="km">🥾 ~4 km</span></div>
-    <p class="daysub">Nejslavnější panorama Českého ráje na rozloučenou, pak zpátky do Blovic.</p>
+    <div class="dayhead"><h2>Podtroseckými údolími &amp; domů</h2><span class="km">🥾 ~5 km</span></div>
+    <p class="daysub">Nejhezčí procházka výletu po stopách hry — rybníky, pískovec a mlýny. Pak zpátky do Blovic.</p>
+
     <div class="stops">
       <article class="card"><div class="body">
-        <span class="time">9:00</span>
+        <span class="time">8:00</span>
         <h3><span class="em">🧳</span>Snídaně &amp; check-out</h3>
-      </div></article>
-
-      <article class="card"><div class="body">
-        <span class="time">9:45</span>
-        <h3><span class="em">🚗</span>K zámku Hrubá Skála</h3>
-        <p>~12 min z Turnova, parkoviště u zámku.</p>
-        <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Z%C3%A1mek%20Hrub%C3%A1%20Sk%C3%A1la">🗺️ Mapa</a></div>
+        <p>Check-out do <b>11:00</b>. Sbalit a vyrazit na trasu.</p>
       </div></article>
 
       <article class="card hl">
-        <img class="cardimg" loading="lazy" src="img/hrubaskala.jpg" alt="Hruboskalsko">
+        <img class="cardimg" loading="lazy" src="img/podseminsky.jpg" alt="Podtrosecká údolí — Podsemínský mlýn">
         <div class="body">
-        <span class="time">10:00</span>
-        <h3><span class="em">🌄</span>Skalní město · Mariánská vyhlídka</h3>
-        <p><b>Okruh ~3–4 km:</b> Mariánská vyhlídka (pohlednicové panorama skalních věží s Troskami v pozadí), Adamovo lože, nádvoří zámku.</p>
-        <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Mari%C3%A1nsk%C3%A1%20vyhl%C3%ADdka%20Hrub%C3%A1%20Sk%C3%A1la">🗺️ Mapa</a></div>
-      </div></article>
-
-      <article class="card">
-        <img class="cardimg" loading="lazy" src="img/valdstejn.jpg" alt="Hrad Valdštejn">
-        <div class="body">
-        <span class="time">12:15</span>
-        <h3><span class="em">🏯</span>Volitelně: hrad Valdštejn</h3>
-        <p>Nejstarší hrad Českého ráje, založený Markvartici. Od parkoviště jen <b>~600 m</b>, otevřeno 9–18.</p>
-        <div class="btns"><a class="btn" href="https://www.hrad-valdstejn.cz">🌐 Web</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Hrad%20Vald%C5%A1tejn">🗺️ Mapa</a></div>
+        <span class="time">9:30</span>
+        <h3><span class="em">🥾</span>Podtroseckými údolími</h3>
+        <p><b>Vidlák → Věžák → Podsemínský mlýn a zpět, ~5 km po rovině.</b> Jádro trasy „Po stopách KCD II“: rybníky sevřené pískovcem, mlýn <b>mlynáře Krejzla</b> (stealth tutoriál!) a výhledy na Trosky z herních úhlů.</p>
+        <div class="btns"><a class="btn primary" href="https://mapy.cz/turisticka?q=Podsem%C3%ADnsk%C3%BD%20ml%C3%BDn">🗺️ Trasa (Mapy.cz)</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Parkovi%C5%A1t%C4%9B%20Vidl%C3%A1k">🅿️ Vidlák</a></div>
       </div></article>
 
       <article class="card"><div class="body">
-        <span class="time">12:45</span>
+        <span class="time">12:30</span>
         <h3><span class="em">🍽️</span>Oběd</h3>
-        <p>V Turnově nebo na Hrubé Skále — podle hladu a času.</p>
+        <p>U trasy <b>Restaurace Nebákov</b> (u mlýna pašeráků, možnost koupání), nebo zpět v Turnově.</p>
+        <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Restaurace%20Neb%C3%A1kov">🗺️ Nebákov</a></div>
       </div></article>
 
       <article class="card"><div class="body">
@@ -407,56 +305,90 @@
     </div>
   </section>
 
-  <!-- ================= INFO ================= -->
+  <!-- ================= MÍSTA ================= -->
   <section class="day" id="day-info">
+    <div class="dayhead"><h2>Místa ze hry i reality</h2></div>
+    <p class="daysub">Lokace z mapy „Trosecko“ a jejich reálné protějšky — projděte si je kdykoliv.</p>
 
-    <div class="isec"><h2>🎟️ Tvoje vstupenka</h2>
-      <div class="ticket" id="ticket">
-        <div class="strip"></div>
-        <div class="tkhead"><span class="lbl">e-vstupenka</span><span class="org">Národní památkový ústav<br>Tisk Colosseum</span></div>
-        <h3>XIII. Pod praporem Bergowa</h3>
-        <div class="when">Trosky · sobota 18. 7. 2026 · 9:00 · jazyk CZ</div>
-        <div class="qrbox"><svg class="qr" viewBox="0 0 29 29" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="QR kód vstupenky 10031225632"><rect width="29" height="29" fill="#fff"/><path d="M4 4h7v1h-7zM18 4h7v1h-7zM4 5h1v1h-1zM10 5h1v1h-1zM12 5h3v1h-3zM18 5h1v1h-1zM24 5h1v1h-1zM4 6h1v1h-1zM6 6h3v1h-3zM10 6h1v1h-1zM13 6h1v1h-1zM15 6h1v1h-1zM18 6h1v1h-1zM20 6h3v1h-3zM24 6h1v1h-1zM4 7h1v1h-1zM6 7h3v1h-3zM10 7h1v1h-1zM12 7h1v1h-1zM14 7h2v1h-2zM18 7h1v1h-1zM20 7h3v1h-3zM24 7h1v1h-1zM4 8h1v1h-1zM6 8h3v1h-3zM10 8h1v1h-1zM12 8h4v1h-4zM18 8h1v1h-1zM20 8h3v1h-3zM24 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM13 9h1v1h-1zM16 9h1v1h-1zM18 9h1v1h-1zM24 9h1v1h-1zM4 10h7v1h-7zM12 10h1v1h-1zM14 10h1v1h-1zM16 10h1v1h-1zM18 10h7v1h-7zM12 11h1v1h-1zM5 12h1v1h-1zM7 12h4v1h-4zM12 12h1v1h-1zM15 12h4v1h-4zM20 12h2v1h-2zM23 12h1v1h-1zM4 13h1v1h-1zM6 13h1v1h-1zM8 13h1v1h-1zM12 13h2v1h-2zM15 13h2v1h-2zM18 13h1v1h-1zM20 13h1v1h-1zM23 13h2v1h-2zM5 14h1v1h-1zM9 14h3v1h-3zM14 14h1v1h-1zM17 14h2v1h-2zM20 14h1v1h-1zM22 14h2v1h-2zM4 15h3v1h-3zM8 15h1v1h-1zM11 15h4v1h-4zM24 15h1v1h-1zM4 16h1v1h-1zM6 16h1v1h-1zM8 16h3v1h-3zM13 16h2v1h-2zM16 16h1v1h-1zM18 16h1v1h-1zM22 16h3v1h-3zM12 17h1v1h-1zM16 17h1v1h-1zM21 17h1v1h-1zM4 18h7v1h-7zM15 18h1v1h-1zM17 18h5v1h-5zM23 18h1v1h-1zM4 19h1v1h-1zM10 19h1v1h-1zM12 19h2v1h-2zM16 19h2v1h-2zM20 19h1v1h-1zM23 19h1v1h-1zM4 20h1v1h-1zM6 20h3v1h-3zM10 20h1v1h-1zM12 20h5v1h-5zM18 20h2v1h-2zM21 20h2v1h-2zM24 20h1v1h-1zM4 21h1v1h-1zM6 21h3v1h-3zM10 21h1v1h-1zM12 21h2v1h-2zM15 21h2v1h-2zM20 21h1v1h-1zM4 22h1v1h-1zM6 22h3v1h-3zM10 22h1v1h-1zM13 22h2v1h-2zM18 22h2v1h-2zM23 22h2v1h-2zM4 23h1v1h-1zM10 23h1v1h-1zM12 23h2v1h-2zM17 23h2v1h-2zM21 23h2v1h-2zM24 23h1v1h-1zM4 24h7v1h-7zM13 24h3v1h-3zM19 24h1v1h-1zM22 24h2v1h-2z" fill="#000"/></svg></div>
-        <div class="code">10031225632<small>kód vstupenky · nepřehýbat</small></div>
-        <div class="meta"><span>Základní · 2 osoby</span><span>680 Kč</span></div>
-        <div class="gate">Stačí ukázat u brány<span>razítko umožní opakovaný vstup · zákaz psů a zbraní/replik</span></div>
-      </div>
+    <div class="stops">
+      <article class="card">
+        <img class="cardimg" loading="lazy" src="img/trosky.jpg" alt="Hrad Trosky">
+        <div class="body">
+        <h3><span class="em">🏰</span>Trosky</h3>
+        <p>Sídlo <b>Oty z Bergova</b> a dominanta celé mapy — věže <b>Panna &amp; Baba</b>. Okruh „Celým hradem“ (160/130 Kč, denně 9–17:30); v sobotu ale běžný okruh kvůli akci nejede. Na hradě 5 QR panelů hra vs. realita.</p>
+        <div class="btns"><a class="btn" href="https://www.hrad-trosky.cz/cs">🌐 Web hradu</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Hrad%20Trosky">🗺️ Mapa</a></div>
+      </div></article>
+
+      <article class="card">
+        <img class="cardimg" loading="lazy" src="img/troskovice.jpg" alt="Trosky od Troskovic">
+        <div class="body">
+        <h3><span class="em">🏘️</span>Troskovice</h3>
+        <p>Ve hře <b>Troskowitz</b> s krčmou. Na vyhlídce 6. QR panel — pohled na Trosky přesně jako ze hry.</p>
+        <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Troskovice">🗺️ Mapa</a></div>
+      </div></article>
+
+      <article class="card">
+        <img class="cardimg" loading="lazy" src="img/vezak.jpg" alt="Věžický rybník">
+        <div class="body">
+        <h3><span class="em">🌊</span>Vidlák &amp; Věžický rybník</h3>
+        <p>Rybníky sevřené pískovcem — ve hře <b>setkání šlechticů a přepadení</b>. Skály nad hladinou Věžáku, start nedělní procházky.</p>
+        <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=V%C4%9B%C5%BEick%C3%BD%20rybn%C3%ADk">🗺️ Mapa</a></div>
+      </div></article>
+
+      <article class="card">
+        <img class="cardimg" loading="lazy" src="img/podseminsky.jpg" alt="Podsemínský mlýn">
+        <div class="body">
+        <h3><span class="em">⚙️</span>Podsemínský mlýn</h3>
+        <p>Mlýn <b>mlynáře Krejzla</b> — místo, kde se Jindra učí plížení (stealth tutoriál).</p>
+        <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Podsem%C3%ADnsk%C3%BD%20ml%C3%BDn">🗺️ Mapa</a></div>
+      </div></article>
+
+      <article class="card">
+        <img class="cardimg" loading="lazy" src="img/nebakov.jpg" alt="Nebákov">
+        <div class="body">
+        <h3><span class="em">🌾</span>Mlýn Nebákov</h3>
+        <p>Ve hře <b>úkryt pašeráků</b>, dnes hospoda u rybníka mezi pískovcovými skalami — ideální na oběd u trasy.</p>
+        <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Neb%C3%A1kov">🗺️ Mapa</a></div>
+      </div></article>
+
+      <article class="card">
+        <img class="cardimg" loading="lazy" src="img/hrubaskala.jpg" alt="Hruboskalsko">
+        <div class="body">
+        <h3><span class="em">🌄</span>Hruboskalsko <span style="font-size:12px;font-weight:700;color:var(--gold)">· tip navíc</span></h3>
+        <p>Skalní město a zámek na pískovcových věžích, Mariánská vyhlídka s Troskami v pozadí. Okruh ~3–4 km — pokud zbude čas a síla.</p>
+        <div class="btns"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Mari%C3%A1nsk%C3%A1%20vyhl%C3%ADdka%20Hrub%C3%A1%20Sk%C3%A1la">🗺️ Mapa</a></div>
+      </div></article>
+
+      <article class="card">
+        <img class="cardimg" loading="lazy" src="img/valdstejn.jpg" alt="Hrad Valdštejn">
+        <div class="body">
+        <h3><span class="em">🏯</span>Hrad Valdštejn <span style="font-size:12px;font-weight:700;color:var(--gold)">· tip navíc</span></h3>
+        <p>Nejstarší hrad Českého ráje, založený Markvartici — barokní most se sochami. Od parkoviště jen ~600 m, otevřeno 9–18.</p>
+        <div class="btns"><a class="btn" href="https://www.hrad-valdstejn.cz">🌐 Web</a><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Hrad%20Vald%C5%A1tejn">🗺️ Mapa</a></div>
+      </div></article>
     </div>
 
-    <div class="isec"><h2>🎫 Další vstupenky &amp; rezervace</h2>
+    <div class="isec"><h2>🗺️ Další místa ze hry</h2>
       <div class="ilist">
-        <a class="irow" href="https://weblist-npu.colosseum.eu/NonTimedTours?mrsid=208"><div class="ic">🏰</div><div class="tx"><b>Hrad Trosky — okruh Celým hradem</b><span>na pátek · lze i na pokladně</span></div><span class="price">160 Kč</span></a>
-        <a class="irow" href="mailto:exkurze@pivorohozec.cz?subject=Rezervace%20exkurze%2018.%207.%202026"><div class="ic">🍻</div><div class="tx"><b>Exkurze pivovar Rohozec</b><span>varianta B · rezervace ~týden předem</span></div><span class="price">150 Kč</span></a>
-        <a class="irow" href="https://turnovskapivnice.cz"><div class="ic">🍺</div><div class="tx"><b>Stůl v pivnici Na Lukách</b><span>pátek večer bývá plno</span></div><span class="arr">›</span></a>
+        <a class="irow" href="https://www.google.com/maps/search/?api=1&query=Hradi%C5%A1t%C4%9B%20Sem%C3%ADn"><div class="ic">💍</div><div class="tx"><b>Hradiště Semín</b><span>svatba s dramatickým zvratem</span></div><span class="arr">›</span></a>
+        <a class="irow" href="https://www.google.com/maps/search/?api=1&query=Apolena%20sk%C3%A1ly%20Trosky"><div class="ic">🪨</div><div class="tx"><b>Skály Apolena</b><span>lom a skalní scenérie pod hradem</span></div><span class="arr">›</span></a>
       </div>
     </div>
 
     <div class="isec"><h2>📞 Kontakty</h2>
       <div class="ilist">
+        <a class="irow" href="tel:+420770600795"><div class="ic">🏨</div><div class="tx"><b>Bohemia Inn Hotel</b><span>+420 770 600 795 · 5. května 63, Turnov</span></div><span class="arr">›</span></a>
         <a class="irow" href="tel:+420602342627"><div class="ic">🏰</div><div class="tx"><b>Hrad Trosky</b><span>+420 602 342 627 · trosky@npu.cz</span></div><span class="arr">›</span></a>
-        <a class="irow" href="tel:+420481321219"><div class="ic">🍻</div><div class="tx"><b>Pivovar Rohozec (exkurze)</b><span>+420 481 321 219 · po–pá 8–16</span></div><span class="arr">›</span></a>
         <a class="irow" href="tel:+420739014104"><div class="ic">🏯</div><div class="tx"><b>Hrad Valdštejn</b><span>+420 739 014 104</span></div><span class="arr">›</span></a>
-      </div>
-    </div>
-
-    <div class="isec"><h2>🗺️ Místa ze hry (mapa Trosecko)</h2>
-      <div class="ilist">
-        <a class="irow" href="https://www.google.com/maps/search/?api=1&query=Hrad%20Trosky"><div class="ic">🏰</div><div class="tx"><b>Trosky</b><span>sídlo Oty z Bergova, dominanta mapy</span></div><span class="arr">›</span></a>
-        <a class="irow" href="https://www.google.com/maps/search/?api=1&query=Troskovice"><div class="ic">🏘️</div><div class="tx"><b>Troskovice</b><span>Troskowitz — vesnice s krčmou</span></div><span class="arr">›</span></a>
-        <a class="irow" href="https://www.google.com/maps/search/?api=1&query=Podsem%C3%ADnsk%C3%BD%20ml%C3%BDn"><div class="ic">⚙️</div><div class="tx"><b>Podsemínský mlýn</b><span>mlynář Krejzl, učení stealthu</span></div><span class="arr">›</span></a>
-        <a class="irow" href="https://www.google.com/maps/search/?api=1&query=Hradi%C5%A1t%C4%9B%20Sem%C3%ADn"><div class="ic">💍</div><div class="tx"><b>Hradiště Semín</b><span>svatba s dramatickým zvratem</span></div><span class="arr">›</span></a>
-        <a class="irow" href="https://www.google.com/maps/search/?api=1&query=Neb%C3%A1kov"><div class="ic">🌾</div><div class="tx"><b>Mlýn Nebákov</b><span>úkryt pašeráků · dnes hospoda</span></div><span class="arr">›</span></a>
-        <a class="irow" href="https://www.google.com/maps/search/?api=1&query=V%C4%9B%C5%BEick%C3%BD%20rybn%C3%ADk"><div class="ic">🌊</div><div class="tx"><b>Vidlák &amp; Věžák</b><span>setkání šlechticů, přepadení</span></div><span class="arr">›</span></a>
-        <a class="irow" href="https://www.google.com/maps/search/?api=1&query=Apolena%20sk%C3%A1ly%20Trosky"><div class="ic">🪨</div><div class="tx"><b>Skály Apolena</b><span>lom a skalní scenérie pod hradem</span></div><span class="arr">›</span></a>
       </div>
     </div>
 
     <div class="isec"><h2>✅ Dobré vědět</h2>
       <div class="ilist">
-        <div class="irow"><div class="ic">🚫</div><div class="tx"><b>Sobota 18. 7. na Troskách</b><span>běžný okruh nejede · zákaz psů a zbraní/replik na akci</span></div></div>
-        <div class="irow"><div class="ic">⛰️</div><div class="tx"><b>Jediné stoupání: výstup na Trosky</b><span>~80 m převýšení; zbytek tras je rovina</span></div></div>
-        <div class="irow"><div class="ic">🅿️</div><div class="tx"><b>Parkoviště Vidlák zdarma</b><span>v sezónní sobotu přijeďte spíš dřív</span></div></div>
-        <div class="irow"><div class="ic">🌧️</div><div class="tx"><b>Po dešti bláto kolem rybníků</b><span>trasy jsou nejhezčí za sucha</span></div></div>
+        <div class="irow"><div class="ic">⚔️</div><div class="tx"><b>Sobota 18. 7. = akce na Troskách</b><span>běžný okruh nejede · zákaz psů a zbraní/replik</span></div></div>
+        <div class="irow"><div class="ic">⛰️</div><div class="tx"><b>Trasy jsou po rovině</b><span>jediné stoupání je výstup do areálu Trosek</span></div></div>
+        <div class="irow"><div class="ic">🅿️</div><div class="tx"><b>Parkoviště Vidlák zdarma</b><span>v neděli dorazte spíš dřív</span></div></div>
+        <div class="irow"><div class="ic">🌧️</div><div class="tx"><b>Po dešti bláto kolem rybníků</b><span>trasa je nejhezčí za sucha</span></div></div>
         <a class="irow" href="https://www.google.com/search?q=po%C4%8Das%C3%AD+Turnov"><div class="ic">☀️</div><div class="tx"><b>Počasí Turnov</b><span>zkontrolovat před odjezdem</span></div><span class="arr">›</span></a>
       </div>
     </div>
@@ -491,8 +423,8 @@
     <span class="lb">Neděle</span>
   </button>
   <button data-day="info">
-    <svg viewBox="0 0 24 24"><path d="M4 8.5A1.5 1.5 0 0 1 5.5 7h13A1.5 1.5 0 0 1 20 8.5v1.5a1.6 1.6 0 0 0 0 3.2v1.8A1.5 1.5 0 0 1 18.5 17h-13A1.5 1.5 0 0 1 4 15.5v-1.8a1.6 1.6 0 0 0 0-3.2z"/><path d="M14 7.5v9" stroke-dasharray="0.5 2.2"/></svg>
-    <span class="lb">Info</span>
+    <svg viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-11a7 7 0 1 0-14 0c0 4.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+    <span class="lb">Místa</span>
   </button>
 </nav>
 
@@ -508,25 +440,13 @@
   }
   tabs.forEach(function(b){ b.addEventListener('click', function(){ showDay(b.dataset.day); }); });
 
-  // "Moje vstupenka" -> přepnout na Info a odrolovat k lístku
+  // "Moje vstupenka" -> odrolovat k lístku (je na sobotě nahoře)
   document.querySelectorAll('[data-goticket]').forEach(function(a){
     a.addEventListener('click', function(e){
       e.preventDefault();
-      showDay('info');
+      showDay('sat');
       var t = document.getElementById('ticket');
       setTimeout(function(){ if(t) t.scrollIntoView({behavior:'smooth', block:'center'}); }, 60);
-    });
-  });
-
-  // sobotní varianta
-  var vbtns = document.querySelectorAll('#satVariant button');
-  var panes = {a:document.getElementById('sat-a'), b:document.getElementById('sat-b')};
-  var satkm = document.getElementById('satkm');
-  vbtns.forEach(function(b){
-    b.addEventListener('click', function(){
-      vbtns.forEach(function(x){ x.classList.toggle('on', x===b); });
-      Object.keys(panes).forEach(function(k){ panes[k].classList.toggle('on', k===b.dataset.v); });
-      satkm.textContent = b.dataset.v==='a' ? '🥾 ~4 km' : '🥾 ~5 km';
     });
   });
 
