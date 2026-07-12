@@ -71,8 +71,12 @@ reálné krajině kolem hradu Trosky).
   NEJDE), sobota = celý den akce Pod praporem Bergowa na Troskách, neděle =
   procházka Podtroseckými údolími (~7–8 km, k Podsemínskému mlýnu a zpět — uživatel
   vědomě zvolil delší variantu nad limit 5 km) + odjezd. Hruboskalsko a Valdštejn
-  jsou jen „tipy navíc" v Místech. Sobotní večeře posunuta na ~19:00 (Rohozecká
-  restaurace má v so kuchyni jen do ~21:00, odchod z akce ~18:30).
+  jsou jen „tipy navíc" v Místech.
+- **Pití/pivo (oba pijí → nikdo neřídí!):** večery řešit pěšky z hotelu — <b>U Prince</b>
+  (Korunní princ, na náměstí, ~10 min). Mimoměstské pivovary jen taxíkem: Turnovská
+  pivnice <b>Na Lukách</b> ~2 km, <b>Rohozecká</b> (Malý Rohozec) ~4 km. Taxi Turnov
+  800 414 007 (nonstop); Uber/Bolt v Turnově nespolehlivé. Sobotní večeře ~19:00
+  (pokud Rohozec: so kuchyně do ~21:00, z akce vyrazit dřív).
 - Odkaz na nedělní trasu = Mapy.cz `https://mapy.cz/s/nazevocoho` (na iPhonu se
   otevře v aplikaci Mapy); ostatní mapové odkazy = Google Maps.
 - **Sobota 18. 7. 2026 = celodenní KCD2 akce „Pod praporem Bergowa" na Troskách**
