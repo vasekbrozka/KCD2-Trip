@@ -33,9 +33,11 @@ reálné krajině kolem hradu Trosky).
    Navigace je spodní lišta (bottom tab bar).
 3. Zachovej: češtinu, tmavý+světlý režim (prefers-color-scheme), safe-area insets,
    systémové fonty (kulaté — ui-rounded / SF Pro Rounded), vše offline-schopné
-   (žádné externí requesty). Barevnost = KCD paleta (pergamen + zlato + rubriková
-   červeň, „středověký" nádech). UI je moderní (Instagram/Duolingo styl) — karty
-   s fotkou nahoře, časové „pilulky", stlačitelná tlačítka.
+   (žádné externí requesty; hero obrázek `img/hero.jpg` je lokální). Barevnost =
+   pastelová paleta z malby Trosek v hlavičce: šalvějová zeleň + terakota + krém/slate.
+   V CSS proměnných: `--gold*` = šalvěj (primární akcent), `--red*` = terakota
+   (alert / „na řadě"). UI je moderní (Instagram/Duolingo styl) — hlavička s malbou,
+   karty s fotkou nahoře, časové „pilulky", stlačitelná tlačítka.
 4. Itinerář (pořadí položek, časy, odškrtnutí „splněno") se UKLÁDÁ do localStorage
    (klíč `kcd2:itinerar:v1`, `PLAN_VERSION`), aby úpravy „za cesty" přežily zavření
    appky. Data-driven render z `DEFAULT()` v `index.html`. Tlačítko „Obnovit původní

@@ -15,23 +15,23 @@
 <link rel="icon" type="image/png" href="icon-180.png">
 <style>
   :root{
-    --bg:#e9ddc0; --bg2:#dccdaa; --card:#fbf6e9; --card2:#f2e8d1;
-    --ink:#2b2013; --ink2:#75623f; --line:#e2d3ad; --line2:#dac9a2;
-    --gold:#9c7a2c; --goldbr:#c8a049; --golddk:#7c6120; --red:#8c231f; --reddeep:#6b1813;
-    --chipbg:#efe4c6; --chipink:#5d4a29;
-    --shadow:0 1px 2px rgba(58,40,16,.05),0 8px 22px rgba(58,40,16,.09);
-    --warnbg:#f7ebcd; --warnink:#795717;
-    --hero1:#211710; --hero2:#3a2716; --hero3:#4c3320;
+    --bg:#e9ece0; --bg2:#dde2d0; --card:#f7f8f1; --card2:#edf0e5;
+    --ink:#2b342b; --ink2:#68746a; --line:#dee2d3; --line2:#d2d8c4;
+    --gold:#6f8a55; --goldbr:#86a068; --golddk:#54683f; --red:#b56b46; --reddeep:#9a5636;
+    --chipbg:#e7ebdc; --chipink:#4d5a44;
+    --shadow:0 1px 2px rgba(40,50,40,.05),0 8px 22px rgba(40,50,40,.09);
+    --warnbg:#eef1e2; --warnink:#5f6b3f;
+    --hero1:#2a332b; --hero2:#39463a; --hero3:#4a5a49;
   }
   @media (prefers-color-scheme: dark){
     :root{
-      --bg:#151009; --bg2:#100b05; --card:#221a10; --card2:#1b140b;
-      --ink:#efe0bd; --ink2:#a8926a; --line:#372a19; --line2:#4a3922;
-      --gold:#c9a24a; --goldbr:#dcb85f; --golddk:#8a6c22; --red:#e06552; --reddeep:#c04a3a;
-      --chipbg:#2c2114; --chipink:#dcc590;
-      --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 26px rgba(0,0,0,.4);
-      --warnbg:#2c2110; --warnink:#e6c983;
-      --hero1:#0e0a05; --hero2:#231910; --hero3:#33241480;
+      --bg:#141a15; --bg2:#0f140f; --card:#1e261f; --card2:#18201a;
+      --ink:#e8ece0; --ink2:#9fb09f; --line:#2f3a2e; --line2:#3c4a3a;
+      --gold:#8aa269; --goldbr:#a2bb80; --golddk:#5f7544; --red:#d3865f; --reddeep:#b86f48;
+      --chipbg:#262f22; --chipink:#c3d2b0;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 26px rgba(0,0,0,.45);
+      --warnbg:#242c1b; --warnink:#cdd6a0;
+      --hero1:#0c110d; --hero2:#141b15; --hero3:#1e281f;
     }
   }
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -45,19 +45,19 @@
   ::selection{background:color-mix(in srgb,var(--gold) 45%,transparent)}
   /* ---------- HERO ---------- */
   .hero{
-    position:relative; overflow:hidden; color:#f4e9d0;
+    position:relative; overflow:hidden; color:#f3f1e6;
     background:
-      radial-gradient(130% 110% at 82% -20%, rgba(160,45,38,.42), transparent 55%),
-      linear-gradient(160deg,var(--hero1) 0%,var(--hero2) 60%,var(--hero3) 100%);
-    padding:calc(22px + env(safe-area-inset-top)) 22px 42px;
+      linear-gradient(180deg, rgba(26,34,29,.5) 0%, rgba(26,34,29,.36) 42%, rgba(26,34,29,.6) 78%, rgba(26,34,29,.9) 100%),
+      url("img/hero.jpg") center 36%/cover no-repeat;
+    padding:calc(22px + env(safe-area-inset-top)) 22px 46px;
   }
-  .hero .eyebrow{display:flex; align-items:center; gap:7px; font-size:11px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; color:var(--goldbr)}
-  .hero h1{font-size:31px; line-height:1.08; margin-top:11px; font-weight:800; letter-spacing:-.015em; color:#f8efd8}
+  .hero .eyebrow{display:flex; align-items:center; gap:7px; font-size:11px; font-weight:800; letter-spacing:.15em; text-transform:uppercase; color:#e9e7d9; text-shadow:0 1px 8px rgba(12,18,13,.6)}
+  .hero h1{font-size:31px; line-height:1.08; margin-top:11px; font-weight:800; letter-spacing:-.015em; color:#f8f6ec; text-shadow:0 2px 16px rgba(12,18,13,.65)}
   .hero h1 .amp{color:var(--goldbr)}
-  .hero .sub{margin-top:10px; font-size:13.5px; color:#dcc9a6; font-weight:500; line-height:1.45}
+  .hero .sub{margin-top:10px; font-size:13.5px; color:#e8e6d8; font-weight:600; line-height:1.45; text-shadow:0 1px 9px rgba(12,18,13,.6)}
   .hero .badges{display:flex; gap:8px; margin-top:16px; flex-wrap:wrap}
-  .hero .badge{font-size:12.5px; font-weight:700; padding:8px 14px; border-radius:999px; background:rgba(255,255,255,.1); border:1px solid rgba(201,162,74,.3); color:#f2e2bb; -webkit-backdrop-filter:blur(4px); backdrop-filter:blur(4px)}
-  .hero .badge.gold{background:linear-gradient(180deg,var(--goldbr),var(--gold)); color:#241a0e; border:0; box-shadow:0 3px 10px rgba(0,0,0,.28)}
+  .hero .badge{font-size:12.5px; font-weight:700; padding:8px 14px; border-radius:999px; background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.34); color:#eef0e6; -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); text-shadow:0 1px 6px rgba(12,18,13,.4)}
+  .hero .badge.gold{background:linear-gradient(180deg,var(--goldbr),var(--gold)); color:#23301c; border:0; box-shadow:0 3px 10px rgba(0,0,0,.28)}
   .castle{position:absolute; right:-8px; bottom:-8px; width:176px; opacity:.28; pointer-events:none}
   /* ---------- SHEET / PAGE ---------- */
   .page{max-width:600px; margin:-22px auto 0; position:relative; z-index:2; background:var(--bg); border-radius:26px 26px 0 0; padding:14px 16px 0; min-height:70vh}
@@ -76,7 +76,7 @@
   .toolbar{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin:2px 0 14px}
   .toolbar .tool{display:inline-flex; align-items:center; gap:6px; font:inherit; font-size:13px; font-weight:800; color:var(--chipink); background:var(--chipbg); border:0; border-radius:999px; padding:0 15px; height:38px; cursor:pointer; transition:transform .07s}
   .toolbar .tool:active{transform:translateY(2px)}
-  .toolbar .tool.on{color:#2a1e0d; background:linear-gradient(180deg,var(--goldbr),var(--gold)); box-shadow:0 3px 0 var(--golddk)}
+  .toolbar .tool.on{color:#23301c; background:linear-gradient(180deg,var(--goldbr),var(--gold)); box-shadow:0 3px 0 var(--golddk)}
   .toolbar .tool.ghost{background:transparent; color:var(--ink2); border:1.5px solid var(--line2)}
   .toolbar .prog{margin-left:auto; font-size:12.5px; font-weight:800; color:var(--ink2)}
   .toolbar .prog b{color:var(--gold)}
@@ -91,13 +91,13 @@
   .itemtop{display:flex; align-items:center; gap:11px; margin-bottom:9px}
   .check{width:28px; height:28px; border-radius:50%; border:2px solid var(--line2); background:transparent; flex:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:15px; font-weight:800; color:transparent; transition:transform .1s}
   .check:active{transform:scale(.88)}
-  .card.done .check{background:var(--gold); border-color:var(--gold); color:#241a0e}
-  @media (prefers-color-scheme: dark){ .card.done .check{color:#241a0e} }
+  .card.done .check{background:var(--gold); border-color:var(--gold); color:#23301c}
+  @media (prefers-color-scheme: dark){ .card.done .check{color:#23301c} }
   .time{font-size:12px; font-weight:800; color:var(--gold); letter-spacing:.02em; background:color-mix(in srgb,var(--gold) 15%,transparent); padding:3px 11px; border-radius:999px; font-variant-numeric:tabular-nums}
-  .card.hl .time{color:#fff; background:var(--gold)}
-  @media (prefers-color-scheme: dark){ .card.hl .time{color:#241a0e} }
-  .nowtag{font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:#fff; background:var(--red); padding:3px 9px; border-radius:999px}
-  @media (prefers-color-scheme: dark){ .nowtag{color:#241a0e} }
+  .card.hl .time{color:#23301c; background:var(--gold)}
+  @media (prefers-color-scheme: dark){ .card.hl .time{color:#23301c} }
+  .nowtag{font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:#23301c; background:var(--red); padding:3px 9px; border-radius:999px}
+  @media (prefers-color-scheme: dark){ .nowtag{color:#23301c} }
   .card h3{font-size:17px; font-weight:800; display:flex; align-items:center; gap:9px; letter-spacing:-.01em; line-height:1.22}
   .card.done h3{text-decoration:line-through; text-decoration-color:color-mix(in srgb,var(--ink2) 70%,transparent)}
   .card h3 .em{font-size:20px; flex:none; line-height:1}
@@ -115,7 +115,7 @@
   .btns{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
   .btn{display:inline-flex; align-items:center; gap:6px; text-decoration:none; font-size:13px; font-weight:700; color:var(--chipink); background:var(--chipbg); padding:0 14px; height:40px; border-radius:12px; border:0; transition:transform .07s; cursor:pointer}
   .btn:active{transform:translateY(2px)}
-  .btn.primary{color:#2a1e0d; font-weight:800; background:linear-gradient(180deg,var(--goldbr),var(--gold)); box-shadow:0 3px 0 var(--golddk)}
+  .btn.primary{color:#23301c; font-weight:800; background:linear-gradient(180deg,var(--goldbr),var(--gold)); box-shadow:0 3px 0 var(--golddk)}
   .btn.primary:active{transform:translateY(3px); box-shadow:0 0 0 var(--golddk)}
   /* ---------- INFO ---------- */
   .isec{margin:20px 0}
@@ -168,11 +168,6 @@
     <span class="badge" id="countdown">…</span>
     <span class="badge gold">🏰 so: Pod praporem Bergowa</span>
   </div>
-  <svg class="castle" viewBox="0 0 200 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M30 130 L30 60 L26 60 L26 48 L34 48 L34 54 L42 54 L42 48 L50 48 L50 60 L46 60 L46 130 Z" fill="#0c0703"/>
-    <path d="M118 130 L118 34 L112 34 L112 20 L122 20 L122 27 L132 27 L132 20 L142 20 L142 34 L136 34 L136 130 Z" fill="#0c0703"/>
-    <path d="M0 130 C30 108 60 96 100 92 C145 88 175 96 200 106 L200 130 Z" fill="#0c0703"/>
-  </svg>
 </header>
 
 <main class="page">
