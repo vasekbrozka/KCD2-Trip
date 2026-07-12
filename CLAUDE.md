@@ -36,7 +36,11 @@ reálné krajině kolem hradu Trosky).
    (žádné externí requesty). Barevnost = KCD paleta (pergamen + zlato + rubriková
    červeň, „středověký" nádech). UI je moderní (Instagram/Duolingo styl) — karty
    s fotkou nahoře, časové „pilulky", stlačitelná tlačítka.
-4. Žádné localStorage/sessionStorage — stav jen v paměti.
+4. Itinerář (pořadí položek, časy, odškrtnutí „splněno") se UKLÁDÁ do localStorage
+   (klíč `kcd2:itinerar:v1`, `PLAN_VERSION`), aby úpravy „za cesty" přežily zavření
+   appky. Data-driven render z `DEFAULT()` v `index.html`. Tlačítko „Obnovit původní
+   plán" resetuje. Bumpnutím `PLAN_VERSION` se uložený stav zahodí (po změně výchozího
+   plánu). Jinak nic dalšího do storage neukládat bez vyžádání.
 5. Auto-výběr aktuálního dne funguje jen 17.–19. 7. 2026; po výletě zobrazí
    hlavička „Krásné vzpomínky".
 6. Commit messages česky, stručné. Po každé úpravě commit + push do `main`
@@ -72,6 +76,9 @@ reálné krajině kolem hradu Trosky).
   Rohozecká restaurace (pivovar Malý Rohozec), Restaurace Nebákov, Bistro pod Troskami.
 
 ## Zásobník nápadů (zatím nerealizováno)
+- **Sdílení stavu itineráře mezi 2 telefony** (online sync): JSONBlob NEMÁ CORS →
+  z prohlížeče nefunguje. Zvolit funkční backend (kvdb.io ověřit CORS / Firebase)
+  a napojit jako remote adapter nad localStorage. Uživatel chce sdílené, offline nemusí.
 - Odškrtávací checklist „co s sebou" (stav jen v paměti, ne localStorage)
 - Srovnávací fotky hra vs. realita u jednotlivých míst
 - Případné počasí / poznámky na míru po rozhodnutí varianty A vs. B

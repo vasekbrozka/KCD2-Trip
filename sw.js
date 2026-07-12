@@ -1,4 +1,4 @@
-const C = 'kcd2-v6';
+const C = 'kcd2-v7';
 const ASSETS = ['./', './index.html', './manifest.json', './icon-180.png', './icon-512.png',
   './img/trosky.jpg', './img/troskovice.jpg', './img/vezak.jpg', './img/podseminsky.jpg',
   './img/nebakov.jpg', './img/hrubaskala.jpg', './img/valdstejn.jpg'];
