@@ -69,8 +69,10 @@ reálné krajině kolem hradu Trosky).
   kód 10031225632 (QR kóduje 813631911290). QR je přímo v appce na záložce Sobota.
 - **Plán dnů (aktualizováno uživatelem):** pátek = příjezd + hotel (na Trosky se
   NEJDE), sobota = celý den akce Pod praporem Bergowa na Troskách, neděle =
-  procházka Podtroseckými údolími (~5 km) + odjezd. Hruboskalsko a Valdštejn jsou
-  jen „tipy navíc" v Místech.
+  procházka Podtroseckými údolími (~7–8 km, k Podsemínskému mlýnu a zpět — uživatel
+  vědomě zvolil delší variantu nad limit 5 km) + odjezd. Hruboskalsko a Valdštejn
+  jsou jen „tipy navíc" v Místech. Sobotní večeře posunuta na ~19:00 (Rohozecká
+  restaurace má v so kuchyni jen do ~21:00, odchod z akce ~18:30).
 - Odkaz na nedělní trasu = Mapy.cz `https://mapy.cz/s/nazevocoho` (na iPhonu se
   otevře v aplikaci Mapy); ostatní mapové odkazy = Google Maps.
 - **Sobota 18. 7. 2026 = celodenní KCD2 akce „Pod praporem Bergowa" na Troskách**
