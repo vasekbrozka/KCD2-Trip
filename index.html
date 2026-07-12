@@ -160,6 +160,7 @@
   .foot{margin:22px 4px; text-align:center; font-size:11.5px; color:var(--ink2); line-height:1.7; font-weight:500}
   .foot .cross{color:var(--gold); font-size:16px; display:block; margin-bottom:6px}
   .foot b{color:var(--red); font-weight:800}
+  .foot .phcredit{display:block; margin-top:9px; opacity:.6; font-size:10px; line-height:1.5}
   /* ---------- BOTTOM TAB BAR ---------- */
   .tabbar{position:fixed; left:0; right:0; bottom:0; z-index:100; display:flex; padding:7px 6px calc(7px + env(safe-area-inset-bottom)); background:color-mix(in srgb,var(--card) 86%,transparent); -webkit-backdrop-filter:blur(18px) saturate(1.4); backdrop-filter:blur(18px) saturate(1.4); border-top:1px solid var(--line)}
   .tabbar button{flex:1; border:0; background:transparent; cursor:pointer; color:var(--ink2); font:inherit; display:flex; flex-direction:column; align-items:center; gap:3px; padding:6px 2px; border-radius:14px; transition:color .16s, background .16s}
@@ -217,28 +218,7 @@
       </div>
     </div>
 
-    <div class="isec"><h2>✅ Dobré vědět</h2>
-      <div class="ilist">
-        <div class="irow"><div class="ic">⚔️</div><div class="tx"><b>Sobota 18. 7. = akce na Troskách</b><span>běžný okruh nejede · zákaz psů a zbraní/replik</span></div></div>
-        <div class="irow"><div class="ic">⛰️</div><div class="tx"><b>Trasy jsou po rovině</b><span>jediné stoupání je výstup do areálu Trosek</span></div></div>
-        <div class="irow"><div class="ic">🅿️</div><div class="tx"><b>Parkoviště Vidlák zdarma</b><span>v neděli dorazte spíš dřív</span></div></div>
-        <div class="irow"><div class="ic">🌧️</div><div class="tx"><b>Po dešti bláto kolem rybníků</b><span>trasa je nejhezčí za sucha</span></div></div>
-        <a class="irow" href="https://www.google.com/search?q=po%C4%8Das%C3%AD+Turnov"><div class="ic">☀️</div><div class="tx"><b>Počasí Turnov</b><span>zkontrolovat před odjezdem</span></div><span class="arr">›</span></a>
-      </div>
-    </div>
-
-    <div class="isec"><h2>📷 Fotografie</h2>
-      <p class="credits">Reálné fotografie lokací z Wikimedia Commons — díky jejich autorům:<br>
-      <a href="https://commons.wikimedia.org/wiki/File:Trosky_Castle_02.jpg"><b>Trosky</b></a> © Scotch Mist · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a><br>
-      <a href="https://commons.wikimedia.org/wiki/File:Z%C5%99%C3%ADcenina_hradu_Trosky_od_Troskovic.jpg"><b>Od Troskovic</b></a> © Pavel Kovaříček · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a><br>
-      <a href="https://commons.wikimedia.org/wiki/File:%C4%8Cesk%C3%BD_r%C3%A1j_V%C4%9B%C5%BEick%C3%BD_rybn%C3%ADk.jpg"><b>Věžický rybník</b></a> © Lubor Ferenc · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a><br>
-      <a href="https://commons.wikimedia.org/wiki/File:Podsem%C3%ADn.jpg"><b>Podsemínský mlýn</b></a> © ŠJů · <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a><br>
-      <a href="https://commons.wikimedia.org/wiki/File:Neb%C3%A1kov,_sk%C3%A1ly_u_v%C3%BDpust%C4%9B.jpg"><b>Nebákov</b></a> © ŠJů · <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a><br>
-      <a href="https://commons.wikimedia.org/wiki/File:Hruboskalsko_-_view_from_Z%C3%A1meck%C3%A1_vyhl%C3%ADdka.jpg"><b>Hruboskalsko</b></a> © Pudelek (Marcin Szala) · <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a><br>
-      <a href="https://commons.wikimedia.org/wiki/File:Vald%C5%A1tejn_%C4%8Cesk%C3%BD_r%C3%A1j.jpg"><b>Valdštejn</b></a> © Huhulenik · <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a></p>
-    </div>
-
-    <p class="foot"><span class="cross">✝</span>Vytvořeno pro Vaška &amp; spol. · <b>Jesus Christ be praised!</b><br>Tip: v Safari → Sdílet → „Přidat na plochu“ = appka na ploše.</p>
+    <p class="foot"><span class="cross">✝</span>Vytvořeno pro Vaška &amp; spol. · <b>Jesus Christ be praised!</b><br>Tip: v Safari → Sdílet → „Přidat na plochu“ = appka na ploše.<br><span class="phcredit">Fotky lokací: Wikimedia Commons (CC BY-SA / CC BY) — © Scotch Mist, Pavel Kovaříček, Lubor Ferenc, ŠJů, Pudelek, Huhulenik.</span></p>
   </section>
 
 </main>
@@ -479,12 +459,17 @@
   render();
 
   // odpočet + auto-výběr dne
-  var now=new Date(); var start=new Date(2026,6,17), end=new Date(2026,6,19,23,59);
-  var cd=document.getElementById('countdown'); var diff=Math.ceil((start-now)/86400000);
-  if(now>end){ cd.textContent='✨ Krásné vzpomínky'; }
-  else if(diff>1){ cd.textContent='⏳ Za '+diff+' dní vyrážíme'; }
-  else if(diff===1){ cd.textContent='⏳ Zítra vyrážíme!'; }
-  else { cd.textContent='🎉 Právě probíhá!'; var d=now.getDate(),m=now.getMonth(); if(m===6){ if(d===18) showDay('sat'); else if(d===19) showDay('sun'); } }
+  var now=new Date();
+  var today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  var d0=new Date(2026,6,17), d1=new Date(2026,6,18), d2=new Date(2026,6,19), msDay=86400000;
+  var cd=document.getElementById('countdown');
+  if(+today===+d0){ cd.textContent='🚗 Dnes vyrážíme do Turnova'; showDay('fri'); }
+  else if(+today===+d1){ cd.textContent='⚔️ Dnes: akce na Troskách'; showDay('sat'); }
+  else if(+today===+d2){ cd.textContent='🥾 Dnes: Podtrosecká údolí'; showDay('sun'); }
+  else if(today>d2){ cd.textContent='✨ Krásné vzpomínky'; }
+  else { var diff=Math.round((d0-today)/msDay);
+    if(diff===1){ cd.textContent='⏳ Zítra vyrážíme!'; }
+    else { var w=(diff>=2&&diff<=4)?'dny':'dní'; cd.textContent='⏳ Za '+diff+' '+w+' vyrážíme'; } }
 })();
 </script>
 <script>
