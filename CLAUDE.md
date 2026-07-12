@@ -51,8 +51,8 @@ reálné krajině kolem hradu Trosky).
   NEJDE), sobota = celý den akce Pod praporem Bergowa na Troskách, neděle =
   procházka Podtroseckými údolími (~5 km) + odjezd. Hruboskalsko a Valdštejn jsou
   jen „tipy navíc" v Místech.
-- Odkaz na nedělní trasu = Mapy.cz (na iPhonu se otevře v aplikaci Mapy);
-  ostatní mapové odkazy = Google Maps. **TODO: doplnit přesnou URL trasy z Mapy.cz.**
+- Odkaz na nedělní trasu = Mapy.cz `https://mapy.cz/s/nazevocoho` (na iPhonu se
+  otevře v aplikaci Mapy); ostatní mapové odkazy = Google Maps.
 - **Sobota 18. 7. 2026 = celodenní KCD2 akce „Pod praporem Bergowa" na Troskách**
   (dobové ležení družiny Oty z Bergova; loni 9–21 h, 300/240 Kč, razítko pro
   opakovaný vstup, zákaz psů a zbraní/replik). Vstupenky:
