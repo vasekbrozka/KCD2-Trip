@@ -1,5 +1,7 @@
-const C = 'kcd2-v2';
-const ASSETS = ['./', './index.html', './manifest.json', './icon-180.png', './icon-512.png'];
+const C = 'kcd2-v3';
+const ASSETS = ['./', './index.html', './manifest.json', './icon-180.png', './icon-512.png',
+  './img/trosky.jpg', './img/troskovice.jpg', './img/vezak.jpg', './img/podseminsky.jpg',
+  './img/nebakov.jpg', './img/hrubaskala.jpg', './img/valdstejn.jpg'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(C).then(c => c.addAll(ASSETS)));
   self.skipWaiting();

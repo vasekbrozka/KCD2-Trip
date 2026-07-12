@@ -190,6 +190,14 @@
   .note b{font-weight:700}
   .note.ok{color:var(--ink2); border-left-color:var(--gold)}
   .note.ok b{color:var(--red)}
+  /* ---------- PHOTO ---------- */
+  .photo{margin:12px 0 3px; border-radius:10px; overflow:hidden; border:1px solid color-mix(in srgb,var(--gold) 45%,var(--line)); box-shadow:0 2px 10px rgba(0,0,0,.2); background:#0c0703; position:relative}
+  .photo img{display:block; width:100%; height:174px; object-fit:cover}
+  .photo figcaption{font-size:11.5px; color:var(--ink2); font-style:italic; text-align:center; padding:7px 12px; background:linear-gradient(180deg,var(--card),var(--card2)); border-top:1px solid color-mix(in srgb,var(--gold) 35%,var(--line))}
+  .photo figcaption b{color:var(--gold); font-style:normal; font-weight:700; font-size:12px}
+  .credits{font-size:11.5px; line-height:1.8; color:var(--ink2); padding:2px 6px}
+  .credits a{color:var(--gold); text-decoration:none}
+  .credits b{color:var(--ink); font-weight:700}
   /* ---------- TICKET ---------- */
   .ticket{
     background:linear-gradient(180deg,var(--card),var(--card2)); border:1.5px solid color-mix(in srgb,var(--gold) 55%,var(--line));
@@ -283,12 +291,14 @@
       <div class="stop"><div class="t">15:00</div>
         <div class="card hl"><h3><span class="em">🏰</span>Hrad Trosky — Panna &amp; Baba</h3>
         <p>Sídlo <b>Oty z Bergova</b> ze hry. Okruh „Celým hradem“ (<b>160/130 Kč</b>), vyhlídky z obou věží a <b>5 QR panelů</b> porovnávajících hru s realitou. Počítejte ~1,5 h.</p>
+        <figure class="photo"><img loading="lazy" src="img/trosky.jpg" alt="Hrad Trosky"><figcaption><b>Trosky dnes</b> · silueta věží Panna &amp; Baba</figcaption></figure>
         <div class="chips"><a class="chip gold" href="https://weblist-npu.colosseum.eu/NonTimedTours?mrsid=208">🎟️ Vstupenky</a><a class="chip" href="https://www.hrad-trosky.cz/cs">🌐 Web hradu</a><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Hrad%20Trosky">🗺️ Mapa</a><a class="chip" href="tel:+420602342627">📞 Hrad</a></div></div>
       </div>
 
       <div class="stop"><div class="t">17:00</div>
         <div class="card"><h3><span class="em">📸</span>Troskovice — vyhlídka</h3>
         <p>Ve hře <b>Troskowitz</b> s krčmou. Na vyhlídce je 6. QR panel — pohled na Trosky přesně jako ze hry.</p>
+        <figure class="photo"><img loading="lazy" src="img/troskovice.jpg" alt="Trosky od Troskovic"><figcaption><b>Od Troskovic</b> · pohled na Trosky jako ze hry</figcaption></figure>
         <div class="chips"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Troskovice">🗺️ Mapa</a></div></div>
       </div>
 
@@ -327,11 +337,13 @@
         <div class="stop"><div class="t">9:45</div>
           <div class="card"><h3><span class="em">🥾</span>Vidlák → Věžický rybník a zpět</h3>
           <p><b>~3 km po rovině.</b> Nejfotogeničtější kus oficiální trasy „Po stopách KCD II“ — skály nad hladinou Věžáku, místo herního přepadení.</p>
+          <figure class="photo"><img loading="lazy" src="img/vezak.jpg" alt="Věžický rybník"><figcaption><b>Věžický rybník</b> · pískovec nad hladinou</figcaption></figure>
           <div class="chips"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=V%C4%9B%C5%BEick%C3%BD%20rybn%C3%ADk">🗺️ Mapa</a><a class="chip" href="https://www.strednicechy.cz/vylet/herni-svet-oziva-v-srdci-ceskeho-raje/">🎮 O trase</a></div></div>
         </div>
         <div class="stop"><div class="t">11:30</div>
           <div class="card"><h3><span class="em">🍽️</span>Oběd: Restaurace Nebákov</h3>
           <p>Hospoda u <b>mlýna pašeráků</b> ze hry, u rybníka (5 min autem). Kdo chce, smočí nohy.</p>
+          <figure class="photo"><img loading="lazy" src="img/nebakov.jpg" alt="Nebákov"><figcaption><b>Nebákov</b> · skály nad rybníkem u mlýna pašeráků</figcaption></figure>
           <div class="chips"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Neb%C3%A1kov">🗺️ Mapa</a></div></div>
         </div>
         <div class="stop"><div class="t">13:00</div>
@@ -359,11 +371,13 @@
         <div class="stop"><div class="t">9:15</div>
           <div class="card hl"><h3><span class="em">🥾</span>Podtroseckými údolími</h3>
           <p><b>Vidlák → Věžák → Podsemínský mlýn a zpět, ~5 km po rovině.</b> Jádro trasy „Po stopách KCD II“: rybníky sevřené pískovcem, mlýn mlynáře Krejzla (stealth tutoriál!) a výhledy na Trosky z herních úhlů.</p>
+          <figure class="photo"><img loading="lazy" src="img/podseminsky.jpg" alt="Podsemínský mlýn"><figcaption><b>Podsemínský mlýn</b> · u mlynáře Krejzla (stealth)</figcaption></figure>
           <div class="chips"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Podsem%C3%ADnsk%C3%BD%20ml%C3%BDn">🗺️ Mapa</a><a class="chip" href="https://www.strednicechy.cz/vylet/herni-svet-oziva-v-srdci-ceskeho-raje/">🎮 O trase</a></div></div>
         </div>
         <div class="stop"><div class="t">12:15</div>
           <div class="card"><h3><span class="em">🍽️</span>Oběd: Restaurace Nebákov</h3>
           <p>U <b>mlýna pašeráků</b> ze hry, možnost koupání v rybníku.</p>
+          <figure class="photo"><img loading="lazy" src="img/nebakov.jpg" alt="Nebákov"><figcaption><b>Nebákov</b> · rybník u mlýna pašeráků ze hry</figcaption></figure>
           <div class="chips"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Neb%C3%A1kov">🗺️ Mapa</a></div></div>
         </div>
         <div class="stop"><div class="t">15:00</div>
@@ -397,11 +411,13 @@
       <div class="stop"><div class="t">10:00</div>
         <div class="card hl"><h3><span class="em">🌄</span>Skalní město · Mariánská vyhlídka</h3>
         <p><b>Okruh ~3–4 km:</b> Mariánská vyhlídka (pohlednicové panorama skalních věží s Troskami v pozadí), Adamovo lože, nádvoří zámku.</p>
+        <figure class="photo"><img loading="lazy" src="img/hrubaskala.jpg" alt="Hruboskalsko"><figcaption><b>Hruboskalsko</b> · zámek na pískovcových věžích</figcaption></figure>
         <div class="chips"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Mari%C3%A1nsk%C3%A1%20vyhl%C3%ADdka%20Hrub%C3%A1%20Sk%C3%A1la">🗺️ Mapa</a></div></div>
       </div>
       <div class="stop"><div class="t">12:15</div>
         <div class="card"><h3><span class="em">🏯</span>Volitelně: hrad Valdštejn</h3>
         <p>Nejstarší hrad Českého ráje, založený Markvartici. Od parkoviště jen <b>~600 m</b>, otevřeno 9–18.</p>
+                <figure class="photo"><img loading="lazy" src="img/valdstejn.jpg" alt="Hrad Valdštejn"><figcaption><b>Valdštejn</b> · barokní most se sochami</figcaption></figure>
         <div class="chips"><a class="chip" href="https://www.hrad-valdstejn.cz">🌐 Web</a><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Hrad%20Vald%C5%A1tejn">🗺️ Mapa</a></div></div>
       </div>
       <div class="stop"><div class="t">12:45</div>
@@ -467,6 +483,17 @@
         <div class="irow"><div class="ic">🌧️</div><div class="tx"><b>Po dešti bláto kolem rybníků</b><span>trasy jsou nejhezčí za sucha</span></div></div>
         <a class="irow" href="https://www.google.com/search?q=po%C4%8Das%C3%AD+Turnov"><div class="ic">☀️</div><div class="tx"><b>Počasí Turnov</b><span>zkontrolovat před odjezdem</span></div><span class="arr">›</span></a>
       </div>
+    </div>
+
+    <div class="isec"><h2>📷 Fotografie</h2>
+      <p class="credits">Reálné fotografie lokací z Wikimedia Commons — díky jejich autorům:<br>
+      <a href="https://commons.wikimedia.org/wiki/File:Trosky_Castle_02.jpg"><b>Trosky</b></a> © Scotch Mist · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a><br>
+      <a href="https://commons.wikimedia.org/wiki/File:Z%C5%99%C3%ADcenina_hradu_Trosky_od_Troskovic.jpg"><b>Od Troskovic</b></a> © Pavel Kovaříček · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a><br>
+      <a href="https://commons.wikimedia.org/wiki/File:%C4%8Cesk%C3%BD_r%C3%A1j_V%C4%9B%C5%BEick%C3%BD_rybn%C3%ADk.jpg"><b>Věžický rybník</b></a> © Lubor Ferenc · <a href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0</a><br>
+      <a href="https://commons.wikimedia.org/wiki/File:Podsem%C3%ADn.jpg"><b>Podsemínský mlýn</b></a> © ŠJů · <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a><br>
+      <a href="https://commons.wikimedia.org/wiki/File:Neb%C3%A1kov,_sk%C3%A1ly_u_v%C3%BDpust%C4%9B.jpg"><b>Nebákov</b></a> © ŠJů · <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a><br>
+      <a href="https://commons.wikimedia.org/wiki/File:Hruboskalsko_-_view_from_Z%C3%A1meck%C3%A1_vyhl%C3%ADdka.jpg"><b>Hruboskalsko</b></a> © Pudelek (Marcin Szala) · <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a><br>
+      <a href="https://commons.wikimedia.org/wiki/File:Vald%C5%A1tejn_%C4%8Cesk%C3%BD_r%C3%A1j.jpg"><b>Valdštejn</b></a> © Huhulenik · <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a></p>
     </div>
 
     <p class="foot"><span class="cross">✝</span>Vytvořeno pro Vaška &amp; spol. · <b>Jesus Christ be praised!</b><br>Tip: v Safari → Sdílet → „Přidat na plochu“ = appka na ploše.</p>
