@@ -1,4 +1,4 @@
-const C = 'kcd2-v1';
+const C = 'kcd2-v2';
 const ASSETS = ['./', './index.html', './manifest.json', './icon-180.png', './icon-512.png'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(C).then(c => c.addAll(ASSETS)));

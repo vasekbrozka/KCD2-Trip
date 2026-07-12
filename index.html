@@ -3,158 +3,249 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
-<title>Český ráj · KCD2</title>
+<title>Český ráj · Po stopách KCD II</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="KCD2 Výlet">
-<meta name="theme-color" content="#1a2f23" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#10201a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#e7dabb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#160f08" media="(prefers-color-scheme: dark)">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png">
-<link rel="x-icon-unused" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAADbElEQVR42u3cMWsUQRjG8Ru51lIxIAqm0TKxCqggCorYWucbKNoIYmljI+jXsFVREAQRbNTYa1ImfgwbFSV75+3d7M67s79/FZIh3Oz9eZ53NntJx8+emgBNHHEJQA6QA/mYTpKLAMmB1skhOqBWoFaQLzkEByQHlpk5ZAckB8gBR1lIDpRMDtEBtYLWcnADZg6QA2YOOK1ArUCtQHKgluQQHDCQwswBMwfIAbUCAynUCtQKqpeDG1ArIAeyzhyKBZID5ICjLCQHCiZHEh2YWStYijcPr8760bVHb/+7cpE1jSvNHAMnZVrTdqWZA+RAiKOsXsleKynPmrYrJQfIgRC14iLkPuU+uJJlTfHTiod9ajgXd5YcooMeZg6YOQSH5AA5oFYQsVbSya1zrv+KvL5/Oe8vvP74XYjkEBzCwswBM4fokBzoJTlEh+hQK9xQKyAH1IpaKSmHT7yFdCPEm6JWQA6YOcwckgPkQOla0SsBayXI7fNCvLp36fA3bzx5n2VN48pSbN15fvibH5/eUisYcq2EKpVa/utJHYeVaEdZdkR65dGe52BHoFdu5sBAauXl3YtZ1ggOyQFyoFyt1HuHdLhbC3KHtOKb50YOtQJyYDxH2ZvPPvz5+sXtC138Wr2yshy1PQqW7CKjHOiWQfx1PlatCI74uzCQghxYola0il3MmTnq0qOO7STPc8DMAUdZde0oixElh+iwC7ViF63l4IZdzKmV0Az3g6aOsqj8KOsOqV1IDpADjrKOK5ID5EDEWqns31vXsZ3k9rmZw8wBMwccZQXyeHYR/XmO9n9jY4dagVpRKyXl4IZdqBVUN5DKDjMHNyLuQq2AHFArakVywGlFdJSVgxp2YeawCzMHyIF+asXHIe1CcqD9URZL8uPr3u8vz9daK04rf73fO3tBtDuxcUZydH+hY7zfWV52z8bU9om3gaqw4u7WNtYlB5o52NntwpjqZg7MNWYymaxtri8sB8YmzZfdBY2ZhniJ25ves4DG9HeH9ODzd+/BsJiyAX3IwYba5FilVPbZUHlytLFj/xMbGmj8H9z11wobRj5zpH9t+Oai4JccbMAs0tHTx1wFNOJJMJAD5AA5QA6QA+QAOUAOkAPkAMgBcoAcIAfIAXKAHCAHyAFyAOQAOUAOkAPkADlADgyVn4pWZKLrz25nAAAAAElFTkSuQmCC">
 <style>
   :root{
-    --bg:#f4f1ea; --card:#ffffff; --ink:#1c2620; --ink2:#5c6b60; --line:#e5e0d4;
-    --green:#22513a; --green2:#2e6b4c; --gold:#c9a45c; --gold2:#a8853f;
-    --chipbg:#eef2ec; --chipink:#22513a; --timebg:#22513a; --timeink:#f2e8d5;
-    --shadow:0 1px 2px rgba(28,38,32,.06),0 4px 16px rgba(28,38,32,.07);
-    --seg:#e7e2d6; --segactive:#ffffff;
-    --warnbg:#fdf3e3; --warnline:#ecd9b4; --warnink:#7a5c1e;
+    --bg:#e7dabb; --bg2:#dccdaa; --card:#f4ecd6; --card2:#efe3c7;
+    --ink:#2b2013; --ink2:#6d5a3e; --line:#c9b689; --line2:#dac9a2;
+    --gold:#9c7a2c; --goldbr:#c19a45; --red:#8c231f; --reddeep:#6b1813; --seal:#932720;
+    --chipbg:#ece0c1; --chipink:#5d4a29; --timebg:#37291a; --timeink:#f0dcac;
+    --shadow:0 1px 2px rgba(58,40,16,.10),0 6px 22px rgba(58,40,16,.11);
+    --warnbg:#f5e8ca; --warnline:#dcc189; --warnink:#795717;
+    --hero1:#211710; --hero2:#3a2716; --hero3:#4c3320;
+    --grain:.05; --blend:multiply;
   }
   @media (prefers-color-scheme: dark){
     :root{
-      --bg:#121814; --card:#1b241e; --ink:#e8e6df; --ink2:#9aa89e; --line:#2a352d;
-      --green:#3f8f63; --green2:#2e6b4c; --gold:#d4b06a; --gold2:#c9a45c;
-      --chipbg:#243029; --chipink:#a5d6b8; --timebg:#2e6b4c; --timeink:#eaf5ee;
-      --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25);
-      --seg:#232c26; --segactive:#33413a;
-      --warnbg:#2b2417; --warnline:#4a3d20; --warnink:#e3c583;
+      --bg:#160f08; --bg2:#100b05; --card:#221910; --card2:#1b140b;
+      --ink:#ecdcb7; --ink2:#a8926a; --line:#3b2d1a; --line2:#4a3922;
+      --gold:#c9a24a; --goldbr:#dcb85f; --red:#cf5241; --reddeep:#ab362a; --seal:#a5382b;
+      --chipbg:#2a2013; --chipink:#d8c290; --timebg:#3a2c18; --timeink:#e9cf8f;
+      --shadow:0 1px 2px rgba(0,0,0,.45),0 6px 22px rgba(0,0,0,.4);
+      --warnbg:#2c2110; --warnline:#4d3a1c; --warnink:#e6c983;
+      --hero1:#0e0a05; --hero2:#231910; --hero3:#33241480;
+      --grain:.07; --blend:overlay;
     }
   }
   *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html{scroll-behavior:smooth}
   body{
-    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
-    background:var(--bg); color:var(--ink);
-    padding-bottom:calc(28px + env(safe-area-inset-bottom));
+    font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,"Times New Roman",serif;
+    background:var(--bg); color:var(--ink); position:relative;
+    padding-bottom:calc(30px + env(safe-area-inset-bottom));
     -webkit-font-smoothing:antialiased; overscroll-behavior-y:none;
   }
+  /* aged-paper grain overlay */
+  body::before{
+    content:""; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:var(--grain);
+    mix-blend-mode:var(--blend);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  body>*{position:relative;z-index:1}
+  ::selection{background:color-mix(in srgb,var(--gold) 45%,transparent)}
   /* ---------- HERO ---------- */
   .hero{
-    position:relative; overflow:hidden; color:#f2ead6;
-    background:linear-gradient(160deg,#16281e 0%,#1f4530 55%,#2b5d40 100%);
-    padding:calc(18px + env(safe-area-inset-top)) 20px 60px;
+    position:relative; overflow:hidden; color:#f2e6cc;
+    background:
+      radial-gradient(120% 90% at 85% -10%, rgba(140,35,31,.35), transparent 55%),
+      linear-gradient(158deg,var(--hero1) 0%,var(--hero2) 58%,var(--hero3) 100%);
+    padding:calc(20px + env(safe-area-inset-top)) 22px 62px;
+    box-shadow:inset 0 -1px 0 rgba(201,162,74,.35);
+  }
+  .hero::after{ /* hairline gold frame inside hero */
+    content:""; position:absolute; left:14px; right:14px; top:calc(12px + env(safe-area-inset-top)); bottom:20px;
+    border:1px solid rgba(201,162,74,.28); border-radius:6px; pointer-events:none;
   }
   .hero .eyebrow{
-    display:flex; align-items:center; gap:8px;
-    font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--gold);
+    display:flex; align-items:center; gap:9px; position:relative;
+    font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--goldbr);
   }
-  .hero h1{font-family:"New York","Iowan Old Style",Georgia,serif; font-size:30px; line-height:1.12; margin-top:8px; font-weight:700}
-  .hero .sub{margin-top:8px; font-size:14px; color:#cfe0d2}
-  .hero .badges{display:flex; gap:8px; margin-top:14px; flex-wrap:wrap}
+  .hero h1{
+    font-size:33px; line-height:1.08; margin-top:12px; font-weight:700; letter-spacing:.01em;
+    text-shadow:0 2px 14px rgba(0,0,0,.4); color:#f6ecd4;
+  }
+  .hero h1 .amp{color:var(--goldbr); font-style:italic}
+  .flourish{display:flex; align-items:center; gap:10px; margin-top:12px; color:var(--goldbr)}
+  .flourish .ln{height:1px; width:46px; background:linear-gradient(90deg,transparent,currentColor)}
+  .flourish .ln.r{background:linear-gradient(90deg,currentColor,transparent)}
+  .hero .sub{margin-top:12px; font-size:13.5px; color:#d9c9a8; letter-spacing:.02em}
+  .hero .badges{display:flex; gap:8px; margin-top:15px; flex-wrap:wrap}
   .hero .badge{
-    font-size:12px; font-weight:600; padding:6px 11px; border-radius:100px;
-    background:rgba(255,255,255,.13); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.14);
+    font-size:12px; font-weight:600; padding:6px 12px; border-radius:6px; letter-spacing:.02em;
+    background:rgba(240,224,190,.1); border:1px solid rgba(201,162,74,.3); color:#ecd9ac;
   }
-  .hero .badge.gold{background:rgba(201,164,92,.22); border-color:rgba(201,164,92,.4); color:#ecd9ac}
-  .castle{position:absolute; right:-8px; bottom:-6px; width:190px; opacity:.5; pointer-events:none}
+  .hero .badge.gold{background:rgba(201,162,74,.16); border-color:rgba(201,162,74,.5); color:#f2dfae}
+  .castle{position:absolute; right:-6px; bottom:-4px; width:196px; opacity:.42; pointer-events:none}
   /* ---------- TABS ---------- */
   .tabswrap{
-    position:sticky; top:0; z-index:50;
-    padding:10px 16px calc(10px);
-    padding-top:calc(10px + env(safe-area-inset-top)*0);
-    background:color-mix(in srgb,var(--bg) 82%,transparent);
-    -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px);
-    margin-top:-26px;
+    position:sticky; top:0; z-index:50; padding:10px 14px;
+    background:color-mix(in srgb,var(--bg) 84%,transparent);
+    -webkit-backdrop-filter:blur(14px) saturate(1.1); backdrop-filter:blur(14px) saturate(1.1);
+    margin-top:-28px; border-bottom:1px solid color-mix(in srgb,var(--line) 55%,transparent);
   }
-  .seg{display:flex; background:var(--seg); border-radius:14px; padding:3px; box-shadow:var(--shadow)}
+  .seg{
+    display:flex; max-width:560px; margin:0 auto; background:var(--card2);
+    border:1px solid var(--line); border-radius:12px; padding:4px; box-shadow:var(--shadow);
+  }
   .seg button{
-    flex:1; border:0; background:transparent; color:var(--ink2);
-    font:inherit; font-size:13px; font-weight:600; padding:9px 4px; border-radius:11px; cursor:pointer;
-    transition:all .18s ease; min-height:44px; line-height:1.25;
+    flex:1; border:0; background:transparent; color:var(--ink2); font:inherit;
+    font-size:13.5px; font-weight:600; padding:8px 4px; border-radius:9px; cursor:pointer;
+    transition:color .18s,background .18s; min-height:46px; line-height:1.2; letter-spacing:.01em;
   }
-  .seg button small{display:block; font-size:10.5px; font-weight:500; opacity:.75}
-  .seg button.on{background:var(--segactive); color:var(--ink); box-shadow:0 1px 4px rgba(0,0,0,.12)}
-  .seg button.on small{color:var(--green)}
+  .seg button small{display:block; font-size:10px; font-weight:600; opacity:.7; letter-spacing:.04em; text-transform:uppercase; margin-top:2px}
+  .seg button.on{
+    background:linear-gradient(180deg,var(--card),var(--card2)); color:var(--ink);
+    box-shadow:0 1px 3px rgba(0,0,0,.16); border:1px solid var(--line);
+    position:relative;
+  }
+  .seg button.on::after{content:""; position:absolute; left:26%; right:26%; bottom:5px; height:2px; border-radius:2px; background:linear-gradient(90deg,transparent,var(--gold),transparent)}
   /* ---------- CONTENT ---------- */
-  .page{max-width:560px; margin:0 auto; padding:4px 16px 0}
-  .day{display:none; animation:fade .25s ease}
+  .page{max-width:560px; margin:0 auto; padding:2px 16px 0}
+  .day{display:none; animation:fade .28s ease}
   .day.on{display:block}
-  @keyframes fade{from{opacity:0; transform:translateY(6px)}to{opacity:1; transform:none}}
-  .dayhead{display:flex; align-items:baseline; justify-content:space-between; margin:14px 4px 4px}
-  .dayhead h2{font-family:"New York","Iowan Old Style",Georgia,serif; font-size:21px}
-  .dayhead .km{font-size:12px; font-weight:700; color:var(--green); background:var(--chipbg); padding:4px 10px; border-radius:100px}
-  .daysub{font-size:13px; color:var(--ink2); margin:0 4px 14px}
+  @keyframes fade{from{opacity:0; transform:translateY(7px)}to{opacity:1; transform:none}}
+  /* fleuron divider */
+  .rule{display:flex; align-items:center; justify-content:center; gap:12px; margin:20px 8px 6px; color:var(--gold)}
+  .rule .ln{height:1px; flex:1; max-width:150px; background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--gold) 70%,transparent))}
+  .rule svg{width:26px; height:12px; opacity:.85; flex:none}
+  .dayhead{display:flex; align-items:center; justify-content:space-between; gap:10px; margin:16px 4px 3px}
+  .dayhead h2{font-size:23px; font-weight:700; letter-spacing:.01em; line-height:1.15}
+  .dayhead .km{
+    font-size:12px; font-weight:700; color:var(--ink); background:var(--chipbg);
+    padding:5px 11px; border-radius:6px; border:1px solid var(--line); white-space:nowrap; letter-spacing:.02em;
+  }
+  .daysub{
+    font-size:14px; color:var(--ink2); margin:6px 4px 4px; line-height:1.6;
+  }
+  .daysub::first-letter{
+    float:left; font-size:44px; line-height:.86; font-weight:700; color:var(--red);
+    margin:5px 9px 0 0; padding:0; font-family:Georgia,"Times New Roman",serif;
+    text-shadow:0 1px 0 color-mix(in srgb,var(--gold) 40%,transparent);
+  }
   /* variant switch */
-  .variant{display:flex; background:var(--seg); border-radius:12px; padding:3px; margin:2px 0 14px}
+  .variant{display:flex; background:var(--card2); border:1px solid var(--line); border-radius:11px; padding:4px; margin:12px 0 14px; box-shadow:var(--shadow)}
   .variant button{
     flex:1; border:0; background:transparent; color:var(--ink2); font:inherit; font-size:12.5px; font-weight:600;
-    padding:8px 6px; border-radius:9px; cursor:pointer; min-height:40px;
+    padding:9px 6px; border-radius:8px; cursor:pointer; min-height:42px; letter-spacing:.01em; transition:color .18s,background .18s;
   }
-  .variant button.on{background:var(--segactive); color:var(--ink); box-shadow:0 1px 3px rgba(0,0,0,.12)}
+  .variant button.on{background:linear-gradient(180deg,var(--card),var(--card2)); color:var(--ink); box-shadow:0 1px 3px rgba(0,0,0,.16); border:1px solid var(--line)}
   .vpane{display:none}
-  .vpane.on{display:block; animation:fade .22s ease}
+  .vpane.on{display:block; animation:fade .24s ease}
   /* timeline */
-  .tl{position:relative; padding-left:64px}
-  .tl::before{content:""; position:absolute; left:26px; top:8px; bottom:8px; width:2px; background:var(--line); border-radius:2px}
-  .stop{position:relative; margin-bottom:12px}
+  .tl{position:relative; padding-left:66px}
+  .tl::before{content:""; position:absolute; left:27px; top:10px; bottom:10px; width:2px;
+    background:repeating-linear-gradient(var(--line) 0 6px,transparent 6px 11px); border-radius:2px}
+  .stop{position:relative; margin-bottom:13px}
   .stop .t{
-    position:absolute; left:-64px; top:14px; width:52px; text-align:center;
+    position:absolute; left:-66px; top:14px; width:54px; text-align:center;
     font-size:11.5px; font-weight:700; color:var(--timeink); background:var(--timebg);
-    border-radius:8px; padding:4px 0; z-index:2; font-variant-numeric:tabular-nums;
+    border-radius:7px; padding:5px 0; z-index:2; font-variant-numeric:tabular-nums;
+    border:1px solid color-mix(in srgb,var(--gold) 55%,var(--timebg)); letter-spacing:.02em;
+    box-shadow:0 1px 3px rgba(0,0,0,.2);
   }
-  .stop::before{content:""; position:absolute; left:-41px; top:44px; width:8px; height:8px; border-radius:50%;
-    background:var(--gold); border:2px solid var(--bg); z-index:1}
-  .card{background:var(--card); border-radius:16px; padding:14px 15px; box-shadow:var(--shadow); border:1px solid var(--line)}
-  .card.hl{border:1px solid color-mix(in srgb,var(--gold) 55%,var(--line)); background:linear-gradient(180deg,color-mix(in srgb,var(--gold) 9%,var(--card)),var(--card))}
-  .card h3{font-size:15.5px; font-weight:700; display:flex; align-items:center; gap:7px}
-  .card h3 .em{font-size:17px}
-  .card p{font-size:13.5px; color:var(--ink2); margin-top:5px; line-height:1.45}
-  .card p b{color:var(--ink); font-weight:600}
-  .chips{display:flex; flex-wrap:wrap; gap:7px; margin-top:11px}
+  .stop::before{content:""; position:absolute; left:-42px; top:20px; width:10px; height:10px;
+    background:var(--goldbr); border:2px solid var(--bg); z-index:1; transform:rotate(45deg);
+    box-shadow:0 0 0 1px color-mix(in srgb,var(--gold) 60%,transparent)}
+  .card{background:linear-gradient(180deg,var(--card),var(--card2)); border-radius:12px; padding:14px 16px;
+    box-shadow:var(--shadow); border:1px solid var(--line)}
+  .card.hl{
+    border:1px solid color-mix(in srgb,var(--gold) 62%,var(--line));
+    background:linear-gradient(180deg,color-mix(in srgb,var(--gold) 12%,var(--card)),var(--card));
+    position:relative;
+  }
+  .card.hl::before,.card.hl::after{content:""; position:absolute; width:13px; height:13px; pointer-events:none; opacity:.7}
+  .card.hl::before{left:6px; top:6px; border-left:2px solid var(--gold); border-top:2px solid var(--gold); border-top-left-radius:4px}
+  .card.hl::after{right:6px; bottom:6px; border-right:2px solid var(--gold); border-bottom:2px solid var(--gold); border-bottom-right-radius:4px}
+  .card h3{font-size:16px; font-weight:700; display:flex; align-items:center; gap:8px; letter-spacing:.01em}
+  .card h3 .em{font-size:18px; flex:none}
+  .card p{font-size:13.5px; color:var(--ink2); margin-top:6px; line-height:1.5}
+  .card p b{color:var(--ink); font-weight:700}
+  .card p i{color:var(--red); font-style:italic}
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
   .chip{
     display:inline-flex; align-items:center; gap:5px; text-decoration:none;
     font-size:12.5px; font-weight:600; color:var(--chipink); background:var(--chipbg);
-    padding:7px 12px; border-radius:100px; border:1px solid transparent; min-height:32px;
+    padding:7px 12px; border-radius:7px; border:1px solid var(--line); min-height:34px; letter-spacing:.01em;
+    transition:transform .1s;
   }
-  .chip:active{transform:scale(.96)}
-  .chip.gold{background:color-mix(in srgb,var(--gold) 18%,var(--card)); color:var(--gold2); border-color:color-mix(in srgb,var(--gold) 40%,transparent)}
+  .chip:active{transform:scale(.95)}
+  .chip.gold{
+    background:color-mix(in srgb,var(--gold) 20%,var(--card)); color:var(--gold);
+    border-color:color-mix(in srgb,var(--gold) 55%,transparent); font-weight:700;
+  }
+  @media (prefers-color-scheme: dark){ .chip.gold{color:var(--goldbr)} }
   .note{
-    margin:2px 0 14px; font-size:12.5px; line-height:1.5; color:var(--warnink);
-    background:var(--warnbg); border:1px solid var(--warnline); border-radius:13px; padding:10px 13px;
+    margin:4px 0 14px; font-size:12.5px; line-height:1.55; color:var(--warnink);
+    background:var(--warnbg); border:1px solid var(--warnline); border-radius:11px; padding:11px 14px;
+    border-left:4px solid color-mix(in srgb,var(--gold) 70%,var(--warnline));
   }
   .note b{font-weight:700}
+  .note.ok{color:var(--ink2); border-left-color:var(--gold)}
+  .note.ok b{color:var(--red)}
+  /* ---------- TICKET ---------- */
+  .ticket{
+    background:linear-gradient(180deg,var(--card),var(--card2)); border:1.5px solid color-mix(in srgb,var(--gold) 55%,var(--line));
+    border-radius:14px; padding:16px 16px 18px; box-shadow:var(--shadow); position:relative; overflow:hidden;
+  }
+  .ticket::before{content:""; position:absolute; inset:5px; border:1px solid color-mix(in srgb,var(--gold) 35%,transparent); border-radius:10px; pointer-events:none}
+  .ticket .tkhead{display:flex; align-items:center; justify-content:space-between; gap:10px; position:relative}
+  .ticket .tkhead .lbl{font-size:10.5px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--red)}
+  .ticket .tkhead .org{font-size:10.5px; color:var(--ink2); text-align:right; line-height:1.3}
+  .ticket h3{font-size:19px; font-weight:700; margin-top:9px; text-align:center; color:var(--ink); letter-spacing:.01em}
+  .ticket .when{font-size:13px; color:var(--ink2); text-align:center; margin-top:3px; font-weight:600}
+  .qrbox{
+    background:#fff; width:236px; max-width:78%; margin:14px auto 6px; padding:14px; border-radius:12px;
+    border:1px solid var(--line); box-shadow:0 2px 8px rgba(0,0,0,.18);
+  }
+  .qrbox .qr{display:block; width:100%; height:auto}
+  .ticket .code{text-align:center; font-size:15px; font-weight:700; letter-spacing:.08em; font-variant-numeric:tabular-nums; margin-top:8px; color:var(--ink)}
+  .ticket .code small{display:block; font-size:11px; font-weight:600; letter-spacing:.02em; color:var(--ink2); margin-top:2px}
+  .ticket .meta{display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-top:12px}
+  .ticket .meta span{font-size:12px; font-weight:600; background:var(--chipbg); border:1px solid var(--line); color:var(--chipink); padding:5px 11px; border-radius:6px}
+  .ticket .gate{text-align:center; font-size:12px; color:var(--red); font-weight:700; margin-top:13px; letter-spacing:.01em}
+  .ticket .gate span{display:block; color:var(--ink2); font-weight:600; font-size:11.5px; margin-top:3px; letter-spacing:0}
   /* info tab */
-  .isec{margin:16px 0}
-  .isec h2{font-family:"New York","Iowan Old Style",Georgia,serif; font-size:19px; margin:0 4px 10px}
-  .ilist{background:var(--card); border-radius:16px; box-shadow:var(--shadow); border:1px solid var(--line); overflow:hidden}
+  .isec{margin:14px 0}
+  .isec h2{font-size:19px; margin:0 4px 10px; font-weight:700; letter-spacing:.01em}
+  .ilist{background:linear-gradient(180deg,var(--card),var(--card2)); border-radius:12px; box-shadow:var(--shadow); border:1px solid var(--line); overflow:hidden}
   .irow{display:flex; align-items:center; gap:12px; padding:13px 15px; border-bottom:1px solid var(--line); text-decoration:none; color:var(--ink)}
   .irow:last-child{border-bottom:0}
-  .irow .ic{width:34px; height:34px; border-radius:10px; background:var(--chipbg); display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0}
+  .irow .ic{width:36px; height:36px; border-radius:9px; background:var(--chipbg); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-size:17px; flex-shrink:0}
   .irow .tx{flex:1; min-width:0}
-  .irow .tx b{display:block; font-size:14px; font-weight:600}
-  .irow .tx span{display:block; font-size:12.5px; color:var(--ink2); margin-top:1px}
-  .irow .arr{color:var(--ink2); font-size:14px; opacity:.55}
-  .price{font-size:13px; font-weight:700; color:var(--green); flex-shrink:0}
-  .foot{margin:26px 4px 0; text-align:center; font-size:11.5px; color:var(--ink2); line-height:1.6}
-  .foot b{color:var(--gold2)}
+  .irow .tx b{display:block; font-size:14px; font-weight:700}
+  .irow .tx span{display:block; font-size:12.5px; color:var(--ink2); margin-top:1px; line-height:1.35}
+  .irow .arr{color:var(--gold); font-size:15px; opacity:.7}
+  .price{font-size:13px; font-weight:700; color:var(--red); flex-shrink:0}
+  .foot{margin:24px 4px 0; text-align:center; font-size:11.5px; color:var(--ink2); line-height:1.7}
+  .foot .cross{color:var(--gold); font-size:15px; display:block; margin-bottom:6px}
+  .foot b{color:var(--red)}
 </style>
 </head>
 <body>
 
 <header class="hero">
-  <div class="eyebrow">⚔️ Po stopách Kingdom Come: Deliverance II</div>
-  <h1>Český ráj<br>17.–19. července 2026</h1>
-  <div class="sub">Blovice → Turnov · 2 noci · pěšky max ~5 km/den</div>
+  <div class="eyebrow">⚔ Po stopách Kingdom Come: Deliverance II</div>
+  <h1>Český ráj <span class="amp">&amp;</span> Trosecko</h1>
+  <div class="flourish"><span class="ln"></span>
+    <svg width="24" height="12" viewBox="0 0 24 12" fill="none"><path d="M12 1 L15 6 L12 11 L9 6 Z" fill="currentColor"/><circle cx="3" cy="6" r="1.6" fill="currentColor"/><circle cx="21" cy="6" r="1.6" fill="currentColor"/></svg>
+    <span class="ln r"></span></div>
+  <div class="sub">17.–19. července 2026 · Blovice → Turnov · pěšky max ~5 km/den</div>
   <div class="badges">
     <span class="badge" id="countdown">…</span>
-    <span class="badge gold">🏰 sobota: akce Pod praporem Bergowa</span>
+    <span class="badge gold">🏰 so: Pod praporem Bergowa</span>
   </div>
   <svg class="castle" viewBox="0 0 200 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M30 130 L30 60 L26 60 L26 48 L34 48 L34 54 L42 54 L42 48 L50 48 L50 60 L46 60 L46 130 Z" fill="#0d1f15"/>
-    <path d="M118 130 L118 34 L112 34 L112 20 L122 20 L122 27 L132 27 L132 20 L142 20 L142 34 L136 34 L136 130 Z" fill="#0d1f15"/>
-    <path d="M0 130 C30 108 60 96 100 92 C145 88 175 96 200 106 L200 130 Z" fill="#0d1f15"/>
+    <path d="M30 130 L30 60 L26 60 L26 48 L34 48 L34 54 L42 54 L42 48 L50 48 L50 60 L46 60 L46 130 Z" fill="#0c0703"/>
+    <path d="M118 130 L118 34 L112 34 L112 20 L122 20 L122 27 L132 27 L132 20 L142 20 L142 34 L136 34 L136 130 Z" fill="#0c0703"/>
+    <path d="M0 130 C30 108 60 96 100 92 C145 88 175 96 200 106 L200 130 Z" fill="#0c0703"/>
   </svg>
 </header>
 
@@ -163,7 +254,7 @@
     <button data-day="fri" class="on">Pátek<small>17. 7.</small></button>
     <button data-day="sat">Sobota<small>18. 7.</small></button>
     <button data-day="sun">Neděle<small>19. 7.</small></button>
-    <button data-day="info">Info<small>rezervace</small></button>
+    <button data-day="info">Info<small>vstupenka</small></button>
   </div>
 </nav>
 
@@ -171,33 +262,34 @@
 
   <!-- ================= PÁTEK ================= -->
   <section class="day on" id="day-fri">
+    <div class="rule"><span class="ln"></span><svg viewBox="0 0 26 12" fill="none"><path d="M13 1 L16 6 L13 11 L10 6 Z" fill="currentColor"/><circle cx="3" cy="6" r="1.5" fill="currentColor"/><circle cx="23" cy="6" r="1.5" fill="currentColor"/></svg><span class="ln"></span></div>
     <div class="dayhead"><h2>Cesta &amp; hrad Trosky</h2><span class="km">🥾 ~2–3 km</span></div>
-    <p class="daysub">Přejezd z Blovic, výstup na dominantu hry a první turnovské pivo.</p>
+    <p class="daysub">Přejezd z Blovic, výstup na dominantu celé hry a první turnovské pivo na uvítanou.</p>
     <div class="note">⚠️ Prohlídku Trosek stihněte <b>dnes</b> — v sobotu kvůli akci běžný okruh „Celým hradem“ nejede. Otevřeno do 17:30.</div>
 
     <div class="tl">
       <div class="stop"><div class="t">12:00</div>
         <div class="card"><h3><span class="em">🚗</span>Odjezd z Blovic</h3>
         <p>D5 → Praha → D10, <b>~190 km, ~2,5 h</b>. Lehký oběd cestou, nebo vydržet na bistro pod hradem.</p>
-        <div class="chips"><a class="chip" href="https://maps.apple.com/?saddr=Blovice&daddr=Hrad+Trosky&dirflg=d">🧭 Navigovat</a></div></div>
+        <div class="chips"><a class="chip" href="https://www.google.com/maps/dir/?api=1&origin=Blovice&destination=Hrad%20Trosky&travelmode=driving">🧭 Navigovat</a></div></div>
       </div>
 
       <div class="stop"><div class="t">14:30</div>
         <div class="card"><h3><span class="em">🅿️</span>Parkoviště pod Troskami</h3>
         <p>Rychlé občerstvení v <b>Bistru pod Troskami</b> přímo u parkoviště, pak ~15–20 min do kopce k bráně.</p>
-        <div class="chips"><a class="chip" href="https://mapy.cz/turisticka?q=parkovi%C5%A1t%C4%9B%20Trosky">🗺️ Mapa</a><a class="chip" href="https://bistropodtroskami.cz">🌐 Bistro</a></div></div>
+        <div class="chips"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Parkovi%C5%A1t%C4%9B%20Trosky">🗺️ Mapa</a><a class="chip" href="https://bistropodtroskami.cz">🌐 Bistro</a></div></div>
       </div>
 
       <div class="stop"><div class="t">15:00</div>
         <div class="card hl"><h3><span class="em">🏰</span>Hrad Trosky — Panna &amp; Baba</h3>
-        <p>Sídlo Oty z Bergova ze hry. Okruh „Celým hradem“ (<b>160/130 Kč</b>), vyhlídky z obou věží a <b>5 QR panelů</b> porovnávajících hru s realitou. Počítejte ~1,5 h.</p>
-        <div class="chips"><a class="chip gold" href="https://weblist-npu.colosseum.eu/NonTimedTours?mrsid=208">🎟️ Vstupenky</a><a class="chip" href="https://www.hrad-trosky.cz/cs">🌐 Web hradu</a><a class="chip" href="https://mapy.cz/turisticka?q=hrad%20Trosky">🗺️ Mapa</a><a class="chip" href="tel:+420602342627">📞 Hrad</a></div></div>
+        <p>Sídlo <b>Oty z Bergova</b> ze hry. Okruh „Celým hradem“ (<b>160/130 Kč</b>), vyhlídky z obou věží a <b>5 QR panelů</b> porovnávajících hru s realitou. Počítejte ~1,5 h.</p>
+        <div class="chips"><a class="chip gold" href="https://weblist-npu.colosseum.eu/NonTimedTours?mrsid=208">🎟️ Vstupenky</a><a class="chip" href="https://www.hrad-trosky.cz/cs">🌐 Web hradu</a><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Hrad%20Trosky">🗺️ Mapa</a><a class="chip" href="tel:+420602342627">📞 Hrad</a></div></div>
       </div>
 
       <div class="stop"><div class="t">17:00</div>
         <div class="card"><h3><span class="em">📸</span>Troskovice — vyhlídka</h3>
         <p>Ve hře <b>Troskowitz</b> s krčmou. Na vyhlídce je 6. QR panel — pohled na Trosky přesně jako ze hry.</p>
-        <div class="chips"><a class="chip" href="https://mapy.cz/turisticka?q=Troskovice">🗺️ Mapa</a></div></div>
+        <div class="chips"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Troskovice">🗺️ Mapa</a></div></div>
       </div>
 
       <div class="stop"><div class="t">17:45</div>
@@ -207,16 +299,17 @@
 
       <div class="stop"><div class="t">19:00</div>
         <div class="card"><h3><span class="em">🍺</span>Turnovská pivnice Na Lukách</h3>
-        <p>Flagship u <b>Měšťanského pivovaru Turnov</b> — vlastní řemeslné pivo, „kuchyně z gruntu“, deskovky k pivu. Záloha: <b>U Prince</b> v centru (stejný pivovar).</p>
-        <div class="chips"><a class="chip" href="https://turnovskapivnice.cz/nase-podniky/na-lukach">🌐 Web</a><a class="chip" href="https://mapy.cz/zakladni?q=Turnovsk%C3%A1%20pivnice%20Na%20Luk%C3%A1ch%20Turnov">🗺️ Mapa</a></div></div>
+        <p>Flagship <b>Měšťanského pivovaru Turnov</b> — vlastní řemeslné pivo, „kuchyně z gruntu“, deskovky k pivu. Záloha: <b>U Prince</b> v centru (stejný pivovar).</p>
+        <div class="chips"><a class="chip" href="https://turnovskapivnice.cz/nase-podniky/na-lukach">🌐 Web</a><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Turnovsk%C3%A1%20pivnice%20Na%20Luk%C3%A1ch%20Turnov">🗺️ Mapa</a></div></div>
       </div>
     </div>
   </section>
 
   <!-- ================= SOBOTA ================= -->
   <section class="day" id="day-sat">
+    <div class="rule"><span class="ln"></span><svg viewBox="0 0 26 12" fill="none"><path d="M13 1 L16 6 L13 11 L10 6 Z" fill="currentColor"/><circle cx="3" cy="6" r="1.5" fill="currentColor"/><circle cx="23" cy="6" r="1.5" fill="currentColor"/></svg><span class="ln"></span></div>
     <div class="dayhead"><h2>Den v kulisách hry</h2><span class="km" id="satkm">🥾 ~4 km</span></div>
-    <p class="daysub">Rybníky a mlýny z mapy Trosecko — a večer pivo. Vyberte variantu:</p>
+    <p class="daysub">Rybníky a mlýny z mapy Trosecko — a večer pivo. Vyber si variantu dne:</p>
     <div class="variant" id="satVariant">
       <button data-v="a" class="on">⚔️ A · S akcí na Troskách</button>
       <button data-v="b">🌲 B · Klidná turistika</button>
@@ -224,32 +317,32 @@
 
     <!-- VARIANTA A -->
     <div class="vpane on" id="sat-a">
-      <div class="note">🎟️ <b>Pod praporem Bergowa</b> — celodenní KCD2 akce (loni 300/240 Kč, razítko = můžete odejít a vrátit se). <b>Kupte lístky předem</b>, loni se sobota vyprodala! Zákaz psů a zbraní/replik.</div>
+      <div class="note ok">✅ <b>Vstupenku máš koupenou</b> — 2 osoby, základní, 680 Kč. QR ukážeš přímo v appce (níže i v záložce <b>Info</b>). Razítko u vstupu = můžeš odejít a vrátit se. Zákaz psů a zbraní/replik.</div>
       <div class="tl">
         <div class="stop"><div class="t">9:30</div>
           <div class="card"><h3><span class="em">🚗</span>Na parkoviště Vidlák</h3>
           <p>~15 min z Turnova, parkování zdarma. V sezónní sobotu radši dřív.</p>
-          <div class="chips"><a class="chip" href="https://mapy.cz/turisticka?q=parkovi%C5%A1t%C4%9B%20Vidl%C3%A1k">🗺️ Mapa</a></div></div>
+          <div class="chips"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Parkovi%C5%A1t%C4%9B%20Vidl%C3%A1k">🗺️ Mapa</a></div></div>
         </div>
         <div class="stop"><div class="t">9:45</div>
           <div class="card"><h3><span class="em">🥾</span>Vidlák → Věžický rybník a zpět</h3>
           <p><b>~3 km po rovině.</b> Nejfotogeničtější kus oficiální trasy „Po stopách KCD II“ — skály nad hladinou Věžáku, místo herního přepadení.</p>
-          <div class="chips"><a class="chip" href="https://mapy.cz/turisticka?q=V%C4%9B%C5%BEick%C3%BD%20rybn%C3%ADk">🗺️ Mapa</a><a class="chip" href="https://www.strednicechy.cz/vylet/herni-svet-oziva-v-srdci-ceskeho-raje/">🎮 O trase</a></div></div>
+          <div class="chips"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=V%C4%9B%C5%BEick%C3%BD%20rybn%C3%ADk">🗺️ Mapa</a><a class="chip" href="https://www.strednicechy.cz/vylet/herni-svet-oziva-v-srdci-ceskeho-raje/">🎮 O trase</a></div></div>
         </div>
         <div class="stop"><div class="t">11:30</div>
           <div class="card"><h3><span class="em">🍽️</span>Oběd: Restaurace Nebákov</h3>
           <p>Hospoda u <b>mlýna pašeráků</b> ze hry, u rybníka (5 min autem). Kdo chce, smočí nohy.</p>
-          <div class="chips"><a class="chip" href="https://mapy.cz/turisticka?q=Neb%C3%A1kov">🗺️ Mapa</a></div></div>
+          <div class="chips"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Neb%C3%A1kov">🗺️ Mapa</a></div></div>
         </div>
         <div class="stop"><div class="t">13:00</div>
           <div class="card hl"><h3><span class="em">⚔️</span>Pod praporem Bergowa · Trosky</h3>
-          <p>Středověké ležení družiny Oty z Bergova: dobová kuchyně, divadlo <i>„Kterak Jindra k Ptáčkovi přišel“</i>, hudba, řemesla. <b>Ukázky střelby 12:00 · 15:00 · 18:00.</b> Zůstaňte, jak dlouho vás to bude bavit.</p>
-          <div class="chips"><a class="chip gold" href="https://weblist-npu.colosseum.eu/Tours?mrsid=208">🎟️ Vstupenky</a><a class="chip" href="https://www.hrad-trosky.cz/cs/leto-na-troskach-2026">🌐 Program</a><a class="chip" href="https://mapy.cz/turisticka?q=hrad%20Trosky">🗺️ Mapa</a></div></div>
+          <p>Středověké ležení družiny Oty z Bergova: dobová kuchyně, divadlo <i>„Kterak Jindra k Ptáčkovi přišel“</i>, hudba, řemesla. <b>Ukázky střelby 12:00 · 15:00 · 18:00.</b> Zůstaňte, jak dlouho vás to bude bavit. Brány od 9:00.</p>
+          <div class="chips"><a class="chip gold" href="#" data-goticket>🎟️ Moje vstupenka</a><a class="chip" href="https://www.hrad-trosky.cz/cs/leto-na-troskach-2026">🌐 Program</a><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Hrad%20Trosky">🗺️ Mapa</a></div></div>
         </div>
         <div class="stop"><div class="t">19:30</div>
           <div class="card"><h3><span class="em">🍺</span>Večer: Rohozecká restaurace</h3>
           <p>Pivovar <b>Malý Rohozec</b> (Skalák) kousek od Turnova. Alternativa: U Prince v centru, nebo dobové jídlo rovnou na akci.</p>
-          <div class="chips"><a class="chip" href="https://www.rohozeckarestaurace.cz">🌐 Web</a><a class="chip" href="https://mapy.cz/zakladni?q=Rohozeck%C3%A1%20restaurace%20Mal%C3%BD%20Rohozec">🗺️ Mapa</a></div></div>
+          <div class="chips"><a class="chip" href="https://www.rohozeckarestaurace.cz">🌐 Web</a><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Rohozeck%C3%A1%20restaurace%20Mal%C3%BD%20Rohozec">🗺️ Mapa</a></div></div>
         </div>
       </div>
     </div>
@@ -261,17 +354,17 @@
         <div class="stop"><div class="t">9:00</div>
           <div class="card"><h3><span class="em">🚗</span>Na parkoviště Vidlák</h3>
           <p>~15 min z Turnova, zdarma.</p>
-          <div class="chips"><a class="chip" href="https://mapy.cz/turisticka?q=parkovi%C5%A1t%C4%9B%20Vidl%C3%A1k">🗺️ Mapa</a></div></div>
+          <div class="chips"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Parkovi%C5%A1t%C4%9B%20Vidl%C3%A1k">🗺️ Mapa</a></div></div>
         </div>
         <div class="stop"><div class="t">9:15</div>
           <div class="card hl"><h3><span class="em">🥾</span>Podtroseckými údolími</h3>
           <p><b>Vidlák → Věžák → Podsemínský mlýn a zpět, ~5 km po rovině.</b> Jádro trasy „Po stopách KCD II“: rybníky sevřené pískovcem, mlýn mlynáře Krejzla (stealth tutoriál!) a výhledy na Trosky z herních úhlů.</p>
-          <div class="chips"><a class="chip" href="https://mapy.cz/turisticka?q=Podsem%C3%ADnsk%C3%BD%20ml%C3%BDn">🗺️ Mapa</a><a class="chip" href="https://www.strednicechy.cz/vylet/herni-svet-oziva-v-srdci-ceskeho-raje/">🎮 O trase</a></div></div>
+          <div class="chips"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Podsem%C3%ADnsk%C3%BD%20ml%C3%BDn">🗺️ Mapa</a><a class="chip" href="https://www.strednicechy.cz/vylet/herni-svet-oziva-v-srdci-ceskeho-raje/">🎮 O trase</a></div></div>
         </div>
         <div class="stop"><div class="t">12:15</div>
           <div class="card"><h3><span class="em">🍽️</span>Oběd: Restaurace Nebákov</h3>
           <p>U <b>mlýna pašeráků</b> ze hry, možnost koupání v rybníku.</p>
-          <div class="chips"><a class="chip" href="https://mapy.cz/turisticka?q=Neb%C3%A1kov">🗺️ Mapa</a></div></div>
+          <div class="chips"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Neb%C3%A1kov">🗺️ Mapa</a></div></div>
         </div>
         <div class="stop"><div class="t">15:00</div>
           <div class="card hl"><h3><span class="em">🍻</span>Exkurze: Pivovar Rohozec</h3>
@@ -281,7 +374,7 @@
         <div class="stop"><div class="t">18:30</div>
           <div class="card"><h3><span class="em">🍺</span>Večeře: Rohozecká restaurace</h3>
           <p>Hned u pivovaru; pak případně dorazit do centra Turnova.</p>
-          <div class="chips"><a class="chip" href="https://www.rohozeckarestaurace.cz">🌐 Web</a><a class="chip" href="https://mapy.cz/zakladni?q=Rohozeck%C3%A1%20restaurace%20Mal%C3%BD%20Rohozec">🗺️ Mapa</a></div></div>
+          <div class="chips"><a class="chip" href="https://www.rohozeckarestaurace.cz">🌐 Web</a><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Rohozeck%C3%A1%20restaurace%20Mal%C3%BD%20Rohozec">🗺️ Mapa</a></div></div>
         </div>
       </div>
     </div>
@@ -289,8 +382,9 @@
 
   <!-- ================= NEDĚLE ================= -->
   <section class="day" id="day-sun">
+    <div class="rule"><span class="ln"></span><svg viewBox="0 0 26 12" fill="none"><path d="M13 1 L16 6 L13 11 L10 6 Z" fill="currentColor"/><circle cx="3" cy="6" r="1.5" fill="currentColor"/><circle cx="23" cy="6" r="1.5" fill="currentColor"/></svg><span class="ln"></span></div>
     <div class="dayhead"><h2>Hruboskalsko &amp; domů</h2><span class="km">🥾 ~4 km</span></div>
-    <p class="daysub">Nejslavnější panorama Českého ráje na rozloučenou.</p>
+    <p class="daysub">Nejslavnější panorama Českého ráje na rozloučenou, pak zpátky do Blovic.</p>
     <div class="tl">
       <div class="stop"><div class="t">9:00</div>
         <div class="card"><h3><span class="em">🧳</span>Snídaně &amp; check-out</h3></div>
@@ -298,17 +392,17 @@
       <div class="stop"><div class="t">9:45</div>
         <div class="card"><h3><span class="em">🚗</span>K zámku Hrubá Skála</h3>
         <p>~12 min z Turnova, parkoviště u zámku.</p>
-        <div class="chips"><a class="chip" href="https://mapy.cz/turisticka?q=z%C3%A1mek%20Hrub%C3%A1%20Sk%C3%A1la">🗺️ Mapa</a></div></div>
+        <div class="chips"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Z%C3%A1mek%20Hrub%C3%A1%20Sk%C3%A1la">🗺️ Mapa</a></div></div>
       </div>
       <div class="stop"><div class="t">10:00</div>
         <div class="card hl"><h3><span class="em">🌄</span>Skalní město · Mariánská vyhlídka</h3>
         <p><b>Okruh ~3–4 km:</b> Mariánská vyhlídka (pohlednicové panorama skalních věží s Troskami v pozadí), Adamovo lože, nádvoří zámku.</p>
-        <div class="chips"><a class="chip" href="https://mapy.cz/turisticka?q=Mari%C3%A1nsk%C3%A1%20vyhl%C3%ADdka%20Hrub%C3%A1%20Sk%C3%A1la">🗺️ Mapa</a></div></div>
+        <div class="chips"><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Mari%C3%A1nsk%C3%A1%20vyhl%C3%ADdka%20Hrub%C3%A1%20Sk%C3%A1la">🗺️ Mapa</a></div></div>
       </div>
       <div class="stop"><div class="t">12:15</div>
         <div class="card"><h3><span class="em">🏯</span>Volitelně: hrad Valdštejn</h3>
         <p>Nejstarší hrad Českého ráje, založený Markvartici. Od parkoviště jen <b>~600 m</b>, otevřeno 9–18.</p>
-        <div class="chips"><a class="chip" href="https://www.hrad-valdstejn.cz">🌐 Web</a><a class="chip" href="https://mapy.cz/turisticka?q=hrad%20Vald%C5%A1tejn">🗺️ Mapa</a></div></div>
+        <div class="chips"><a class="chip" href="https://www.hrad-valdstejn.cz">🌐 Web</a><a class="chip" href="https://www.google.com/maps/search/?api=1&query=Hrad%20Vald%C5%A1tejn">🗺️ Mapa</a></div></div>
       </div>
       <div class="stop"><div class="t">12:45</div>
         <div class="card"><h3><span class="em">🍽️</span>Oběd</h3>
@@ -317,16 +411,28 @@
       <div class="stop"><div class="t">14:00</div>
         <div class="card"><h3><span class="em">🏠</span>Odjezd domů</h3>
         <p>Příjezd do Blovic <b>~16:45</b>. Sbohem, Trosecko!</p>
-        <div class="chips"><a class="chip" href="https://maps.apple.com/?saddr=Turnov&daddr=Blovice&dirflg=d">🧭 Navigovat</a></div></div>
+        <div class="chips"><a class="chip" href="https://www.google.com/maps/dir/?api=1&origin=Turnov&destination=Blovice&travelmode=driving">🧭 Navigovat</a></div></div>
       </div>
     </div>
   </section>
 
   <!-- ================= INFO ================= -->
   <section class="day" id="day-info">
-    <div class="isec"><h2>🎟️ Vstupenky &amp; rezervace</h2>
+
+    <div class="isec"><h2>🎟️ Tvoje vstupenka</h2>
+      <div class="ticket" id="ticket">
+        <div class="tkhead"><span class="lbl">e-vstupenka</span><span class="org">Národní památkový ústav<br>Tisk Colosseum</span></div>
+        <h3>XIII. Pod praporem Bergowa</h3>
+        <div class="when">Trosky · sobota 18. 7. 2026 · 9:00 · jazyk CZ</div>
+        <div class="qrbox"><svg class="qr" viewBox="0 0 29 29" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="QR kód vstupenky 10031225632"><rect width="29" height="29" fill="#fff"/><path d="M4 4h7v1h-7zM18 4h7v1h-7zM4 5h1v1h-1zM10 5h1v1h-1zM12 5h3v1h-3zM18 5h1v1h-1zM24 5h1v1h-1zM4 6h1v1h-1zM6 6h3v1h-3zM10 6h1v1h-1zM13 6h1v1h-1zM15 6h1v1h-1zM18 6h1v1h-1zM20 6h3v1h-3zM24 6h1v1h-1zM4 7h1v1h-1zM6 7h3v1h-3zM10 7h1v1h-1zM12 7h1v1h-1zM14 7h2v1h-2zM18 7h1v1h-1zM20 7h3v1h-3zM24 7h1v1h-1zM4 8h1v1h-1zM6 8h3v1h-3zM10 8h1v1h-1zM12 8h4v1h-4zM18 8h1v1h-1zM20 8h3v1h-3zM24 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM13 9h1v1h-1zM16 9h1v1h-1zM18 9h1v1h-1zM24 9h1v1h-1zM4 10h7v1h-7zM12 10h1v1h-1zM14 10h1v1h-1zM16 10h1v1h-1zM18 10h7v1h-7zM12 11h1v1h-1zM5 12h1v1h-1zM7 12h4v1h-4zM12 12h1v1h-1zM15 12h4v1h-4zM20 12h2v1h-2zM23 12h1v1h-1zM4 13h1v1h-1zM6 13h1v1h-1zM8 13h1v1h-1zM12 13h2v1h-2zM15 13h2v1h-2zM18 13h1v1h-1zM20 13h1v1h-1zM23 13h2v1h-2zM5 14h1v1h-1zM9 14h3v1h-3zM14 14h1v1h-1zM17 14h2v1h-2zM20 14h1v1h-1zM22 14h2v1h-2zM4 15h3v1h-3zM8 15h1v1h-1zM11 15h4v1h-4zM24 15h1v1h-1zM4 16h1v1h-1zM6 16h1v1h-1zM8 16h3v1h-3zM13 16h2v1h-2zM16 16h1v1h-1zM18 16h1v1h-1zM22 16h3v1h-3zM12 17h1v1h-1zM16 17h1v1h-1zM21 17h1v1h-1zM4 18h7v1h-7zM15 18h1v1h-1zM17 18h5v1h-5zM23 18h1v1h-1zM4 19h1v1h-1zM10 19h1v1h-1zM12 19h2v1h-2zM16 19h2v1h-2zM20 19h1v1h-1zM23 19h1v1h-1zM4 20h1v1h-1zM6 20h3v1h-3zM10 20h1v1h-1zM12 20h5v1h-5zM18 20h2v1h-2zM21 20h2v1h-2zM24 20h1v1h-1zM4 21h1v1h-1zM6 21h3v1h-3zM10 21h1v1h-1zM12 21h2v1h-2zM15 21h2v1h-2zM20 21h1v1h-1zM4 22h1v1h-1zM6 22h3v1h-3zM10 22h1v1h-1zM13 22h2v1h-2zM18 22h2v1h-2zM23 22h2v1h-2zM4 23h1v1h-1zM10 23h1v1h-1zM12 23h2v1h-2zM17 23h2v1h-2zM21 23h2v1h-2zM24 23h1v1h-1zM4 24h7v1h-7zM13 24h3v1h-3zM19 24h1v1h-1zM22 24h2v1h-2z" fill="#000"/></svg></div>
+        <div class="code">10031225632<small>kód vstupenky · nepřehýbat</small></div>
+        <div class="meta"><span>Základní · 2 osoby</span><span>680 Kč</span></div>
+        <div class="gate">Stačí ukázat u brány<span>razítko umožní opakovaný vstup · zákaz psů a zbraní/replik</span></div>
+      </div>
+    </div>
+
+    <div class="isec"><h2>🎫 Další vstupenky &amp; rezervace</h2>
       <div class="ilist">
-        <a class="irow" href="https://weblist-npu.colosseum.eu/Tours?mrsid=208"><div class="ic">⚔️</div><div class="tx"><b>Akce Pod praporem Bergowa</b><span>předprodej běží — loni vyprodáno · so 18. 7.</span></div><span class="price">~300 Kč</span></a>
         <a class="irow" href="https://weblist-npu.colosseum.eu/NonTimedTours?mrsid=208"><div class="ic">🏰</div><div class="tx"><b>Hrad Trosky — okruh Celým hradem</b><span>na pátek · lze i na pokladně</span></div><span class="price">160 Kč</span></a>
         <a class="irow" href="mailto:exkurze@pivorohozec.cz?subject=Rezervace%20exkurze%2018.%207.%202026"><div class="ic">🍻</div><div class="tx"><b>Exkurze pivovar Rohozec</b><span>varianta B · rezervace ~týden předem</span></div><span class="price">150 Kč</span></a>
         <a class="irow" href="https://turnovskapivnice.cz"><div class="ic">🍺</div><div class="tx"><b>Stůl v pivnici Na Lukách</b><span>pátek večer bývá plno</span></div><span class="arr">›</span></a>
@@ -343,13 +449,13 @@
 
     <div class="isec"><h2>🗺️ Místa ze hry (mapa Trosecko)</h2>
       <div class="ilist">
-        <a class="irow" href="https://mapy.cz/turisticka?q=hrad%20Trosky"><div class="ic">🏰</div><div class="tx"><b>Trosky</b><span>sídlo Oty z Bergova, dominanta mapy</span></div><span class="arr">›</span></a>
-        <a class="irow" href="https://mapy.cz/turisticka?q=Troskovice"><div class="ic">🏘️</div><div class="tx"><b>Troskovice</b><span>Troskowitz — vesnice s krčmou</span></div><span class="arr">›</span></a>
-        <a class="irow" href="https://mapy.cz/turisticka?q=Podsem%C3%ADnsk%C3%BD%20ml%C3%BDn"><div class="ic">⚙️</div><div class="tx"><b>Podsemínský mlýn</b><span>mlynář Krejzl, učení stealthu</span></div><span class="arr">›</span></a>
-        <a class="irow" href="https://mapy.cz/turisticka?q=hradi%C5%A1t%C4%9B%20Sem%C3%ADn"><div class="ic">💍</div><div class="tx"><b>Hradiště Semín</b><span>svatba s dramatickým zvratem</span></div><span class="arr">›</span></a>
-        <a class="irow" href="https://mapy.cz/turisticka?q=Neb%C3%A1kov"><div class="ic">🌾</div><div class="tx"><b>Mlýn Nebákov</b><span>úkryt pašeráků · dnes hospoda</span></div><span class="arr">›</span></a>
-        <a class="irow" href="https://mapy.cz/turisticka?q=V%C4%9B%C5%BEick%C3%BD%20rybn%C3%ADk"><div class="ic">🌊</div><div class="tx"><b>Vidlák &amp; Věžák</b><span>setkání šlechticů, přepadení</span></div><span class="arr">›</span></a>
-        <a class="irow" href="https://mapy.cz/turisticka?q=Apolena%20skaly%20Trosky"><div class="ic">🪨</div><div class="tx"><b>Skály Apolena</b><span>lom a skalní scenérie pod hradem</span></div><span class="arr">›</span></a>
+        <a class="irow" href="https://www.google.com/maps/search/?api=1&query=Hrad%20Trosky"><div class="ic">🏰</div><div class="tx"><b>Trosky</b><span>sídlo Oty z Bergova, dominanta mapy</span></div><span class="arr">›</span></a>
+        <a class="irow" href="https://www.google.com/maps/search/?api=1&query=Troskovice"><div class="ic">🏘️</div><div class="tx"><b>Troskovice</b><span>Troskowitz — vesnice s krčmou</span></div><span class="arr">›</span></a>
+        <a class="irow" href="https://www.google.com/maps/search/?api=1&query=Podsem%C3%ADnsk%C3%BD%20ml%C3%BDn"><div class="ic">⚙️</div><div class="tx"><b>Podsemínský mlýn</b><span>mlynář Krejzl, učení stealthu</span></div><span class="arr">›</span></a>
+        <a class="irow" href="https://www.google.com/maps/search/?api=1&query=Hradi%C5%A1t%C4%9B%20Sem%C3%ADn"><div class="ic">💍</div><div class="tx"><b>Hradiště Semín</b><span>svatba s dramatickým zvratem</span></div><span class="arr">›</span></a>
+        <a class="irow" href="https://www.google.com/maps/search/?api=1&query=Neb%C3%A1kov"><div class="ic">🌾</div><div class="tx"><b>Mlýn Nebákov</b><span>úkryt pašeráků · dnes hospoda</span></div><span class="arr">›</span></a>
+        <a class="irow" href="https://www.google.com/maps/search/?api=1&query=V%C4%9B%C5%BEick%C3%BD%20rybn%C3%ADk"><div class="ic">🌊</div><div class="tx"><b>Vidlák &amp; Věžák</b><span>setkání šlechticů, přepadení</span></div><span class="arr">›</span></a>
+        <a class="irow" href="https://www.google.com/maps/search/?api=1&query=Apolena%20sk%C3%A1ly%20Trosky"><div class="ic">🪨</div><div class="tx"><b>Skály Apolena</b><span>lom a skalní scenérie pod hradem</span></div><span class="arr">›</span></a>
       </div>
     </div>
 
@@ -363,14 +469,13 @@
       </div>
     </div>
 
-    <p class="foot">Vytvořeno pro Vaška &amp; spol. · <b>Jesus Christ be praised!</b> ⚔️<br>Tip: v Safari → Sdílet → „Přidat na plochu“ = appka.</p>
+    <p class="foot"><span class="cross">✝</span>Vytvořeno pro Vaška &amp; spol. · <b>Jesus Christ be praised!</b><br>Tip: v Safari → Sdílet → „Přidat na plochu“ = appka na ploše.</p>
   </section>
 
 </main>
 
 <script>
 (function(){
-  // ---- day tabs ----
   var tabs = document.querySelectorAll('#dayTabs button');
   var days = {fri:document.getElementById('day-fri'), sat:document.getElementById('day-sat'),
               sun:document.getElementById('day-sun'), info:document.getElementById('day-info')};
@@ -381,7 +486,17 @@
   }
   tabs.forEach(function(b){ b.addEventListener('click', function(){ showDay(b.dataset.day); }); });
 
-  // ---- saturday variant ----
+  // "Moje vstupenka" -> přepnout na Info a odrolovat k lístku
+  document.querySelectorAll('[data-goticket]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      showDay('info');
+      var t = document.getElementById('ticket');
+      setTimeout(function(){ if(t) t.scrollIntoView({behavior:'smooth', block:'center'}); }, 60);
+    });
+  });
+
+  // sobotní varianta
   var vbtns = document.querySelectorAll('#satVariant button');
   var panes = {a:document.getElementById('sat-a'), b:document.getElementById('sat-b')};
   var satkm = document.getElementById('satkm');
@@ -393,7 +508,7 @@
     });
   });
 
-  // ---- countdown + auto-select day ----
+  // odpočet + auto-výběr dne
   var now = new Date();
   var start = new Date(2026,6,17), end = new Date(2026,6,19,23,59);
   var cd = document.getElementById('countdown');
